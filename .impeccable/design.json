@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-11T22:16:20-05:00",
+  "title": "Design System: Green Owl Labs",
+  "extensions": {
+    "colorMeta": {
+      "signal-green": {
+        "role": "primary",
+        "displayName": "Verde señal",
+        "canonical": "#8BE05A",
+        "tonalRamp": ["#0C2410", "#16391A", "#214F22", "#2E6A2A", "#3F8834", "#57A942", "#8BE05A", "#B8F08C"]
+      },
+      "console-green": {
+        "role": "neutral",
+        "displayName": "Verde consola",
+        "canonical": "#07130D",
+        "tonalRamp": ["#050D09", "#07130D", "#0A1A11", "#0D2116", "#112A1C", "#163420", "#22452F", "#3A5F47"]
+      },
+      "readout-white": {
+        "role": "neutral",
+        "displayName": "Blanco de lectura",
+        "canonical": "#E9F4EE",
+        "tonalRamp": ["#3B4A43", "#56675E", "#6F8078", "#8BA79A", "#A8BDB1", "#C2D6CB", "#E9F4EE", "#F7FBF9"]
+      },
+      "warning-amber": {
+        "role": "secondary",
+        "displayName": "Ámbar de advertencia",
+        "canonical": "#F2B45A",
+        "tonalRamp": ["#2A1A06", "#4A2E0A", "#6D4410", "#8F5A16", "#B37422", "#D39438", "#F2B45A", "#FBD9A2"]
+      },
+      "daylight-signal": {
+        "role": "primary",
+        "displayName": "Verde normativo diurno",
+        "canonical": "#2E7D32",
+        "tonalRamp": ["#0B2410", "#123A1A", "#1A5224", "#22682E", "#2A7A34", "#2E7D32", "#67B06B", "#B9DDBB"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Solo el h1 de la portada; ancho máximo de 16 caracteres por línea."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Título de una herramienta; uno por vista."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Cabecera de sección y h2 de resultados."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, descripciones y ayudas largas."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Botones, campos y navegación; el mínimo para texto accionable."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Encabezados de panel y metadatos en versalita; máximo cuatro palabras."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Valor numérico de una métrica, siempre en monoespaciada."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-deep",
+        "value": "0 24px 70px -30px rgba(0,0,0,.75)",
+        "purpose": "Única sombra de elevación: modales, cajón móvil, tooltip y toast. En tema claro: 0 20px 50px -30px rgba(16,36,27,.28)."
+      },
+      {
+        "name": "card-contact",
+        "value": "0 18px 40px -30px rgba(0,0,0,.6)",
+        "purpose": "Sombra de contacto en hover de tarjeta de herramienta; no es elevación permanente."
+      },
+      {
+        "name": "accent-halo",
+        "value": "0 10px 26px -12px rgba(139,224,90,.5)",
+        "purpose": "Exclusiva del botón primario para despegar la acción principal."
+      }
+    ],
+    "motion": [
+      { "name": "state-fast", "value": ".15s ease", "purpose": "Chips, opciones y cambios de borde." },
+      { "name": "state-base", "value": ".16s ease", "purpose": "Botones y transición estándar de estado." },
+      { "name": "surface-hover", "value": ".2s ease", "purpose": "Tarjetas, chevrones y glows de hover." },
+      { "name": "drawer", "value": ".25s ease", "purpose": "Cajón lateral y barras de comparación." },
+      { "name": "chart-tip", "value": ".12s ease", "purpose": "Aparición del tooltip de gráfico." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce", "purpose": "Anula animaciones, transiciones y scroll suave en todo el sistema." }
+    ],
+    "breakpoints": [
+      { "name": "wide", "value": "1180px" },
+      { "name": "tablet", "value": "860px" },
+      { "name": "phone", "value": "560px" },
+      { "name": "print", "value": "@media print" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "La acción que produce el resultado. Uno por vista, con halo de acento.",
+      "html": "<button class=\"ds-btn ds-btn--primary\">Calcular resultado</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 13px;border-radius:9px;border:1px solid var(--line,#22452F);background:var(--panel-2,#112A1C);color:var(--text-2,#C2D6CB);font:550 11.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;white-space:nowrap;transition:border-color .16s,background .16s,color .16s,transform .16s}.ds-btn:hover{border-color:var(--faint,#648274);background:var(--panel-3,#163420);color:var(--text,#E9F4EE)}.ds-btn:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}.ds-btn--primary{background:var(--accent,#8BE05A);border-color:transparent;color:var(--accent-ink,#08210F);font-weight:650;box-shadow:0 10px 26px -12px rgba(139,224,90,.5)}.ds-btn--primary:hover{background:var(--accent,#8BE05A);color:var(--accent-ink,#08210F);filter:brightness(1.06);transform:translateY(-1px)}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción de apoyo: fondo de entrada, borde de 1 px y respuesta de superficie.",
+      "html": "<button class=\"ds-btn ds-btn--ghost\">Copiar informe</button>",
+      "css": ".ds-btn--ghost{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 13px;border-radius:9px;border:1px solid var(--line,#22452F);background:var(--panel-2,#112A1C);color:var(--text-2,#C2D6CB);font:550 11.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;white-space:nowrap;transition:border-color .16s,background .16s,color .16s}.ds-btn--ghost:hover{border-color:var(--faint,#648274);background:var(--panel-3,#163420);color:var(--text,#E9F4EE)}.ds-btn--ghost:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo numérico con etiqueta arriba, unidad en mono y nota debajo.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field__label\">Caudal de diseño <em>m³/s</em></span><input class=\"ds-field__input\" type=\"number\" value=\"0.85\" step=\"0.01\"><small class=\"ds-field__hint\">Caudal medio del período de cálculo.</small></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:5px}.ds-field__label{display:flex;align-items:center;gap:5px;font:400 10.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}.ds-field__label em{font:400 9.5px/1.2 var(--mono,ui-monospace,Consolas,monospace);font-style:normal;color:var(--faint,#648274)}.ds-field__input{width:100%;padding:9px 10px;border:1px solid var(--line,#22452F);border-radius:9px;background:var(--panel-2,#112A1C);color:var(--text,#E9F4EE);font:400 13px/1.2 var(--mono,ui-monospace,Consolas,monospace);transition:border-color .15s,background .15s}.ds-field__input:hover{border-color:var(--faint,#648274)}.ds-field__input:focus{outline:none;border-color:var(--accent,#8BE05A);background:var(--panel-3,#163420)}.ds-field__hint{font:400 9.5px/1.35 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--faint,#648274)}"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filtro de catálogo; activo en verde translúcido, nunca en relleno sólido.",
+      "html": "<button class=\"ds-chip ds-chip--on\" aria-pressed=\"true\">Agua</button>",
+      "css": ".ds-chip{padding:7px 11px;border:1px solid var(--line,#22452F);border-radius:999px;background:var(--panel,#0D2116);color:var(--muted,#8BA79A);font:400 11px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;transition:color .15s,border-color .15s,background .15s}.ds-chip:hover{color:var(--text,#E9F4EE);border-color:var(--faint,#648274)}.ds-chip:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}.ds-chip--on,.ds-chip[aria-pressed=\"true\"]{background:rgba(139,224,90,.12);border-color:rgba(139,224,90,.45);color:var(--accent,#8BE05A)}"
+    },
+    {
+      "name": "Tool Card",
+      "kind": "card",
+      "refersTo": "tool-card",
+      "description": "Entrada del catálogo: número en mono, título, descripción y etiquetas.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card__num\">042</span><h3 class=\"ds-card__title\">Huella de carbono corporativa</h3><p class=\"ds-card__body\">Alcances 1, 2 y 3 con factores IPCC 2019 por clima.</p><span class=\"ds-card__tag\">GHG Protocol</span></a>",
+      "css": ".ds-card{position:relative;display:flex;flex-direction:column;min-height:168px;padding:17px;border:1px solid var(--line-soft,#193526);border-radius:15px;background:var(--panel,#0D2116);color:inherit;text-decoration:none;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s}.ds-card:hover{border-color:rgba(139,224,90,.35);transform:translateY(-2px);box-shadow:0 18px 40px -30px rgba(0,0,0,.6)}.ds-card:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}.ds-card__num{font:400 10px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#648274)}.ds-card__title{margin:10px 0 6px;font:650 13.5px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:-.01em;color:var(--text,#E9F4EE)}.ds-card__body{margin:0;font:400 11px/1.45 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}.ds-card__tag{align-self:flex-start;margin-top:12px;padding:2px 5px;border:1px solid var(--line-soft,#193526);border-radius:4px;font:400 9px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#648274)}"
+    },
+    {
+      "name": "Work Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Contenedor de entrada o resultado: borde suave, sin sombra en reposo.",
+      "html": "<section class=\"ds-panel\"><header class=\"ds-panel__head\"><h2>Datos de entrada</h2><p>8 parámetros · unidades SI</p></header><p class=\"ds-panel__note\">Supuestos visibles antes del resultado.</p></section>",
+      "css": ".ds-panel{padding:20px;border:1px solid var(--line-soft,#193526);border-radius:18px;background:var(--panel,#0D2116);color:var(--text,#E9F4EE)}.ds-panel__head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}.ds-panel__head h2{margin:0;font:650 12px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:.1em;text-transform:uppercase;color:var(--text-2,#C2D6CB)}.ds-panel__head p{margin:3px 0 0;font:400 10.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}.ds-panel__note{margin:0;padding:10px 12px;border-left:2px solid var(--line,#22452F);border-radius:0 8px 8px 0;background:rgba(255,255,255,.03);font:400 10.5px/1.55 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}"
+    },
+    {
+      "name": "Sidebar Nav Link",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Enlace de categoría; el activo suma barra de 2 px y degradado verde.",
+      "html": "<a class=\"ds-nav-link ds-nav-link--active\" href=\"#\" aria-current=\"page\"><span class=\"ds-nav__num\">07</span>Aire y emisiones</a>",
+      "css": ".ds-nav-link{position:relative;display:flex;align-items:center;gap:9px;padding:7px 10px 7px 12px;border:1px solid transparent;border-radius:9px;font:400 12.75px/1.3 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--text-2,#C2D6CB);text-decoration:none}.ds-nav-link:hover{background:rgba(255,255,255,.03);color:var(--text,#E9F4EE)}.ds-nav-link:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}.ds-nav__num{width:16px;flex:none;text-align:right;font:400 10px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#648274)}.ds-nav-link--active{background:linear-gradient(90deg,rgba(139,224,90,.14),rgba(139,224,90,.03));border-color:rgba(139,224,90,.22);color:var(--text,#E9F4EE)}.ds-nav-link--active::before{content:\"\";position:absolute;left:-4px;top:9px;bottom:9px;width:2px;border-radius:4px;background:var(--accent,#8BE05A)}.ds-nav-link--active .ds-nav__num{color:var(--accent,#8BE05A)}"
+    },
+    {
+      "name": "Metric",
+      "kind": "custom",
+      "refersTo": "metric",
+      "description": "Unidad narrativa del resultado: etiqueta, cifra en mono y unidad o período.",
+      "html": "<div class=\"ds-metric\"><span class=\"ds-metric__label\">Concentración PM2.5</span><strong class=\"ds-metric__value\">18.4</strong><small class=\"ds-metric__unit\">µg/m³ · promedio 24 h</small></div>",
+      "css": ".ds-metric{padding:12px;border:1px solid var(--line-soft,#193526);border-radius:12px;background:var(--panel-2,#112A1C)}.ds-metric__label{display:block;min-height:22px;font:400 9.5px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#8BA79A)}.ds-metric__value{display:block;margin-top:4px;font:600 21px/1.1 var(--mono,ui-monospace,Consolas,monospace);letter-spacing:-.04em;color:var(--text,#E9F4EE);overflow-wrap:anywhere}.ds-metric__unit{display:block;margin-top:3px;font:400 9.5px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#648274)}"
+    },
+    {
+      "name": "Verdict Badge",
+      "kind": "custom",
+      "refersTo": "verdict-badge",
+      "description": "Cierre de un cálculo: estado, razón y referencia; el tono siempre va acompañado de texto.",
+      "html": "<div class=\"ds-verdict ds-verdict--ok\"><span class=\"ds-verdict__ico\">OK</span><div class=\"ds-verdict__body\"><b>Cumple el ECA de aire</b><small>18.4 µg/m³ frente a 25 µg/m³ (D.S. 003-2017-MINAM, 24 h).</small></div></div>",
+      "css": ".ds-verdict{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line,#22452F);border-radius:14px;background:var(--panel-2,#112A1C);color:var(--text,#E9F4EE)}.ds-verdict__ico{display:grid;place-items:center;width:52px;height:52px;flex:none;border:1px solid var(--line-soft,#193526);border-radius:14px;background:var(--panel-3,#163420);font:700 22px/1 var(--mono,ui-monospace,Consolas,monospace);color:var(--accent,#8BE05A)}.ds-verdict__body{min-width:0}.ds-verdict__body b{display:block;font:650 15px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:-.01em}.ds-verdict__body small{display:block;margin-top:2px;font:400 10.5px/1.45 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}.ds-verdict--warn{border-color:rgba(242,180,90,.32);background:rgba(242,180,90,.06)}.ds-verdict--warn .ds-verdict__ico{color:var(--amber,#F2B45A)}.ds-verdict--bad{border-color:rgba(240,126,138,.32);background:rgba(240,126,138,.06)}.ds-verdict--bad .ds-verdict__ico{color:var(--rose,#F07E8A)}"
+    },
+    {
+      "name": "Instrument Grid Chip",
+      "kind": "custom",
+      "refersTo": "metric",
+      "description": "Ficha de color sin etiqueta interna; coordenadas en ejes, selección con doble anillo y pulso en la más cercana.",
+      "html": "<div class=\"ds-grid\" role=\"group\" aria-label=\"Muestra de carta Munsell\"><button class=\"ds-grid__chip\" style=\"background:#D9C7B4\" aria-label=\"10YR 8/2\"></button><button class=\"ds-grid__chip\" style=\"background:#C0A57E\" aria-label=\"10YR 7/3\"></button><button class=\"ds-grid__chip\" style=\"background:#A8825C\" aria-label=\"10YR 6/4\"></button><button class=\"ds-grid__chip\" style=\"background:#8C6A48\" aria-label=\"10YR 5/4\"></button><button class=\"ds-grid__chip ds-grid__chip--on\" style=\"background:#765B3E\" aria-label=\"10YR 4/4\" aria-pressed=\"true\"></button><button class=\"ds-grid__chip\" style=\"background:#5E452C\" aria-label=\"10YR 3/4\"></button><button class=\"ds-grid__chip ds-grid__chip--near\" style=\"background:#4A3520\" aria-label=\"10YR 2.5/4\"></button><button class=\"ds-grid__chip\" style=\"background:#3A2A1A\" aria-label=\"10YR 2/4\"></button></div>",
+      "css": ".ds-grid{display:grid;grid-template-columns:repeat(4,minmax(46px,1fr));gap:4px;max-width:420px}.ds-grid__chip{position:relative;aspect-ratio:1.5;min-height:42px;border:1px solid rgba(0,0,0,.28);border-radius:7px;cursor:pointer;outline:2px solid transparent;outline-offset:1px;transition:transform .12s ease,box-shadow .12s ease,outline-color .12s}.ds-grid__chip:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 10px 20px -12px rgba(0,0,0,.95);z-index:2}.ds-grid__chip:focus-visible{outline-color:var(--text,#E9F4EE);outline-offset:2px}.ds-grid__chip--on{outline-color:var(--text,#E9F4EE);box-shadow:0 0 0 2px var(--bg,#07130D),0 0 0 4px var(--accent,#8BE05A)}.ds-grid__chip--near::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--accent,#8BE05A);border-radius:9px;pointer-events:none}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La estación de monitoreo",
+    "overview": "La suite se lee como una consola nocturna de instrumentos: fondo verde profundo, superficies apenas más claras que se apilan sin ruido, cifras en monoespaciada que ocupan el lugar del protagonista y un verde señal que solo se enciende cuando hay algo que mirar. No es una landing comercial ni un panel SaaS de tarjetas blandas; es el puesto donde alguien compara un resultado contra un límite normativo y necesita ver de inmediato qué está dentro, qué está al borde y qué está fuera.\n\nLa densidad es deliberada. La navegación lateral de 268 px sostiene 339 herramientas en 22 categorías sin convertirse en un menú infinito; el área de trabajo usa paneles de borde fino, etiquetas en versalitas y tablas compactas porque el usuario lee supuestos y unidades, no párrafos de marketing. El contraste entre texto claro y fondo oscuro hace el trabajo que en otros sistemas haría una sombra.\n\nLa personalidad visual es precisa, sobria e instrumentada. El movimiento existe para confirmar una acción —un borde que se enciende, una tarjeta que sube 2 px, un panel que se desliza— y nunca para decorar. La autoridad narrativa la da la jerarquía, no el color.",
+    "keyCharacteristics": [
+      "Densidad alta y jerarquía explícita, con etiquetas pequeñas en mayúsculas sobre valores grandes en mono.",
+      "Acento verde escaso: aparece en el estado activo, el veredicto, la cifra principal y el foco de teclado.",
+      "Profundidad por capas tonales, no por sombras; la sombra se reserva para lo que flota.",
+      "Bordes de 1 px como estructura; radios medianos que se abren según el tamaño del contenedor.",
+      "Tema claro disponible como turno de día, con la misma lógica y el verde oscurecido."
+    ],
+    "rules": [
+      {
+        "name": "La regla del verde escaso",
+        "body": "El verde señal no debe cubrir más de ~10 % de la superficie visible. Si dos bloques compiten por el acento, uno de los dos está mal jerarquizado.",
+        "section": "colors"
+      },
+      {
+        "name": "La regla del color con significado",
+        "body": "Ámbar, cian, rosa y violeta solo aparecen asociados a un estado o a una serie declarada en la leyenda. Nunca se usan para dar vida a una tarjeta.",
+        "section": "colors"
+      },
+      {
+        "name": "La regla de la cifra primero",
+        "body": "Todo resultado numérico va en mono, con la etiqueta arriba en versalitas y la unidad en un small debajo. Una cifra sin unidad o sin período de promedio es un defecto, no un estilo.",
+        "section": "typography"
+      },
+      {
+        "name": "La regla de la versalita corta",
+        "body": "Las mayúsculas con tracking solo se aplican a etiquetas de hasta cuatro palabras. Si el texto necesita leerse como frase, va en caja baja y en cuerpo.",
+        "section": "typography"
+      },
+      {
+        "name": "La regla de la capa tonal",
+        "body": "Si un bloque necesita destacar, primero se sube un nivel de tono (panel → input → high). La sombra es el último recurso, no el primero.",
+        "section": "elevation"
+      },
+      {
+        "name": "La regla del flotante",
+        "body": "Solo lo que puede tapar contenido —modal, cajón, tooltip, toast— proyecta la sombra ambiente. Una tarjeta estática con sombra es un error de sistema.",
+        "section": "elevation"
+      },
+      {
+        "name": "La regla de la ficha limpia",
+        "body": "Una ficha de color no repite su etiqueta dentro del relleno. Si hace falta el valor exacto, se lee en el eje o en la lectura inferior; la pureza del color es el dato.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do usar la mono para toda cifra, unidad, identificador, huella y versión; la sans queda para lenguaje.",
+      "Do mantener el borde en 1 px y resolver la separación con tono (panel → input → high).",
+      "Do declarar color mediante las variables del tema, de modo que el modo claro siga funcionando sin retoques.",
+      "Do repetir la estructura de la métrica: etiqueta arriba, cifra en mono, unidad o período debajo.",
+      "Do acompañar cada veredicto con su razón y su referencia normativa o método.",
+      "Do respetar prefers-reduced-motion: el sistema ya anula animaciones y transiciones, y cualquier animación nueva debe hacer lo mismo.",
+      "Do mantener el foco visible con 2 px de acento y 2 px de separación, incluso dentro de controles compuestos."
+    ],
+    "donts": [
+      "Don't teñir superficies completas de verde señal ni usarlo como fondo de secciones; su valor es la rareza.",
+      "Don't añadir sombras a paneles o tarjetas en reposo: rompe la lógica de capas tonales.",
+      "Don't usar radios de píldora en botones de acción ni radios menores a 7 px en controles.",
+      "Don't poner texto blanco sobre el verde señal; la tinta oscura es la única combinación válida.",
+      "Don't bajar de 9 px en etiquetas ni de 11.5 px en texto accionable; la densidad no justifica ilegibilidad.",
+      "Don't introducir una segunda familia tipográfica ni iconos de fuente: los iconos del sistema son SVG o glifos textuales ya establecidos.",
+      "Don't mostrar una cifra sin unidad, sin período de promedio o sin modelo declarado cuando el resultado es normativo."
+    ]
+  }
+}

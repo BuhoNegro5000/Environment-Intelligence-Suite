@@ -58,6 +58,43 @@
     return { hue: best.label, value: V, chroma, hueAngle: h, C, Ypct };
   }
 
+  /* Carta Munsell: inversa coherente con la estimación anterior (misma función
+     de valor y mismas anclas de hue). Es una malla colorimétrica aproximada,
+     no una réplica de la carta física. */
+  const HUE_ANCHORS = [
+    { h: 18, label: '10R' }, { h: 30, label: '2.5YR' }, { h: 43, label: '5YR' },
+    { h: 57, label: '7.5YR' }, { h: 72, label: '10YR' }, { h: 87, label: '2.5Y' }, { h: 100, label: '5Y' }
+  ];
+  const MS_VALUES = [8, 7, 6, 5, 4, 3, 2.5, 2];
+  const MS_CHROMAS = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  function munsellLab(hueLabel, V, C) {
+    const anchor = HUE_ANCHORS.find(a => a.label === hueLabel) || HUE_ANCHORS[4];
+    const Ypct = 1.1914 * V - 0.22533 * V * V + 0.23352 * Math.pow(V, 3) - 0.020484 * Math.pow(V, 4) + 0.00081939 * Math.pow(V, 5);
+    const Y = Ypct / 100;
+    const L = Y > 0.008856 ? 116 * Math.cbrt(Y) - 16 : 903.3 * Y;
+    const Cc = C * 5.5, rad = anchor.h * Math.PI / 180;
+    return { L, a: Cc * Math.cos(rad), b: Cc * Math.sin(rad) };
+  }
+  function munsellRGB(hueLabel, V, C) {
+    const lab = munsellLab(hueLabel, V, C);
+    const fy = (lab.L + 16) / 116, fx = fy + lab.a / 500, fz = fy - lab.b / 200;
+    const inv = t => t ** 3 > 0.008856 ? t ** 3 : (t - 16 / 116) / 7.787;
+    const X = inv(fx) * 0.95047, Y = inv(fy), Z = inv(fz) * 1.08883;
+    const lin = [
+      X * 3.2406 + Y * -1.5372 + Z * -0.4986,
+      X * -0.9689 + Y * 1.8758 + Z * 0.0415,
+      X * 0.0557 + Y * -0.2040 + Z * 1.0570
+    ].map(c => c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055).map(c => c * 255);
+    const clipped = lin.some(v => v < -0.5 || v > 255.5);
+    const r = GL.clamp(lin[0], 0, 255), g = GL.clamp(lin[1], 0, 255), b = GL.clamp(lin[2], 0, 255);
+    return { L: lab.L, a: lab.a, bLab: lab.b, r, g, b, hex: hex(r, g, b), clipped };
+  }
+  function msInk(r, g, b) {
+    const y = 0.2126 * srgb2lin(r) + 0.7152 * srgb2lin(g) + 0.0722 * srgb2lin(b);
+    return y > 0.32 ? '#08110D' : '#F2F7F4';
+  }
+
   /* ======================================================================
      07 · COLOR DE SUELO
      ====================================================================== */
@@ -65,11 +102,11 @@
     id: 'soil-colour',
     suite: 'soil',
     title: 'Analizador de color de suelo y Munsell',
-    desc: 'Suba una foto de campo, recorte una zona y obtenga color dominante, notación Munsell estimada, RGB/Lab y una lectura de drenaje y materia orgánica. Sin enviar la imagen a internet.',
-    tags: ['Munsell', 'Color', 'Drenaje', 'Foto'],
+    desc: 'Suba una foto de campo, recorte una zona y obtenga color dominante, notación Munsell estimada, RGB/Lab y una lectura de drenaje y materia orgánica. Incluye carta Munsell interactiva con la ficha más cercana al color analizado. Sin enviar la imagen a internet.',
+    tags: ['Munsell', 'Color', 'Carta', 'Drenaje', 'Foto'],
     keywords: 'munsell color suelo foto drenaje hierro materia organica lab rgb textura',
     html() {
-      return `<div class="layout wide-left">
+      return `<div class="stack"><div class="layout wide-left">
         <div class="stack">
           <section class="panel">
             <div class="panel-head"><div><h2>Imagen de campo</h2><p>Luz difusa, suelo húmedo o seco según corresponda y una tarjeta gris si es posible.</p></div></div>
@@ -119,6 +156,23 @@
             </div></details>
           </section>
         </div>
+      </div>
+      <section class="panel ms-panel" aria-labelledby="msTitle">
+        <div class="panel-head">
+          <div><h2 id="msTitle">Carta Munsell de suelo</h2><p>Toque una ficha para leer notación, nombre y equivalencia sRGB. Si analiza una foto, la carta marca la ficha más cercana. Malla colorimétrica aproximada: no sustituye la carta física.</p></div>
+          <span class="tag">D65 · APROX.</span>
+        </div>
+        <div class="ms-hues" id="msHues" role="group" aria-label="Seleccionar hue Munsell"></div>
+        <div class="ms-scrollwrap"><div class="ms-scroll">
+          <div class="ms-chart" id="msChart" role="group" aria-label="Fichas de la carta Munsell"></div>
+        </div></div>
+        <div class="ms-readout" id="msReadout" aria-live="polite"></div>
+        <div class="ms-legend">
+          <span><i class="ms-dot clipped"></i>Fuera de gamut sRGB aproximado</span>
+          <span><i class="ms-dot nearest"></i>Ficha más cercana al color analizado</span>
+          <span>Filas: value · Columnas: chroma</span>
+        </div>
+      </section>
       </div>`;
     },
     mount(root) {
@@ -126,6 +180,120 @@
       const preview = root.querySelector('#scPreview');
       let img = null, crop = null, drag = null, meta = null, clusters = [];
       const ctx = preview.getContext('2d');
+
+      /* --- carta Munsell interactiva --- */
+      let msHue = '10YR';
+      let msSel = { hue: '10YR', value: 4, chroma: 4 };
+      let msNearest = null;
+      const msHues = root.querySelector('#msHues');
+      const msChart = root.querySelector('#msChart');
+      const msReadout = root.querySelector('#msReadout');
+
+      function msChipData(hue, V, C) {
+        const rgb = munsellRGB(hue, V, C);
+        return { hue, value: V, chroma: C, rgb, name: D.soilColorName(hue, V, C) };
+      }
+      function msNote(hue, V, C) {
+        if (V <= 3) return 'value bajo: materia orgánica elevada o suelo húmedo.';
+        if (C <= 2 && V >= 5) return 'croma bajo con value alto: posible hidromorfismo o drenaje deficiente.';
+        if (C <= 2 && V < 5) return 'croma bajo y oscuro: condiciones reductoras o saturación.';
+        if (/R$/.test(hue) && !/YR/.test(hue) && C >= 4) return 'tono rojizo con croma alto: óxidos de hierro y buena aireación.';
+        if (/Y$/.test(hue) && C >= 3) return 'tono amarillento: hierro hidratado o horizonte de transición.';
+        return 'color mineral sin un rasgo diagnóstico dominante; complemente con textura y moteados.';
+      }
+      function msDelta(L1, a1, b1, L2, a2, b2) {
+        return Math.sqrt((L1 - L2) ** 2 + (a1 - a2) ** 2 + (b1 - b2) ** 2);
+      }
+      function msFindNearest(L, a, b) {
+        let best = null;
+        HUE_ANCHORS.forEach(anchor => MS_VALUES.forEach(V => MS_CHROMAS.forEach(C => {
+          const rgb = munsellRGB(anchor.label, V, C);
+          const dE = msDelta(L, a, b, rgb.L, rgb.a, rgb.bLab);
+          if (!best || dE < best.dE) best = { hue: anchor.label, value: V, chroma: C, dE };
+        })));
+        return best;
+      }
+      function msRenderHues() {
+        msHues.innerHTML = HUE_ANCHORS.map(a => {
+          const dot = munsellRGB(a.label, 5, 4).hex;
+          return `<button class="ms-hue" type="button" aria-pressed="${a.label === msHue}" data-hue="${a.label}"><i style="background:${dot}"></i>${a.label}</button>`;
+        }).join('');
+      }
+      function msRenderChart() {
+        const cells = ['<span class="ms-col" aria-hidden="true"></span>'];
+        MS_CHROMAS.forEach(C => cells.push(`<span class="ms-col" aria-hidden="true">${C}</span>`));
+        MS_VALUES.forEach(V => {
+          cells.push(`<span class="ms-row" aria-hidden="true">${V}</span>`);
+          MS_CHROMAS.forEach(C => {
+            const d = msChipData(msHue, V, C);
+            const sel = msSel.hue === msHue && msSel.value === V && msSel.chroma === C;
+            const near = msNearest && msNearest.hue === msHue && msNearest.value === V && msNearest.chroma === C;
+            cells.push(`<button class="ms-chip${d.rgb.clipped ? ' is-clipped' : ''}${near ? ' is-nearest' : ''}" type="button"
+              aria-pressed="${sel}" tabindex="${sel ? 0 : -1}"
+              aria-label="${d.hue} ${V}/${C}, ${esc(d.name)}, HEX ${d.rgb.hex}"
+              title="${d.hue} ${V}/${C} · ${esc(d.name)}"
+              data-h="${d.hue}" data-v="${V}" data-c="${C}"
+              style="background:${d.rgb.hex};color:${msInk(d.rgb.r, d.rgb.g, d.rgb.b)}"></button>`);
+          });
+        });
+        msChart.innerHTML = cells.join('');
+      }
+      function msRenderReadout() {
+        const d = msChipData(msSel.hue, msSel.value, msSel.chroma);
+        const lab = `${fmt(d.rgb.L, 0)} / ${fmt(d.rgb.a, 0)} / ${fmt(d.rgb.bLab, 0)}`;
+        const selIsNear = msNearest && msNearest.hue === msSel.hue && msNearest.value === msSel.value && msNearest.chroma === msSel.chroma;
+        const photo = msNearest
+          ? `<small>Foto analizada → ficha más cercana <b>${msNearest.hue} ${msNearest.value}/${msNearest.chroma}</b> · ΔE*ab ${fmt(msNearest.dE, 1)}${selIsNear ? ' · coincide con la selección' : ''}</small>`
+          : '';
+        msReadout.innerHTML = `<span class="ms-swatch" style="background:${d.rgb.hex}"></span>
+          <div><b>${d.hue} ${d.value}/${d.chroma}</b><em>${esc(d.name)}</em>
+            <small>HEX ${d.rgb.hex} · sRGB ${Math.round(d.rgb.r)}, ${Math.round(d.rgb.g)}, ${Math.round(d.rgb.b)} · CIELAB ${lab}${d.rgb.clipped ? ' · fuera de gamut aproximado' : ''}</small>
+            <small class="ms-note">Lectura orientativa: ${msNote(d.hue, d.value, d.chroma)}</small>${photo}</div>
+          <div class="ms-actions"><button class="btn sm" type="button" id="msCopy">Copiar notación</button>${msNearest && !selIsNear ? '<button class="btn sm" type="button" id="msGo">Ir a la más cercana</button>' : ''}</div>`;
+      }
+      function msSelect(hue, V, C) {
+        msSel = { hue, value: +V, chroma: +C };
+        if (hue !== msHue) { msHue = hue; msRenderHues(); }
+        msRenderChart();
+        msRenderReadout();
+      }
+      msHues.addEventListener('click', e => {
+        const b = e.target.closest('[data-hue]');
+        if (b) msSelect(b.dataset.hue, msSel.value, msSel.chroma);
+      });
+      msChart.addEventListener('click', e => {
+        const b = e.target.closest('.ms-chip');
+        if (b) msSelect(b.dataset.h, b.dataset.v, b.dataset.c);
+      });
+      msChart.addEventListener('keydown', e => {
+        const b = e.target.closest('.ms-chip');
+        if (!b) return;
+        if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+        e.preventDefault();
+        let vi = MS_VALUES.indexOf(+b.dataset.v), ci = MS_CHROMAS.indexOf(+b.dataset.c);
+        if (e.key === 'ArrowUp') vi = Math.max(0, vi - 1);
+        if (e.key === 'ArrowDown') vi = Math.min(MS_VALUES.length - 1, vi + 1);
+        if (e.key === 'ArrowLeft') ci = Math.max(0, ci - 1);
+        if (e.key === 'ArrowRight') ci = Math.min(MS_CHROMAS.length - 1, ci + 1);
+        if (e.key === 'Home') ci = 0;
+        if (e.key === 'End') ci = MS_CHROMAS.length - 1;
+        const target = msChart.querySelector(`.ms-chip[data-v="${MS_VALUES[vi]}"][data-c="${MS_CHROMAS[ci]}"]`);
+        if (target) target.focus();
+      });
+      msReadout.addEventListener('click', e => {
+        if (e.target.id === 'msCopy') {
+          const txt = `${msSel.hue} ${msSel.value}/${msSel.chroma}`;
+          if (navigator.clipboard) navigator.clipboard.writeText(txt).then(() => GL.toast('Notación copiada: ' + txt, 'ok')).catch(() => GL.toast(txt, 'info'));
+          else GL.toast(txt, 'info');
+        }
+        if (e.target.id === 'msGo' && msNearest) {
+          msSelect(msNearest.hue, msNearest.value, msNearest.chroma);
+          const chip = msChart.querySelector('.ms-chip[aria-pressed="true"]');
+          if (chip) { chip.focus({ preventScroll: true }); chip.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); }
+        }
+      });
+      msRenderHues();
+
 
       function fitRect() {
         if (!img) return null;
@@ -245,6 +413,9 @@
         const dom = clusters[0];
         const m = munsellFromLab(dom.L, dom.a, dom.b);
         const name = D.soilColorName(m.hue, m.value, m.chroma);
+        msNearest = msFindNearest(dom.L, dom.a, dom.b);
+        msRenderChart();
+        msRenderReadout();
         root.querySelector('#scSwatch').style.background = dom.hex;
         GL.out('scMunsell', `${m.hue} ${fmt(m.value, 1)}/${fmt(m.chroma, 0)}`);
         GL.out('scName', name);
@@ -312,6 +483,8 @@
       root.querySelector('#scWB').addEventListener('change', () => { if (img) analyze(); });
       root.querySelector('#scFull').addEventListener('click', () => { crop = null; paint(); if (img) analyze(); });
       root.querySelector('#scAgain').addEventListener('click', () => { if (img) analyze(); else GL.toast('Cargue una imagen', 'warn'); });
+      msRenderChart();
+      msRenderReadout();
       paint();
     },
     report() { return this._report; },
