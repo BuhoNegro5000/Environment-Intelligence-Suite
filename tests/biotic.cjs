@@ -1,0 +1,10 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),c={console,Intl,Math,Date,Map,Set,Number,Array,Object,String,JSON,document:{addEventListener(){}},localStorage:{getItem(){return null},setItem(){}}};c.window=c;vm.createContext(c);
+for(const f of ['assets/js/core.js','assets/js/lab.js','assets/js/tools/science-signal.js','assets/data/bmwp-original.js','assets/js/biotic.js'])vm.runInContext(fs.readFileSync(path.join(root,f),'utf8'),c);
+const B=c.GL.biotic;assert.ok(B.defaults.length>=60);assert.equal(Object.keys(c.GL.signalGrades).length,33);assert.equal(B.validate(B.defaults).length,B.defaults.length);
+const near=(x,y)=>assert.ok(Math.abs(x-y)<1e-10,`${x} != ${y}`);
+let r=B.calculate([{taxon:'Baetidae',n:3},{taxon:'Perlodidae',n:5}],B.defaults);near(r.hbi,22/8);near(r.bmwp,14);near(r.aspt,7);near(r.ept,100);near(r.signal,9.5);near(r.hbiCoverage,100);near(r.bmwpCoverage,100);
+r=B.calculate([{taxon:'Baetidae',n:1},{taxon:'baetidae',n:2}],B.defaults);assert.equal(r.richness,1);near(r.bmwp,4);near(r.signal,9);
+r=B.calculate([{taxon:'Baetidae',n:1},{taxon:'Psephenidae',n:1}],B.defaults);near(r.bmwpCoverage,50);near(r.hbiCoverage,100);
+assert.throws(()=>B.calculate([{taxon:'NoExiste',n:1}],B.defaults));assert.throws(()=>B.calculate([{taxon:'Baetidae',n:-1}],B.defaults));assert.throws(()=>B.validate([{taxon:'A',order:'B',hbi:2}]));assert.throws(()=>B.validate([{taxon:'A',order:'B'},{taxon:'a',order:'B'}]));
+console.log('OK: perfil biótico, referencias obligatorias, cálculo combinado, agregación de duplicados, cobertura y entradas inválidas.');

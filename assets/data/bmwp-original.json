@@ -1,0 +1,427 @@
+[
+  {
+    "taxon": "Planariidae",
+    "bmwp": 5,
+    "page": 82
+  },
+  {
+    "taxon": "Dendrocoelidae",
+    "bmwp": 5,
+    "page": 82
+  },
+  {
+    "taxon": "Neritidae",
+    "bmwp": 6,
+    "page": 82
+  },
+  {
+    "taxon": "Viviparidae",
+    "bmwp": 6,
+    "page": 82
+  },
+  {
+    "taxon": "Valvatidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Hydrobiidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Lymnaeidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Physidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Planorbidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Ancylidae",
+    "bmwp": 6,
+    "page": 82
+  },
+  {
+    "taxon": "Unionidae",
+    "bmwp": 6,
+    "page": 82
+  },
+  {
+    "taxon": "Sphaeriidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Oligochaeta",
+    "bmwp": 1,
+    "page": 82
+  },
+  {
+    "taxon": "Piscicolidae",
+    "bmwp": 4,
+    "page": 82
+  },
+  {
+    "taxon": "Glossiphoniidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Hirudididae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Erpobdellidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Asellidae",
+    "bmwp": 3,
+    "page": 82
+  },
+  {
+    "taxon": "Corophiidae",
+    "bmwp": 6,
+    "page": 82
+  },
+  {
+    "taxon": "Gammaridae",
+    "bmwp": 6,
+    "page": 82
+  },
+  {
+    "taxon": "Astacidae",
+    "bmwp": 8,
+    "page": 82
+  },
+  {
+    "taxon": "Siphlonuridae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Baetidae",
+    "bmwp": 4,
+    "page": 82
+  },
+  {
+    "taxon": "Heptageniidae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Leptophlebiidae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Ephemerellidae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Potamanthidae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Ephemeridae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Caenidae",
+    "bmwp": 7,
+    "page": 82
+  },
+  {
+    "taxon": "Taeniopterygidae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Nemouridae",
+    "bmwp": 7,
+    "page": 82
+  },
+  {
+    "taxon": "Leuctridae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Capniidae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Perlodidae",
+    "bmwp": 10,
+    "page": 82
+  },
+  {
+    "taxon": "Perlidae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Chloroperlidae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Platycnemidae",
+    "bmwp": 6,
+    "page": 83
+  },
+  {
+    "taxon": "Coenagriidae",
+    "bmwp": 6,
+    "page": 83
+  },
+  {
+    "taxon": "Lestidae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Calopterygidae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Gomphidae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Cordulegasteridae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Aeshnidae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Corduliidae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Libellulidae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Mesoveliidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Hydrometridae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Gerridae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Nepidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Naucoridae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Aphelocheiridae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Notonectidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Pleidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Corixidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Haliplidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Hygrobiidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Dytiscidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Gyrinidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Hydrophilidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Clambidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Scirtidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Dryopidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Elmidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Chrysomelidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Curculionidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Sialidae",
+    "bmwp": 4,
+    "page": 83
+  },
+  {
+    "taxon": "Rhyacophilidae",
+    "bmwp": 7,
+    "page": 83
+  },
+  {
+    "taxon": "Philopotamidae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Polycentropidae",
+    "bmwp": 7,
+    "page": 83
+  },
+  {
+    "taxon": "Psychomyiidae",
+    "bmwp": 8,
+    "page": 83
+  },
+  {
+    "taxon": "Hydropsychidae",
+    "bmwp": 5,
+    "page": 83
+  },
+  {
+    "taxon": "Hydroptilidae",
+    "bmwp": 6,
+    "page": 83
+  },
+  {
+    "taxon": "Phryganeidae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Limnephilidae",
+    "bmwp": 7,
+    "page": 83
+  },
+  {
+    "taxon": "Molannidae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Beraeidae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Odontoceridae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Leptoceridae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Goeridae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Lepidostomatidae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Brachycentridae",
+    "bmwp": 10,
+    "page": 83
+  },
+  {
+    "taxon": "Sericostomatidae",
+    "bmwp": 10,
+    "page": 84
+  },
+  {
+    "taxon": "Tipulidae",
+    "bmwp": 5,
+    "page": 84
+  },
+  {
+    "taxon": "Chironomidae",
+    "bmwp": 2,
+    "page": 84
+  },
+  {
+    "taxon": "Simuliidae",
+    "bmwp": 5,
+    "page": 84
+  }
+]

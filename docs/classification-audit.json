@@ -1,0 +1,2845 @@
+{
+  "rule": "Cada herramienta tiene una categoría principal y puede tener usos relacionados. Los conteos corresponden a categorías principales.",
+  "tools": [
+    {
+      "id": "soc-stock",
+      "title": "Stock de carbono orgánico del suelo",
+      "suite": "soil",
+      "relatedSuites": [
+        "climate"
+      ]
+    },
+    {
+      "id": "soc-benchmark",
+      "title": "Benchmark de carbono vs lluvia y manejo",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "bulk-density",
+      "title": "Densidad aparente y compactación",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "sample-size",
+      "title": "Tamaño de muestra y diseño estratificado",
+      "suite": "analysis",
+      "relatedSuites": [
+        "soil",
+        "metrology"
+      ]
+    },
+    {
+      "id": "boundary-validator",
+      "title": "Validador de límites y geometrías",
+      "suite": "spatial",
+      "relatedSuites": []
+    },
+    {
+      "id": "shp-to-kml",
+      "title": "Conversor SHP → KML / GeoJSON",
+      "suite": "spatial",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "id": "soil-colour",
+      "title": "Analizador de color de suelo y Munsell",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "emissions",
+      "title": "Calculadora de emisiones y balance de GEI",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "yield-limiting",
+      "title": "Factores limitantes de rendimiento",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "soil-texture",
+      "title": "Triángulo textural USDA interactivo",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "ptar-activated-sludge",
+      "title": "PTAR · Dimensionamiento de lodos activados",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "stabilization-ponds",
+      "title": "Lagunas de estabilización y remoción de DBO",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "water-balance-nrw",
+      "title": "Balance hídrico y agua no contabilizada (IWA)",
+      "suite": "water",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "landfill-sizing",
+      "title": "Relleno sanitario · capacidad, área y lixiviados",
+      "suite": "waste",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "landfill-biogas",
+      "title": "Biogás de relleno sanitario y recuperación energética",
+      "suite": "waste",
+      "relatedSuites": [
+        "energy",
+        "climate"
+      ]
+    },
+    {
+      "id": "gaussian-plume",
+      "title": "Dispersión atmosférica · pluma gaussiana",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "air-quality-index",
+      "title": "Calidad del aire · ECA Perú, OMS y AQI de partículas",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "energy-savings-ipmvp",
+      "title": "Verificación de ahorros de energía (IPMVP C)",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "solar-pv",
+      "title": "Solar fotovoltaica · producción, área y retorno",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "wind-weibull",
+      "title": "Recurso eólico · Weibull, curva de potencia y AEP",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "seia-classifier",
+      "title": "Clasificación SEIA · evaluación preliminar",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "leopold-matrix",
+      "title": "Matriz de Leopold interactiva",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "risk-conesa",
+      "title": "Evaluación de riesgo · método Conesa",
+      "suite": "impact",
+      "relatedSuites": [
+        "safety"
+      ]
+    },
+    {
+      "id": "iperc-matrix",
+      "title": "Matriz IPERC 5×5 · probabilidad × severidad",
+      "suite": "safety",
+      "relatedSuites": []
+    },
+    {
+      "id": "fall-clearance",
+      "title": "Protección contra caídas · holgura y distancia de detención",
+      "suite": "safety",
+      "relatedSuites": []
+    },
+    {
+      "id": "sst-indicators",
+      "title": "Indicadores SST · frecuencia, gravedad e intervalo de confianza",
+      "suite": "safety",
+      "relatedSuites": []
+    },
+    {
+      "id": "noise-dose",
+      "title": "Dosis de ruido · OSHA y NIOSH",
+      "suite": "noise",
+      "relatedSuites": [
+        "safety"
+      ]
+    },
+    {
+      "id": "environmental-noise",
+      "title": "Ruido ambiental · comparación con ECA",
+      "suite": "noise",
+      "relatedSuites": []
+    },
+    {
+      "id": "sunafil-fines",
+      "title": "Multas SUNAFIL · estimación referencial",
+      "suite": "safety",
+      "relatedSuites": []
+    },
+    {
+      "id": "measurement-uncertainty",
+      "title": "Incertidumbre de medición y regla de decisión",
+      "suite": "metrology",
+      "relatedSuites": []
+    },
+    {
+      "id": "holding-time",
+      "title": "Validez de muestras · tiempo de conservación",
+      "suite": "metrology",
+      "relatedSuites": []
+    },
+    {
+      "id": "containment-volume",
+      "title": "Contención secundaria · volumen, área y muro",
+      "suite": "safety",
+      "relatedSuites": []
+    },
+    {
+      "id": "mass-emission",
+      "title": "Tasa de emisión de una chimenea",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "activity-emission",
+      "title": "Emisiones por factor de actividad",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "stack-flow",
+      "title": "Normalización de caudal de gases",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "stack-concentration",
+      "title": "Concentración de gases en condiciones de referencia",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "stack-velocity",
+      "title": "Velocidad de salida de chimenea",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "flare-effective",
+      "title": "Antorcha · parámetros efectivos de emisión",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "gas-ppm",
+      "title": "Gases · ppm y mg/m³",
+      "suite": "air",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "id": "gas-ppb",
+      "title": "Gases traza · ppb y µg/m³",
+      "suite": "air",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "id": "noise-point",
+      "title": "Ruido · propagación de fuente puntual",
+      "suite": "noise",
+      "relatedSuites": []
+    },
+    {
+      "id": "noise-line",
+      "title": "Ruido · propagación de fuente lineal",
+      "suite": "noise",
+      "relatedSuites": []
+    },
+    {
+      "id": "noise-sum",
+      "title": "Suma energética de niveles sonoros",
+      "suite": "noise",
+      "relatedSuites": []
+    },
+    {
+      "id": "sound-power",
+      "title": "Potencia sonora desde presión acústica",
+      "suite": "noise",
+      "relatedSuites": []
+    },
+    {
+      "id": "noise-barrier",
+      "title": "Barrera acústica · difracción simplificada",
+      "suite": "noise",
+      "relatedSuites": []
+    },
+    {
+      "id": "ccme-wqi",
+      "title": "Índice de calidad del agua · CCME",
+      "suite": "water",
+      "relatedSuites": [
+        "metrology"
+      ]
+    },
+    {
+      "id": "seawater-density",
+      "title": "Densidad superficial del agua de mar",
+      "suite": "water",
+      "relatedSuites": [
+        "membranes"
+      ]
+    },
+    {
+      "id": "water-load",
+      "title": "Carga contaminante en agua",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "retention-time",
+      "title": "Tiempo de retención hidráulica",
+      "suite": "hydraulics",
+      "relatedSuites": [
+        "water",
+        "wastewater"
+      ]
+    },
+    {
+      "id": "water-hardness",
+      "title": "Dureza total del agua",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "bod-cod",
+      "title": "Biodegradabilidad · relación DBO₅/DQO",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "soil-porosity",
+      "title": "Porosidad total del suelo",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "soil-moisture",
+      "title": "Humedad gravimétrica y volumétrica",
+      "suite": "soil",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "id": "soc-som",
+      "title": "Carbono orgánico y materia orgánica",
+      "suite": "soil",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "id": "waste-generation",
+      "title": "Generación específica de residuos",
+      "suite": "waste",
+      "relatedSuites": []
+    },
+    {
+      "id": "landfill-volume",
+      "title": "Volumen compactado de residuos",
+      "suite": "waste",
+      "relatedSuites": []
+    },
+    {
+      "id": "waste-diversion",
+      "title": "Tasa de aprovechamiento de residuos",
+      "suite": "waste",
+      "relatedSuites": []
+    },
+    {
+      "id": "carbon-co2",
+      "title": "Conversión entre carbono y CO₂",
+      "suite": "climate",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "id": "alkalinity",
+      "title": "Conversión de alcalinidad",
+      "suite": "water",
+      "relatedSuites": [
+        "conversion",
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "overflow-rate",
+      "title": "Carga superficial de sedimentación",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "rational-runoff",
+      "title": "Caudal pico · método racional",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "removal-efficiency",
+      "title": "Eficiencia de remoción",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "solar-energy",
+      "title": "Energía a partir de irradiancia",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "dilution",
+      "title": "Preparación de una dilución",
+      "suite": "metrology",
+      "relatedSuites": []
+    },
+    {
+      "id": "first-order-decay",
+      "title": "Decaimiento de primer orden",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "soil-sar",
+      "title": "Relación de adsorción de sodio · SAR",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "aridity-unep",
+      "title": "Índice de aridez · precipitación y PET",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "aridity-demartonne",
+      "title": "Índice de aridez de De Martonne",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "vegetation-change",
+      "title": "Cambio de cobertura vegetal",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "heat-index",
+      "title": "Sensación térmica · índice de calor",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "wet-bulb",
+      "title": "Temperatura de bulbo húmedo · Stull",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "dew-point",
+      "title": "Temperatura de punto de rocío",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "diversity-community",
+      "title": "Panel de diversidad de comunidades",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "diversity-shannon",
+      "title": "Diversidad de Shannon",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "diversity-simpson",
+      "title": "Diversidad y dominancia de Simpson",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "diversity-pielou",
+      "title": "Equidad de Pielou",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "richness-margalef",
+      "title": "Riqueza de Margalef",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "richness-menhinick",
+      "title": "Riqueza de Menhinick",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "dominance-berger",
+      "title": "Dominancia de Berger–Parker",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "relative-abundance",
+      "title": "Abundancia relativa por taxón",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "ept-index",
+      "title": "Riqueza y proporción EPT",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "hilsenhoff-fbi",
+      "title": "Índice biótico de Hilsenhoff",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "bmwp-aspt",
+      "title": "Bioindicación · BMWP y ASPT",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "similarity-jaccard",
+      "title": "Similitud de Jaccard",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "similarity-sorensen",
+      "title": "Similitud de Sørensen–Dice",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "dissimilarity-bray",
+      "title": "Disimilitud de Bray–Curtis",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "diversity-whittaker",
+      "title": "Diversidad beta de Whittaker",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "richness-chao1",
+      "title": "Estimación de riqueza · Chao1",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "geo-distance",
+      "title": "Distancia entre coordenadas",
+      "suite": "spatial",
+      "relatedSuites": []
+    },
+    {
+      "id": "geo-bearing",
+      "title": "Rumbo inicial entre coordenadas",
+      "suite": "spatial",
+      "relatedSuites": []
+    },
+    {
+      "id": "geo-midpoint",
+      "title": "Punto medio geográfico",
+      "suite": "spatial",
+      "relatedSuites": []
+    },
+    {
+      "id": "geo-buffer",
+      "title": "Área y perímetro de un buffer circular",
+      "suite": "spatial",
+      "relatedSuites": []
+    },
+    {
+      "id": "geo-dd-dms",
+      "title": "Coordenadas · grados decimales y DMS",
+      "suite": "spatial",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "id": "mcda-wlc",
+      "title": "Combinación lineal ponderada · WLC",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-topsis",
+      "title": "Priorización de alternativas · TOPSIS",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-vikor",
+      "title": "Solución de compromiso · VIKOR",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-waspas",
+      "title": "Ranking combinado · WASPAS",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-owa",
+      "title": "Agregación ordenada · OWA",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-promethee",
+      "title": "Flujos de preferencia · PROMETHEE II",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-electre",
+      "title": "Relación de sobreclasificación · ELECTRE I",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-ahp",
+      "title": "Pesos y consistencia · AHP",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-fuzzy-ahp",
+      "title": "Pesos triangulares · AHP difuso",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-anp",
+      "title": "Prioridades de red · ANP",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-swara",
+      "title": "Ponderación escalonada · SWARA",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-dematel",
+      "title": "Relaciones causa y efecto · DEMATEL",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-fuzzy-dematel",
+      "title": "Influencia incierta · DEMATEL difuso",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "mcda-fuzzy-topsis",
+      "title": "Alternativas con datos triangulares · TOPSIS difuso",
+      "suite": "decision",
+      "relatedSuites": []
+    },
+    {
+      "id": "impact-weighted",
+      "title": "Significancia ambiental ponderada",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "impact-riam",
+      "title": "Evaluación rápida de impactos · RIAM",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "impact-iranian",
+      "title": "Matriz de interacciones · escala −5 a +5",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "impact-checklist",
+      "title": "Lista ponderada de alertas ambientales",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "risk-fmea",
+      "title": "AMEF · modos de falla y riesgo residual",
+      "suite": "safety",
+      "relatedSuites": []
+    },
+    {
+      "id": "risk-efmea",
+      "title": "AMEF ambiental · aspectos y riesgo residual",
+      "suite": "impact",
+      "relatedSuites": [
+        "safety"
+      ]
+    },
+    {
+      "id": "analysis-statistics",
+      "title": "Laboratorio de estadística descriptiva",
+      "suite": "analysis",
+      "relatedSuites": []
+    },
+    {
+      "id": "analysis-r-builder",
+      "title": "Generador de análisis reproducible en R",
+      "suite": "analysis",
+      "relatedSuites": []
+    },
+    {
+      "id": "analysis-timeseries",
+      "title": "Series temporales · tendencia y anomalías",
+      "suite": "analysis",
+      "relatedSuites": []
+    },
+    {
+      "id": "analysis-regression",
+      "title": "Regresión lineal múltiple y residuos",
+      "suite": "analysis",
+      "relatedSuites": []
+    },
+    {
+      "id": "analysis-pca",
+      "title": "Componentes principales · PCA",
+      "suite": "analysis",
+      "relatedSuites": []
+    },
+    {
+      "id": "analysis-qaqc",
+      "title": "Control de calidad de datos · QA/QC",
+      "suite": "analysis",
+      "relatedSuites": []
+    },
+    {
+      "id": "analysis-sampling",
+      "title": "Muestreo e incertidumbre · Monte Carlo",
+      "suite": "analysis",
+      "relatedSuites": []
+    },
+    {
+      "id": "analysis-spatial",
+      "title": "Autocorrelación y vecindad espacial",
+      "suite": "analysis",
+      "relatedSuites": [
+        "spatial"
+      ]
+    },
+    {
+      "id": "analysis-standards",
+      "title": "Comparador de límites ambientales",
+      "suite": "metrology",
+      "relatedSuites": [
+        "impact",
+        "analysis"
+      ]
+    },
+    {
+      "id": "ghg-co2e",
+      "title": "Huella de gases · equivalencia CO₂e",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "meteo-hourly",
+      "title": "Meteorología · de registros trihorarios a horarios",
+      "suite": "air",
+      "relatedSuites": [
+        "climate",
+        "conversion"
+      ]
+    },
+    {
+      "id": "industrial-stack-lab",
+      "title": "Laboratorio de emisiones industriales y fuente puntual",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "population-lab",
+      "title": "Población · indicadores y escenarios de proyección",
+      "suite": "population",
+      "relatedSuites": []
+    },
+    {
+      "id": "conductivity-resistivity",
+      "title": "Conductividad ↔ resistividad · relación recíproca",
+      "suite": "conversion",
+      "relatedSuites": []
+    },
+    {
+      "id": "water-ion-balance",
+      "title": "Análisis iónico · balance de cargas y conductividad",
+      "suite": "water",
+      "relatedSuites": [
+        "industrial-water",
+        "metrology"
+      ]
+    },
+    {
+      "id": "calcite-saturation-indices",
+      "title": "Estabilidad de carbonato cálcico · Langelier y Ryznar",
+      "suite": "water",
+      "relatedSuites": [
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "ammonia-water-equilibrium",
+      "title": "Amoníaco en agua dulce · NH₃ y NH₄⁺",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "water-acid-speciation",
+      "title": "Especiación ácido-base · siete sistemas acuosos",
+      "suite": "water",
+      "relatedSuites": [
+        "metrology"
+      ]
+    },
+    {
+      "id": "oxygen-water-saturation",
+      "title": "Oxígeno disuelto · solubilidad y saturación",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater",
+        "ecology"
+      ]
+    },
+    {
+      "id": "disinfection-contact-ct",
+      "title": "Desinfección química · CT por segmento",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "uv-disinfection-dose",
+      "title": "Desinfección UV · dosis validada o exposición de banco",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "metal-oxidation-sludge",
+      "title": "Hierro y manganeso · oxidación y producción de lodos",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "water-ph-titration-dose",
+      "title": "Ajuste de pH · dosis a partir de titulación",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater",
+        "metrology"
+      ]
+    },
+    {
+      "id": "ultimate-bod-estimation",
+      "title": "DBO última · cinética de primer orden",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "liquid-water-properties",
+      "title": "Agua pura · densidad y viscosidad",
+      "suite": "hydraulics",
+      "relatedSuites": [
+        "water",
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "gas-state-density",
+      "title": "Propiedades de gases · densidad y volumen específico",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "boiler-blowdown-balance",
+      "title": "Calderas · purga y ciclos de concentración",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "energy"
+      ]
+    },
+    {
+      "id": "membrane-ro-diagnostics",
+      "title": "Ósmosis inversa y NF · diagnóstico y área preliminar",
+      "suite": "membranes",
+      "relatedSuites": []
+    },
+    {
+      "id": "modified-fouling-index",
+      "title": "Índice MFI · ajuste del tramo de filtración",
+      "suite": "membranes",
+      "relatedSuites": []
+    },
+    {
+      "id": "filter-backwash-expansion",
+      "title": "Retrolavado · expansión de lecho granular",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "carbonate-pure-water-co2",
+      "title": "CO₂ en agua pura · equilibrio abierto",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "finance-water-cashflows",
+      "title": "Finanzas de proyectos · anualidades, tasas y crecimiento",
+      "suite": "sustainability",
+      "relatedSuites": []
+    },
+    {
+      "id": "triangle-geometry",
+      "title": "Triángulos · lados, ángulos y área",
+      "suite": "spatial",
+      "relatedSuites": []
+    },
+    {
+      "id": "tank-geometries",
+      "title": "Geometría de tanques · volumen útil y nivel",
+      "suite": "hydraulics",
+      "relatedSuites": [
+        "water",
+        "wastewater"
+      ]
+    },
+    {
+      "id": "equalization-storage",
+      "title": "Tanque de ecualización · curva acumulada",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "municipal-design-flow",
+      "title": "Demanda municipal · dotación y caudal de diseño",
+      "suite": "hydraulics",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "rain-harvest-volume",
+      "title": "Precipitación · volumen y captación aprovechable",
+      "suite": "hydraulics",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "pipe-darcy-loss",
+      "title": "Tuberías · Reynolds y pérdida de carga Darcy–Weisbach",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "pump-duty-power",
+      "title": "Bombas · altura, potencia y energía",
+      "suite": "energy",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "blower-duty-power",
+      "title": "Sopladores · compresión y potencia eléctrica",
+      "suite": "energy",
+      "relatedSuites": [
+        "wastewater",
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "open-channel-flow",
+      "title": "Canales abiertos · Manning y número de Froude",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "orifice-flow",
+      "title": "Placa de orificio · caudal por diferencial de presión",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "flume-rating-curve",
+      "title": "Canaletas Parshall y Venturi · curva de aforo",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "mixing-velocity-gradient",
+      "title": "Mezcla rápida y floculación · gradiente G y G·t",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "chemical-dosing-stock",
+      "title": "Dosificación química · solución, producto seco y bomba",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater",
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "molar-solution-preparation",
+      "title": "Soluciones molares · preparación y dilución",
+      "suite": "metrology",
+      "relatedSuites": []
+    },
+    {
+      "id": "stream-blending",
+      "title": "Mezcla de corrientes · caudal, carga y concentración",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater",
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "activated-sludge-operations",
+      "title": "Lodos activados · IVL, F/M, SRT y retorno",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "clarifier-solids-loading",
+      "title": "Clarificador · carga hidráulica y de sólidos",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "stokes-settling",
+      "title": "Sedimentación discreta · velocidad de Stokes",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "bed-contact-capacity",
+      "title": "Lecho de sorción · EBCT, BV/h y capacidad útil",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "ion-exchange-softening",
+      "title": "Ablandamiento iónico · resina, ciclo y regeneración",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "filter-hydraulic-loading",
+      "title": "Filtración · tasa superficial y flujo de membrana",
+      "suite": "membranes",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "membrane-series-balance",
+      "title": "Membranas en serie · recuperación y balance salino",
+      "suite": "membranes",
+      "relatedSuites": []
+    },
+    {
+      "id": "membrane-permeability",
+      "title": "MF/UF · permeabilidad y corrección de viscosidad",
+      "suite": "membranes",
+      "relatedSuites": []
+    },
+    {
+      "id": "silt-density-index",
+      "title": "Pretratamiento de membranas · índice SDI",
+      "suite": "membranes",
+      "relatedSuites": []
+    },
+    {
+      "id": "granular-bed-headloss",
+      "title": "Medio granular · pérdida de carga de Ergun",
+      "suite": "water",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "biological-nutrient-train",
+      "title": "Diseño biológico · lodos activados y tren A²/O",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "oxygen-aeration-design",
+      "title": "Aireación · oxígeno real, aire y potencia",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "nutrient-reagent-demand",
+      "title": "Nutrientes · carbono, alcalinidad y precipitación de P",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "clarifier-duty-screen",
+      "title": "Clarificación · geometría, vertedero y condición N−1",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "settling-solids-flux",
+      "title": "Clarificador secundario · curva de flujo de sólidos",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "wastewater-residuals-balance",
+      "title": "Residuos de planta · sólidos, torta y retornos",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "waste",
+        "water"
+      ]
+    },
+    {
+      "id": "wastewater-headworks-sizing",
+      "title": "Cabecera y captación · rejas, canales y redundancia",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "water",
+        "hydraulics",
+        "membranes"
+      ]
+    },
+    {
+      "id": "anaerobic-load-methane",
+      "title": "Tratamiento anaerobio · carga, volumen y metano",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "daf-air-solids-screen",
+      "title": "Flotación DAF · hidráulica y aire por sólidos",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "ion-exchange-equivalent-sizing",
+      "title": "Intercambio iónico · carga equivalente, resina y regenerante",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "high-purity-sampling-plan",
+      "title": "Agua de alta pureza · plan de muestreo y brechas",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "metrology"
+      ]
+    },
+    {
+      "id": "water-evidence-comparison",
+      "title": "Evidencia de calidad · efluente, reúso y agua de enfriamiento",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "industrial-water",
+        "metrology"
+      ]
+    },
+    {
+      "id": "post-ro-co2-conditioning",
+      "title": "Acondicionamiento post-RO · diferencia de CO₂ y carga",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "membranes"
+      ]
+    },
+    {
+      "id": "pipe-continuity-basis",
+      "title": "Base de diseño de tubería · continuidad y Reynolds",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "pipe-pressure-evidence",
+      "title": "Tubería · contraste de presión admisible por temperatura",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "pfas-lab-evidence",
+      "title": "PFAS · registro de laboratorio, censura y decisiones",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "pfas-lead-lag-inventory",
+      "title": "PFAS · inventario lead/lag y contacto por tren",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "plant-network-balance",
+      "title": "Red de tratamiento · balance estacionario de agua y componentes",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater",
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "influent-design-loading",
+      "title": "Afluente de PTAR · escenarios hidráulicos y cargas",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "source-water-design-data",
+      "title": "Agua bruta · estadística ponderada por condición",
+      "suite": "water",
+      "relatedSuites": [
+        "analysis",
+        "metrology"
+      ]
+    },
+    {
+      "id": "cooling-tower-cycles",
+      "title": "Torre de enfriamiento · balance de agua y LSI medido",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "water",
+        "energy"
+      ]
+    },
+    {
+      "id": "water-plant-energy-profile",
+      "title": "Perfil hidráulico · HGL, EGL y energía de bombeo",
+      "suite": "hydraulics",
+      "relatedSuites": [
+        "water",
+        "wastewater"
+      ]
+    },
+    {
+      "id": "pipe-total-pressure-drop",
+      "title": "Tramo de tubería · fricción, accesorios y elevación",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "actuator-torque-envelope",
+      "title": "Actuador neumático · margen de par por ángulo",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "air-valve-profile-screen",
+      "title": "Válvulas de aire · puntos altos y separación geométrica",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "clearwell-inventory-turnover",
+      "title": "Depósito de agua tratada · inventario y renovación",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "membrane-two-solute-design",
+      "title": "RO y NF · balance por etapas y mezcla de derivación",
+      "suite": "membranes",
+      "relatedSuites": [
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "ufmf-train-cycle-sizing",
+      "title": "UF/MF · trenes, ciclo y agua neta",
+      "suite": "membranes",
+      "relatedSuites": [
+        "water",
+        "wastewater"
+      ]
+    },
+    {
+      "id": "swro-energy-recovery",
+      "title": "SWRO · energía específica y recuperación de presión",
+      "suite": "membranes",
+      "relatedSuites": [
+        "energy"
+      ]
+    },
+    {
+      "id": "gac-bed-breakthrough",
+      "title": "Carbón activado · diseño de lecho y ruptura observada",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "adsorption-isotherm-fit",
+      "title": "Isotermas de adsorción · Freundlich, Langmuir y BET",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "piping-topology-workbench",
+      "title": "Topología de tuberías · importación PCF, continuidad y materiales",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "chemical-feed-storage-duty",
+      "title": "Productos químicos · alimentación y autonomía de almacenamiento",
+      "suite": "water",
+      "relatedSuites": [
+        "industrial-water",
+        "wastewater"
+      ]
+    },
+    {
+      "id": "jar-test-coagulation-design",
+      "title": "Coagulación y floculación · ensayos de jarras y mezcla",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "industrial-pretreatment-mass",
+      "title": "Pretratamiento industrial · dosis, remoción y sólidos",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "granular-filter-bank",
+      "title": "Filtros granulares · operación N−1, carga y lavado",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "contact-tank-residual-design",
+      "title": "Contacto con desinfectante · hidráulica, residual y decloración",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "uv-reactor-bank-design",
+      "title": "Reactores UV · capacidad por UVT y reserva",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "ozone-generator-contact",
+      "title": "Ozono · generador, transferencia y CT",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "carbonate-water-stability",
+      "title": "Estabilidad del agua · carbonatos, LSI y RSI",
+      "suite": "water",
+      "relatedSuites": [
+        "industrial-water",
+        "membranes"
+      ]
+    },
+    {
+      "id": "improvement-project-roi",
+      "title": "Mejoras de planta · ROI, VAN y recuperación",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "energy"
+      ]
+    },
+    {
+      "id": "plant-oee-availability",
+      "title": "Operación de planta · OEE, disponibilidad y mantenimiento",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "water",
+        "wastewater"
+      ]
+    },
+    {
+      "id": "water-specific-energy",
+      "title": "Producción de agua · consumo energético específico",
+      "suite": "energy",
+      "relatedSuites": [
+        "water",
+        "membranes"
+      ]
+    },
+    {
+      "id": "pump-measured-efficiency",
+      "title": "Motobomba · rendimiento eléctrico-hidráulico medido",
+      "suite": "energy",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "industrial-water-intensity",
+      "title": "Uso industrial de agua · intensidad por unidad producida",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "chemical-cost-intensity",
+      "title": "Tratamiento de agua · costo químico por volumen",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "industrial-water",
+        "wastewater"
+      ]
+    },
+    {
+      "id": "heat-exchanger-effectiveness",
+      "title": "Intercambiador · balance térmico y efectividad",
+      "suite": "energy",
+      "relatedSuites": [
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "hydraulic-capacity-utilization",
+      "title": "Planta de tratamiento · utilización de capacidad hidráulica",
+      "suite": "hydraulics",
+      "relatedSuites": [
+        "water",
+        "wastewater"
+      ]
+    },
+    {
+      "id": "alkalinity-fractionation-pm",
+      "title": "Alcalinidad P y M · hidróxidos, carbonatos y bicarbonatos",
+      "suite": "water",
+      "relatedSuites": [
+        "industrial-water",
+        "metrology"
+      ]
+    },
+    {
+      "id": "cooling-tower-water-losses",
+      "title": "Torre de enfriamiento · evaporación, arrastre y ciclos observados",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "energy"
+      ]
+    },
+    {
+      "id": "boiler-blowdown-quality-limit",
+      "title": "Caldera · purga limitada por TDS o sílice",
+      "suite": "industrial-water",
+      "relatedSuites": [
+        "energy"
+      ]
+    },
+    {
+      "id": "membrane-observed-recovery-rejection",
+      "title": "Membranas · recuperación, rechazo y paso de sales medidos",
+      "suite": "membranes",
+      "relatedSuites": []
+    },
+    {
+      "id": "membrane-normalized-flux-forecast",
+      "title": "Membranas · tendencia de flujo normalizado y umbral",
+      "suite": "membranes",
+      "relatedSuites": []
+    },
+    {
+      "id": "tds-conductivity-estimate",
+      "title": "Conductividad y TDS · estimación con factor local",
+      "suite": "water",
+      "relatedSuites": [
+        "industrial-water",
+        "membranes"
+      ]
+    },
+    {
+      "id": "chlorine-active-dose",
+      "title": "Cloración · demanda, residual y consumo de producto",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "sludge-specific-generation",
+      "title": "Lodos · generación específica de sólidos secos",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "aerator-surface-field-power",
+      "title": "Aireación superficial · AOR, SOR y potencia",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "energy"
+      ]
+    },
+    {
+      "id": "settling-column-sst-capture",
+      "title": "Sedimentación · ensayo de columna y captura de SST",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "nitrification-nitrogen-balance",
+      "title": "Nitrificación · desaparición de amonio y ganancia de NOx",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "organic-reactor-loading-pe",
+      "title": "Carga orgánica · COV y población equivalente",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "wastewater-project-flows",
+      "title": "Alcantarillado · caudales de diseño K1, K2 y Harmon",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "pollutant-process-mass-balance",
+      "title": "Proceso de tratamiento · carga, remoción y cierre de masa",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "biological-carbon-nutrient-ratio",
+      "title": "Tratamiento biológico · relación DBO:N:P y déficits",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "household-carbon-footprint",
+      "title": "Huella de carbono personal · inventario anual",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "ecological-footprint",
+      "title": "Huella ecológica · demanda de biocapacidad",
+      "suite": "sustainability",
+      "relatedSuites": []
+    },
+    {
+      "id": "energy-efficiency-investment",
+      "title": "Eficiencia energética · ahorro y recuperación",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "climate-scenario",
+      "title": "Escenario climático · calentamiento, emisiones y nivel del mar",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "climate-anomaly-forcing",
+      "title": "Climatología · anomalías y forzamiento de CO₂",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "forest-carbon-stock",
+      "title": "Carbono forestal · existencias e incremento",
+      "suite": "climate",
+      "relatedSuites": [
+        "ecology"
+      ]
+    },
+    {
+      "id": "land-use-carbon",
+      "title": "Cambio de uso del suelo · balance de existencias",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "renewable-generation",
+      "title": "Generación renovable · producción y emisiones evitadas",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "transport-emissions",
+      "title": "Transporte · energía y emisiones por pasajero",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "ozone-depleting-emissions",
+      "title": "Agotamiento de ozono · potencial equivalente CFC-11",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "urban-heat-island",
+      "title": "Isla de calor urbana · pares urbano y rural",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "life-cycle-inventory",
+      "title": "Ciclo de vida · inventario multicriterio por unidad funcional",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "impact"
+      ]
+    },
+    {
+      "id": "soil-rusle",
+      "title": "Erosión hídrica · RUSLE por factores",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "agricultural-impact",
+      "title": "Impacto agrícola · suelo, riego y agroquímicos",
+      "suite": "soil",
+      "relatedSuites": [
+        "water",
+        "impact"
+      ]
+    },
+    {
+      "id": "water-weighted-index",
+      "title": "Índice de calidad del agua · subíndices ponderados",
+      "suite": "water",
+      "relatedSuites": [
+        "metrology"
+      ]
+    },
+    {
+      "id": "water-pollution-mixing",
+      "title": "Contaminación hídrica · mezcla y carga",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "water-footprint",
+      "title": "Huella hídrica · verde, azul y gris",
+      "suite": "water",
+      "relatedSuites": [
+        "sustainability"
+      ]
+    },
+    {
+      "id": "water-conservation",
+      "title": "Ahorro de agua · volumen, costos y energía",
+      "suite": "water",
+      "relatedSuites": [
+        "sustainability",
+        "energy"
+      ]
+    },
+    {
+      "id": "acid-deposition",
+      "title": "Lluvia ácida · deposición y capacidad neutralizante",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "air-emission-inventory",
+      "title": "Inventario de emisiones · fuentes y controles",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "environmental-chemistry",
+      "title": "Química ambiental · pH, cinética y equilibrio",
+      "suite": "metrology",
+      "relatedSuites": []
+    },
+    {
+      "id": "environmental-geology",
+      "title": "Geología ambiental · Darcy y resistencia al corte",
+      "suite": "soil",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "lake-trophic-state",
+      "title": "Limnología · estado trófico de Carlson",
+      "suite": "water",
+      "relatedSuites": [
+        "ecology"
+      ]
+    },
+    {
+      "id": "environmental-meteorology",
+      "title": "Meteorología · viento frío y humedad",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "environmental-oceanography",
+      "title": "Oceanografía · oleaje, marea y corrientes",
+      "suite": "water",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "environmental-physics",
+      "title": "Física ambiental · transferencia y transporte",
+      "suite": "energy",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "ocean-carbonate",
+      "title": "Acidificación oceánica · saturación de carbonatos",
+      "suite": "water",
+      "relatedSuites": [
+        "climate"
+      ]
+    },
+    {
+      "id": "noise-exposure-level",
+      "title": "Ruido ambiental · presión sonora y Leq",
+      "suite": "noise",
+      "relatedSuites": []
+    },
+    {
+      "id": "ecosystem-services-value",
+      "title": "Servicios ecosistémicos · valoración por contribución",
+      "suite": "ecology",
+      "relatedSuites": [
+        "sustainability"
+      ]
+    },
+    {
+      "id": "environmental-economic-value",
+      "title": "Economía ambiental · valor económico total y daño esperado",
+      "suite": "sustainability",
+      "relatedSuites": []
+    },
+    {
+      "id": "environmental-policy-appraisal",
+      "title": "Política ambiental · evaluación costo-beneficio",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "impact"
+      ]
+    },
+    {
+      "id": "environmental-compliance-check",
+      "title": "Cumplimiento ambiental · obligaciones y evidencias",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "environmental-monitoring-plan",
+      "title": "Monitoreo ambiental · cobertura y calidad de datos",
+      "suite": "metrology",
+      "relatedSuites": [
+        "analysis",
+        "impact"
+      ]
+    },
+    {
+      "id": "environmental-impact-scenarios",
+      "title": "Evaluación de impactos · escenarios y mitigación",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "environmental-risk-scenarios",
+      "title": "Riesgo ambiental · frecuencia y consecuencia por escenario",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "environmental-remediation-plan",
+      "title": "Remediación · masa, plazo y costo del tratamiento",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "environmental-toxicology-dose",
+      "title": "Toxicología ambiental · dosis y cociente de peligro",
+      "suite": "health",
+      "relatedSuites": [
+        "impact",
+        "safety"
+      ]
+    },
+    {
+      "id": "environmental-health-burden",
+      "title": "Salud ambiental · carga atribuible a una exposición",
+      "suite": "health",
+      "relatedSuites": [
+        "impact"
+      ]
+    },
+    {
+      "id": "green-building-leed",
+      "title": "Edificación sostenible · hoja de créditos LEED",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "energy"
+      ]
+    },
+    {
+      "id": "waste-treatment-balance",
+      "title": "Gestión de residuos · balance por tratamiento",
+      "suite": "waste",
+      "relatedSuites": []
+    },
+    {
+      "id": "waste-reduction-benefits",
+      "title": "Reducción de residuos · desvío, costos y emisiones evitadas",
+      "suite": "waste",
+      "relatedSuites": []
+    },
+    {
+      "id": "plastic-material-flow",
+      "title": "Flujo de plásticos · recuperación, gestión y fuga",
+      "suite": "waste",
+      "relatedSuites": []
+    },
+    {
+      "id": "desertification-indicators",
+      "title": "Desertificación · aridez, cobertura y erosión",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "ecosystem-population-energy",
+      "title": "Ecología · crecimiento logístico y transferencia trófica",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "microbial-growth-biodegradation",
+      "title": "Microbiología ambiental · Monod y biodegradación",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "environmental-resource-performance",
+      "title": "Sostenibilidad ambiental · balances e intensidades",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "climate"
+      ]
+    },
+    {
+      "id": "sustainable-development-targets",
+      "title": "Desarrollo sostenible · seguimiento de metas",
+      "suite": "sustainability",
+      "relatedSuites": [
+        "impact"
+      ]
+    },
+    {
+      "id": "spatial-workbench",
+      "title": "Laboratorio espacial · proyectos y análisis vectorial",
+      "suite": "spatial",
+      "relatedSuites": []
+    },
+    {
+      "id": "taxonomy",
+      "title": "Explorador de especies y taxonomía",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "signal2",
+      "title": "SIGNAL2 · perfil OCP y ponderación de abundancia",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "biotic-workbench",
+      "title": "Evaluación biótica integrada",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "biotic-library",
+      "title": "Biblioteca de referencias bióticas y perfiles locales",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "bioacoustics",
+      "title": "Laboratorio de bioacústica · BirdNET V3 local",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "unit-converter",
+      "title": "Conversor central de unidades",
+      "suite": "conversion",
+      "relatedSuites": []
+    },
+    {
+      "id": "building-hvac-loads",
+      "title": "HVAC · cargas térmicas de diseño y perfil horario",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "building-annual-energy",
+      "title": "Edificios · energía anual y escenario de mejora",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "smart-building-controls",
+      "title": "Automatización de edificios · puntos de control y energía",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "pv-monthly-resource",
+      "title": "Solar FV · producción con recurso mensual",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "pv-roof-appliances",
+      "title": "Solar FV · módulos por consumo y área de techo",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "battery-backup-sizing",
+      "title": "Batería · capacidad útil, autonomía y recarga",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "ev-charging-load",
+      "title": "Movilidad eléctrica · energía y potencia de recarga",
+      "suite": "energy",
+      "relatedSuites": []
+    },
+    {
+      "id": "building-energy-audit",
+      "title": "Auditoría energética · línea base, medidas y retorno",
+      "suite": "energy",
+      "relatedSuites": [
+        "climate",
+        "sustainability"
+      ]
+    },
+    {
+      "id": "energy-equipment-budget",
+      "title": "Equipos energéticos · comparación de cotizaciones",
+      "suite": "energy",
+      "relatedSuites": [
+        "sustainability"
+      ]
+    },
+    {
+      "id": "electricity-tariff-comparison",
+      "title": "Tarifas eléctricas · punta, valle y demanda",
+      "suite": "energy",
+      "relatedSuites": [
+        "sustainability"
+      ]
+    },
+    {
+      "id": "cleanroom-particle-recovery",
+      "title": "Sala limpia · tiempo de recuperación de partículas",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "voc-biofilter-bed",
+      "title": "Biofiltro de gases · EBRT, carga y remoción de COV",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "venturi-scrubber-grade",
+      "title": "Lavador Venturi · captura por tamaño, agua y potencia",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "indoor-radon-ventilation",
+      "title": "Radón interior · ventilación, mitigación y equilibrio",
+      "suite": "health",
+      "relatedSuites": []
+    },
+    {
+      "id": "floating-roof-rim-seal-loss",
+      "title": "Tanque de techo flotante · pérdidas del sello perimetral",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "epa-air-quality-index",
+      "title": "Calidad del aire · AQI diario EPA por contaminante",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "greenhouse-radiative-forcing",
+      "title": "Efecto invernadero · forzamiento de gases y albedo",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "landfill-methane-deposition-series",
+      "title": "Relleno sanitario · curva de metano por cohortes de residuos",
+      "suite": "waste",
+      "relatedSuites": [
+        "air",
+        "energy"
+      ]
+    },
+    {
+      "id": "net-zero-emissions-path",
+      "title": "Neutralidad de carbono · trayectoria de reducción y saldo neto",
+      "suite": "climate",
+      "relatedSuites": []
+    },
+    {
+      "id": "amine-co2-absorber-screen",
+      "title": "Captura de CO₂ con aminas · caudal, diámetro y regeneración",
+      "suite": "climate",
+      "relatedSuites": [
+        "air"
+      ]
+    },
+    {
+      "id": "direct-air-capture-net",
+      "title": "Captura directa de aire · flujo, energía y remoción neta",
+      "suite": "climate",
+      "relatedSuites": [
+        "energy"
+      ]
+    },
+    {
+      "id": "glacier-elevation-mass-balance",
+      "title": "Glaciares · balance de masa por elevación y línea de equilibrio",
+      "suite": "climate",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "membrane-mwco-curve",
+      "title": "Membranas · curva de rechazo y corte molecular",
+      "suite": "membranes",
+      "relatedSuites": []
+    },
+    {
+      "id": "seawater-desalination-technology",
+      "title": "Desalinización marina · balance y energía de RO, MSF y MED",
+      "suite": "membranes",
+      "relatedSuites": [
+        "energy",
+        "industrial-water"
+      ]
+    },
+    {
+      "id": "ozone-depleting-stock-scenario",
+      "title": "Sustancias agotadoras de ozono · ODP, GEI y carga atmosférica",
+      "suite": "air",
+      "relatedSuites": []
+    },
+    {
+      "id": "urban-heat-island-scenario",
+      "title": "Isla de calor urbana · sensibilidad a cobertura y viento",
+      "suite": "climate",
+      "relatedSuites": [
+        "health"
+      ]
+    },
+    {
+      "id": "fishway-hydraulic-screen",
+      "title": "Paso de peces · velocidad, potencia disipada y descansos",
+      "suite": "ecology",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "pond-aerator-oxygen-balance",
+      "title": "Estanque acuícola · balance de oxígeno y potencia de aireación",
+      "suite": "ecology",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "fishery-surplus-production",
+      "title": "Pesquerías · producción excedente, RMS y mortalidad",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "forest-tree-allometry",
+      "title": "Bosque tropical · biomasa alométrica por árbol y parcela",
+      "suite": "ecology",
+      "relatedSuites": []
+    },
+    {
+      "id": "cropland-nitrate-leaching",
+      "title": "Nitrógeno agrícola · excedente y concentración de lixiviado",
+      "suite": "soil",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "soybean-emergence-thermal-time",
+      "title": "Soja · tiempo térmico y progreso de emergencia",
+      "suite": "soil",
+      "relatedSuites": []
+    },
+    {
+      "id": "cylindrical-atmospheric-icing",
+      "title": "Engelamiento atmosférico · espesor y carga en cilindros",
+      "suite": "impact",
+      "relatedSuites": [
+        "climate"
+      ]
+    },
+    {
+      "id": "avalanche-alpha-beta-profile",
+      "title": "Aludes · alcance α–β sobre perfil topográfico",
+      "suite": "impact",
+      "relatedSuites": [
+        "spatial"
+      ]
+    },
+    {
+      "id": "tsunami-solitary-wave-runup",
+      "title": "Tsunami idealizado · ascenso de onda solitaria en playa plana",
+      "suite": "impact",
+      "relatedSuites": [
+        "hydraulics"
+      ]
+    },
+    {
+      "id": "tornado-debris-force-screen",
+      "title": "Tornados · carga aerodinámica y energía de escombros",
+      "suite": "impact",
+      "relatedSuites": []
+    },
+    {
+      "id": "facade-wind-driven-rain",
+      "title": "Lluvia batiente · exposición y absorción en fachada",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "curve-number-runoff",
+      "title": "Escorrentía SCS · número de curva y volumen",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "rational-drain-capacity",
+      "title": "Drenaje pluvial · caudal racional y capacidad de tubería",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "bioretention-event-balance",
+      "title": "Biorretención · almacenamiento y vaciado por evento",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "rainwater-storage-simulation",
+      "title": "Captación pluvial · cisterna, cobertura y rebose",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "snowmelt-swe-balance",
+      "title": "Deshielo · grados-día, caudal equivalente y reserva nival",
+      "suite": "hydraulics",
+      "relatedSuites": []
+    },
+    {
+      "id": "bankfull-channel-screen",
+      "title": "Restauración fluvial · capacidad a cauce lleno",
+      "suite": "hydraulics",
+      "relatedSuites": [
+        "ecology"
+      ]
+    },
+    {
+      "id": "activated-sludge-monod-cstr",
+      "title": "Lodos activados · reactor CSTR con cinética de Monod",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "iron-media-arsenic-adsorption",
+      "title": "Arsénico · lecho de óxido de hierro con capacidad de ruptura",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "trickling-filter-loading",
+      "title": "Filtro percolador · recirculación y cargas de diseño",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "treatment-wetland-area",
+      "title": "Humedal construido · área por cinética k–C*",
+      "suite": "wastewater",
+      "relatedSuites": []
+    },
+    {
+      "id": "mbr-process-membrane-sizing",
+      "title": "MBR · reactor biológico, sólidos y área de membrana",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "membranes"
+      ]
+    },
+    {
+      "id": "streeter-phelps-river-oxygen",
+      "title": "Ríos · curva de oxígeno disuelto Streeter–Phelps",
+      "suite": "water",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "id": "river-discharge-mixing-limit",
+      "title": "Vertido a río · mezcla completa y concentración admisible",
+      "suite": "wastewater",
+      "relatedSuites": [
+        "water"
+      ]
+    },
+    {
+      "id": "pool-chlorine-residual-decay",
+      "title": "Piscinas · residual de cloro, HOCl y exposición integrada",
+      "suite": "water",
+      "relatedSuites": []
+    },
+    {
+      "id": "ozone-pilot-bromate-screen",
+      "title": "Ozonación · transferencia, CT y bromato de ensayo",
+      "suite": "water",
+      "relatedSuites": []
+    }
+  ],
+  "changes": [
+    {
+      "id": "ptar-activated-sludge",
+      "title": "PTAR · Dimensionamiento de lodos activados",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "stabilization-ponds",
+      "title": "Lagunas de estabilización y remoción de DBO",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "risk-conesa",
+      "title": "Evaluación de riesgo · método Conesa",
+      "from": "safety",
+      "to": "impact"
+    },
+    {
+      "id": "retention-time",
+      "title": "Tiempo de retención hidráulica",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "bod-cod",
+      "title": "Biodegradabilidad · relación DBO₅/DQO",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "rational-runoff",
+      "title": "Caudal pico · método racional",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "analysis-standards",
+      "title": "Comparador de límites ambientales",
+      "from": "analysis",
+      "to": "metrology"
+    },
+    {
+      "id": "ultimate-bod-estimation",
+      "title": "DBO última · cinética de primer orden",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "liquid-water-properties",
+      "title": "Agua pura · densidad y viscosidad",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "boiler-blowdown-balance",
+      "title": "Calderas · purga y ciclos de concentración",
+      "from": "energy",
+      "to": "industrial-water"
+    },
+    {
+      "id": "membrane-ro-diagnostics",
+      "title": "Ósmosis inversa y NF · diagnóstico y área preliminar",
+      "from": "water",
+      "to": "membranes"
+    },
+    {
+      "id": "modified-fouling-index",
+      "title": "Índice MFI · ajuste del tramo de filtración",
+      "from": "water",
+      "to": "membranes"
+    },
+    {
+      "id": "carbonate-pure-water-co2",
+      "title": "CO₂ en agua pura · equilibrio abierto",
+      "from": "water",
+      "to": "industrial-water"
+    },
+    {
+      "id": "finance-water-cashflows",
+      "title": "Finanzas de proyectos · anualidades, tasas y crecimiento",
+      "from": "impact",
+      "to": "sustainability"
+    },
+    {
+      "id": "tank-geometries",
+      "title": "Geometría de tanques · volumen útil y nivel",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "equalization-storage",
+      "title": "Tanque de ecualización · curva acumulada",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "municipal-design-flow",
+      "title": "Demanda municipal · dotación y caudal de diseño",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "rain-harvest-volume",
+      "title": "Precipitación · volumen y captación aprovechable",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "pipe-darcy-loss",
+      "title": "Tuberías · Reynolds y pérdida de carga Darcy–Weisbach",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "open-channel-flow",
+      "title": "Canales abiertos · Manning y número de Froude",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "orifice-flow",
+      "title": "Placa de orificio · caudal por diferencial de presión",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "flume-rating-curve",
+      "title": "Canaletas Parshall y Venturi · curva de aforo",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "activated-sludge-operations",
+      "title": "Lodos activados · IVL, F/M, SRT y retorno",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "clarifier-solids-loading",
+      "title": "Clarificador · carga hidráulica y de sólidos",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "ion-exchange-softening",
+      "title": "Ablandamiento iónico · resina, ciclo y regeneración",
+      "from": "water",
+      "to": "industrial-water"
+    },
+    {
+      "id": "filter-hydraulic-loading",
+      "title": "Filtración · tasa superficial y flujo de membrana",
+      "from": "water",
+      "to": "membranes"
+    },
+    {
+      "id": "membrane-series-balance",
+      "title": "Membranas en serie · recuperación y balance salino",
+      "from": "water",
+      "to": "membranes"
+    },
+    {
+      "id": "membrane-permeability",
+      "title": "MF/UF · permeabilidad y corrección de viscosidad",
+      "from": "water",
+      "to": "membranes"
+    },
+    {
+      "id": "silt-density-index",
+      "title": "Pretratamiento de membranas · índice SDI",
+      "from": "water",
+      "to": "membranes"
+    },
+    {
+      "id": "biological-nutrient-train",
+      "title": "Diseño biológico · lodos activados y tren A²/O",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "oxygen-aeration-design",
+      "title": "Aireación · oxígeno real, aire y potencia",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "nutrient-reagent-demand",
+      "title": "Nutrientes · carbono, alcalinidad y precipitación de P",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "settling-solids-flux",
+      "title": "Clarificador secundario · curva de flujo de sólidos",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "wastewater-residuals-balance",
+      "title": "Residuos de planta · sólidos, torta y retornos",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "wastewater-headworks-sizing",
+      "title": "Cabecera y captación · rejas, canales y redundancia",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "anaerobic-load-methane",
+      "title": "Tratamiento anaerobio · carga, volumen y metano",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "ion-exchange-equivalent-sizing",
+      "title": "Intercambio iónico · carga equivalente, resina y regenerante",
+      "from": "water",
+      "to": "industrial-water"
+    },
+    {
+      "id": "high-purity-sampling-plan",
+      "title": "Agua de alta pureza · plan de muestreo y brechas",
+      "from": "metrology",
+      "to": "industrial-water"
+    },
+    {
+      "id": "water-evidence-comparison",
+      "title": "Evidencia de calidad · efluente, reúso y agua de enfriamiento",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "post-ro-co2-conditioning",
+      "title": "Acondicionamiento post-RO · diferencia de CO₂ y carga",
+      "from": "water",
+      "to": "industrial-water"
+    },
+    {
+      "id": "pipe-continuity-basis",
+      "title": "Base de diseño de tubería · continuidad y Reynolds",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "pipe-pressure-evidence",
+      "title": "Tubería · contraste de presión admisible por temperatura",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "influent-design-loading",
+      "title": "Afluente de PTAR · escenarios hidráulicos y cargas",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "source-water-design-data",
+      "title": "Agua bruta · estadística ponderada por condición",
+      "from": "analysis",
+      "to": "water"
+    },
+    {
+      "id": "cooling-tower-cycles",
+      "title": "Torre de enfriamiento · balance de agua y LSI medido",
+      "from": "water",
+      "to": "industrial-water"
+    },
+    {
+      "id": "water-plant-energy-profile",
+      "title": "Perfil hidráulico · HGL, EGL y energía de bombeo",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "pipe-total-pressure-drop",
+      "title": "Tramo de tubería · fricción, accesorios y elevación",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "actuator-torque-envelope",
+      "title": "Actuador neumático · margen de par por ángulo",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "air-valve-profile-screen",
+      "title": "Válvulas de aire · puntos altos y separación geométrica",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "membrane-two-solute-design",
+      "title": "RO y NF · balance por etapas y mezcla de derivación",
+      "from": "water",
+      "to": "membranes"
+    },
+    {
+      "id": "ufmf-train-cycle-sizing",
+      "title": "UF/MF · trenes, ciclo y agua neta",
+      "from": "water",
+      "to": "membranes"
+    },
+    {
+      "id": "swro-energy-recovery",
+      "title": "SWRO · energía específica y recuperación de presión",
+      "from": "energy",
+      "to": "membranes"
+    },
+    {
+      "id": "piping-topology-workbench",
+      "title": "Topología de tuberías · importación PCF, continuidad y materiales",
+      "from": "water",
+      "to": "hydraulics"
+    },
+    {
+      "id": "industrial-pretreatment-mass",
+      "title": "Pretratamiento industrial · dosis, remoción y sólidos",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "ecological-footprint",
+      "title": "Huella ecológica · demanda de biocapacidad",
+      "from": "climate",
+      "to": "sustainability"
+    },
+    {
+      "id": "forest-carbon-stock",
+      "title": "Carbono forestal · existencias e incremento",
+      "from": "ecology",
+      "to": "climate"
+    },
+    {
+      "id": "life-cycle-inventory",
+      "title": "Ciclo de vida · inventario multicriterio por unidad funcional",
+      "from": "impact",
+      "to": "sustainability"
+    },
+    {
+      "id": "environmental-economic-value",
+      "title": "Economía ambiental · valor económico total y daño esperado",
+      "from": "impact",
+      "to": "sustainability"
+    },
+    {
+      "id": "environmental-policy-appraisal",
+      "title": "Política ambiental · evaluación costo-beneficio",
+      "from": "impact",
+      "to": "sustainability"
+    },
+    {
+      "id": "environmental-monitoring-plan",
+      "title": "Monitoreo ambiental · cobertura y calidad de datos",
+      "from": "analysis",
+      "to": "metrology"
+    },
+    {
+      "id": "environmental-toxicology-dose",
+      "title": "Toxicología ambiental · dosis y cociente de peligro",
+      "from": "safety",
+      "to": "health"
+    },
+    {
+      "id": "environmental-health-burden",
+      "title": "Salud ambiental · carga atribuible a una exposición",
+      "from": "safety",
+      "to": "health"
+    },
+    {
+      "id": "green-building-leed",
+      "title": "Edificación sostenible · hoja de créditos LEED",
+      "from": "impact",
+      "to": "sustainability"
+    },
+    {
+      "id": "microbial-growth-biodegradation",
+      "title": "Microbiología ambiental · Monod y biodegradación",
+      "from": "water",
+      "to": "wastewater"
+    },
+    {
+      "id": "environmental-resource-performance",
+      "title": "Sostenibilidad ambiental · balances e intensidades",
+      "from": "climate",
+      "to": "sustainability"
+    },
+    {
+      "id": "sustainable-development-targets",
+      "title": "Desarrollo sostenible · seguimiento de metas",
+      "from": "impact",
+      "to": "sustainability"
+    }
+  ],
+  "summary": [
+    {
+      "id": "soil",
+      "name": "Suelos y remediación",
+      "count": 17
+    },
+    {
+      "id": "water",
+      "name": "Agua, calidad y potabilización",
+      "count": 55
+    },
+    {
+      "id": "wastewater",
+      "name": "Aguas residuales y reúso",
+      "count": 31
+    },
+    {
+      "id": "hydraulics",
+      "name": "Hidráulica e hidrología",
+      "count": 25
+    },
+    {
+      "id": "membranes",
+      "name": "Membranas y desalinización",
+      "count": 13
+    },
+    {
+      "id": "industrial-water",
+      "name": "Agua industrial y alta pureza",
+      "count": 9
+    },
+    {
+      "id": "waste",
+      "name": "Residuos sólidos",
+      "count": 9
+    },
+    {
+      "id": "air",
+      "name": "Aire y emisiones",
+      "count": 23
+    },
+    {
+      "id": "energy",
+      "name": "Energía y renovables",
+      "count": 22
+    },
+    {
+      "id": "climate",
+      "name": "Clima, meteorología y carbono",
+      "count": 21
+    },
+    {
+      "id": "ecology",
+      "name": "Ecología & Biodiversidad",
+      "count": 28
+    },
+    {
+      "id": "impact",
+      "name": "Impacto, riesgo y cumplimiento ambiental",
+      "count": 15
+    },
+    {
+      "id": "sustainability",
+      "name": "Sostenibilidad y economía ambiental",
+      "count": 12
+    },
+    {
+      "id": "health",
+      "name": "Salud ambiental y toxicología",
+      "count": 3
+    },
+    {
+      "id": "safety",
+      "name": "Seguridad y salud en el trabajo",
+      "count": 6
+    },
+    {
+      "id": "noise",
+      "name": "Acústica y ruido",
+      "count": 8
+    },
+    {
+      "id": "metrology",
+      "name": "Laboratorio, monitoreo y metrología",
+      "count": 7
+    },
+    {
+      "id": "conversion",
+      "name": "Unidades y conversiones",
+      "count": 2
+    },
+    {
+      "id": "decision",
+      "name": "Decisión Multicriterio",
+      "count": 14
+    },
+    {
+      "id": "analysis",
+      "name": "Análisis & Estadística",
+      "count": 9
+    },
+    {
+      "id": "spatial",
+      "name": "Geografía & Territorio",
+      "count": 9
+    },
+    {
+      "id": "population",
+      "name": "Población y demografía",
+      "count": 1
+    }
+  ]
+}

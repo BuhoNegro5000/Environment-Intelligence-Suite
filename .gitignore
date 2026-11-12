@@ -1,0 +1,8 @@
+.venv-science/
+__pycache__/
+*.pyc
+.opencode/
+envix-reference/
+assets/vendor/webr-0.6.1.tgz
+.DS_Store
+Thumbs.db

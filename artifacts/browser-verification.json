@@ -1,0 +1,22 @@
+{
+  "status": "histórico",
+  "note": "Estado previo a la consolidación del conversor central (11/11/2026). El registro actual tiene 339 herramientas; las nueve rutas unit-* anteriores redirigen a #/tool/unit-converter/<magnitud>. Los conteos de este archivo corresponden al barrido original.",
+  "totalTools": 348,
+  "newTools": 316,
+  "routesVerified": 348,
+  "mobileVerified": 316,
+  "consoleErrors": 0,
+  "externalRequests": 0,
+  "checks": [
+    "all defaults",
+    "reports",
+    "CSV download",
+    "invalid inputs clear exports",
+    "comma decimals",
+    "persistence",
+    "meteo file import and leap day",
+    "spatial selection and buffer",
+    "mobile overflow",
+    "dark and light screenshots"
+  ]
+}

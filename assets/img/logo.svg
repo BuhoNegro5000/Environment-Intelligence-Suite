@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Green Owl Labs">
+  <defs>
+    <linearGradient id="ear" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#A6F26B"/>
+      <stop offset=".55" stop-color="#5FC13E"/>
+      <stop offset="1" stop-color="#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="head" x1=".15" y1="0" x2=".85" y2="1">
+      <stop offset="0" stop-color="#3E9B3D"/>
+      <stop offset=".5" stop-color="#22622A"/>
+      <stop offset="1" stop-color="#0E3318"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6BD04A"/>
+      <stop offset="1" stop-color="#2C7C33"/>
+    </linearGradient>
+    <linearGradient id="iris" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C6F76E"/>
+      <stop offset="1" stop-color="#7ED957"/>
+    </linearGradient>
+    <linearGradient id="beak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D8FA8C"/>
+      <stop offset="1" stop-color="#57B443"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ear tufts -->
+  <path d="M16 43 22 7 51 31Z" fill="url(#ear)"/>
+  <path d="M112 43 106 7 77 31Z" fill="url(#ear)"/>
+  <path d="M23 32 26 15 41 29Z" fill="#0E3318" opacity=".22"/>
+
+  <!-- head shield -->
+  <path d="M64 12c27 0 46 19 46 46 0 31-20 52-46 60-26-8-46-29-46-60 0-27 19-46 46-46Z" fill="url(#head)"/>
+
+  <!-- face plate -->
+  <path d="M64 24c20 0 34 14 34 34 0 23-15 40-34 47-19-7-34-24-34-47 0-20 14-34 34-34Z" fill="url(#face)" opacity=".55"/>
+
+  <!-- brow -->
+  <path d="M24 45 64 64 104 45v10L64 74 24 55Z" fill="#0A2613" opacity=".92"/>
+  <path d="M24 42 64 61 104 42v4L64 65 24 46Z" fill="#A6F26B" opacity=".35"/>
+
+  <!-- eyes -->
+  <circle cx="45" cy="62" r="16.5" fill="#F6FFF8"/>
+  <circle cx="83" cy="62" r="16.5" fill="#F6FFF8"/>
+  <circle cx="45" cy="62" r="9.6" fill="url(#iris)"/>
+  <circle cx="83" cy="62" r="9.6" fill="url(#iris)"/>
+  <circle cx="45" cy="62" r="4.9" fill="#08180E"/>
+  <circle cx="83" cy="62" r="4.9" fill="#08180E"/>
+  <circle cx="41.5" cy="58.5" r="1.9" fill="#FFFFFF"/>
+  <circle cx="79.5" cy="58.5" r="1.9" fill="#FFFFFF"/>
+
+  <!-- beak -->
+  <path d="M64 70 71.5 83 64 98 56.5 83Z" fill="url(#beak)"/>
+  <path d="M64 70v28l-7.5-15Z" fill="#0E3318" opacity=".18"/>
+
+  <!-- feather facets -->
+  <path d="M64 104 44 92l7-9 13 9 13-9 7 9Z" fill="#0A2613" opacity=".35"/>
+  <path d="M64 112 34 96l8-7 22 13 22-13 8 7Z" fill="#0A2613" opacity=".22"/>
+  <path d="M28 70c4 18 11 27 20 34l-8 3c-9-9-13-21-14-35Z" fill="#A6F26B" opacity=".10"/>
+  <path d="M100 70c-4 18-11 27-20 34l8 3c9-9 13-21 14-35Z" fill="#A6F26B" opacity=".10"/>
+</svg>

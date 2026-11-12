@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green Owl Labs · Suite de herramientas ambientales</title>
+<meta name="description" content="Herramientas científicas de suelo, agua, aire, clima, ecología, decisión multicriterio, estadística y territorio. En español y sin subir datos.">
+<link rel="icon" href="assets/img/green-owl-labs-mark.png" type="image/png">
+<meta name="theme-color" content="#f5f7f8">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/lab.css">
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/css/calculator.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar" aria-label="Navegación principal">
+    <a class="brand" href="#/">
+      <div class="calc-brand"><img src="assets/img/green-owl-labs-mark.png" alt="" width="42" height="42"><span><strong>Green Owl Labs</strong><small>Banco científico</small></span></div>
+    </a>
+
+    <div class="side-note">
+      <span class="dot"></span>
+      <div><b>Local-first</b><small>Sin envíos a servicios externos</small></div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-foot">
+      <button class="side-action" id="themeBtn" type="button">
+        <span class="side-action-ico" id="themeIco">◐</span>
+        <span id="themeLbl">Tema claro</span>
+      </button>
+      <a class="side-action" href="#/metodo">
+        <span class="side-action-ico">§</span><span>Método y privacidad</span>
+      </a>
+      <div class="version">v1.3 · <span id="sideCount">0</span> herramientas</div>
+    </div>
+  </aside>
+
+  <div class="scrim" id="scrim"></div>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Abrir menú">☰</button>
+      <div class="crumbs" id="crumbs"></div>
+      <div class="top-actions">
+        <button class="search-trigger" id="searchBtn" type="button">
+          <span class="search-ico">⌕</span><span>Buscar herramienta…</span><kbd>Ctrl K</kbd>
+        </button>
+        <a class="ghost-btn only-desktop" href="#/favoritos">★ Favoritos</a>
+      </div>
+    </header>
+    <div class="view" id="view"></div>
+    <footer class="foot">
+      <div><b>Green Owl Labs</b> · Environmental Intelligence Suite</div>
+      <div>Cálculos reproducibles · Datos que no salen de tu equipo · <button class="linkbtn" data-open-method>Metodología</button></div>
+    </footer>
+  </main>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot" class="toast-root" aria-live="polite"></div>
+
+<script src="assets/js/core.js"></script>
+<script src="assets/js/branding.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/tools/safety-math.js"></script>
+<script src="assets/js/geo.js"></script>
+<script src="assets/js/tools/helpers.js"></script>
+<script src="assets/js/tools/soil.js"></script>
+<script src="assets/js/tools/soil2.js"></script>
+<script src="assets/js/tools/soil3.js"></script>
+<script src="assets/js/tools/soil-extra.js"></script>
+<script src="assets/js/tools/water.js"></script>
+<script src="assets/js/tools/water2.js"></script>
+<script src="assets/js/tools/air-energy.js"></script>
+<script src="assets/js/tools/air-energy2.js"></script>
+<script src="assets/js/tools/impact.js"></script>
+<script src="assets/js/tools/safety.js"></script>
+<script src="assets/js/tools/safety2.js"></script>
+<script src="assets/js/tools/metrology.js"></script>
+<script src="assets/js/lab.js"></script>
+<script src="assets/js/r-runtime.js"></script>
+<script src="assets/js/tools/science-physical.js"></script>
+<script src="assets/js/tools/science-ecology.js"></script>
+<script src="assets/js/tools/science-spatial.js"></script>
+<script src="assets/js/tools/science-decision.js"></script>
+<script src="assets/js/tools/science-impact.js"></script>
+<script src="assets/js/tools/science-analysis.js"></script>
+<script src="assets/js/tools/science-workflows.js"></script>
+<script src="assets/js/tools/science-pluto-base.js"></script>
+<script src="assets/js/tools/science-pluto-chemistry.js"></script>
+<script src="assets/js/tools/science-pluto-engineering.js"></script>
+<script src="assets/js/tools/science-pluto-hydraulics.js"></script>
+<script src="assets/js/tools/science-pluto-process.js"></script>
+<script src="assets/js/tools/science-atlas-base.js"></script>
+<script src="assets/js/tools/science-atlas-biological.js"></script>
+<script src="assets/js/tools/science-atlas-evidence.js"></script>
+<script src="assets/js/tools/science-atlas-hydraulics.js"></script>
+<script src="assets/js/tools/science-atlas-membranes.js"></script>
+<script src="assets/js/tools/science-atlas-piping.js"></script>
+<script src="assets/js/tools/science-atlas-treatment.js"></script>
+<script src="assets/js/tools/science-dw-base.js"></script>
+<script src="assets/js/tools/science-dw-performance.js"></script>
+<script src="assets/js/tools/science-dw-process.js"></script>
+<script src="assets/js/tools/science-dw-wastewater.js"></script>
+<script src="assets/js/tools/science-solver-base.js"></script>
+<script src="assets/js/tools/science-solver-carbon.js"></script>
+<script src="assets/js/tools/science-solver-environment.js"></script>
+<script src="assets/js/tools/science-solver-management.js"></script>
+<script src="assets/js/tools/science-solver-resources.js"></script>
+<script src="assets/vendor/turf/turf.min.js"></script>
+<script src="assets/vendor/proj4/dist/proj4.js"></script>
+<script src="assets/js/spatial-ops.js"></script>
+<script src="assets/data/spatial-basemap.js"></script>
+<script src="assets/js/spatial-projects.js"></script>
+<script src="assets/vendor/leaflet/leaflet.js"></script>
+<script src="assets/js/tools/science-map.js"></script>
+<script src="assets/js/tools/taxonomy.js"></script>
+<script src="assets/js/tools/science-signal.js"></script>
+<script src="assets/data/bmwp-original.js"></script>
+<script src="assets/js/biotic.js"></script>
+<script src="assets/js/tools/biotic-workbench.js"></script>
+<script src="assets/js/tools/bioacoustics.js"></script>
+<script src="assets/js/units.js"></script>
+<script src="assets/js/tools/unit-converter.js"></script>
+<script src="assets/js/tools/science-renwaves-buildings.js"></script>
+<script src="assets/js/tools/science-renwaves-generation.js"></script>
+<script src="assets/js/tools/science-renwaves-management.js"></script>
+<script src="assets/js/tools/science-nova-base.js"></script>
+<script src="assets/js/tools/science-nova-air.js"></script>
+<script src="assets/js/tools/science-nova-aqi.js"></script>
+<script src="assets/js/tools/science-nova-climate.js"></script>
+<script src="assets/js/tools/science-nova-comparisons.js"></script>
+<script src="assets/js/tools/science-nova-ecology.js"></script>
+<script src="assets/js/tools/science-nova-hazards.js"></script>
+<script src="assets/js/tools/science-nova-hydrology.js"></script>
+<script src="assets/js/tools/science-nova-water.js"></script>
+<script src="assets/js/catalogue-data.js"></script>
+<script src="assets/js/classification.js"></script>
+<script src="assets/js/solver360-catalogue.js"></script>
+<script src="assets/js/plutocalc-catalogue.js"></script>
+<script src="assets/js/atlas-catalogue.js"></script>
+<script src="assets/js/digital-water-catalogue.js"></script>
+<script src="assets/js/renwaves-catalogue.js"></script>
+<script src="assets/js/novasolver-catalogue.js"></script>
+<script src="assets/js/catalogue.js"></script>
+<script src="assets/js/calculator-ui.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

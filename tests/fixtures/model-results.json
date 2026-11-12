@@ -1,0 +1,823 @@
+{
+  "defaults": {
+    "mass-emission": "078d4d8ae5152b1c2b7bf44358c25c69cc264f2e784b49f77f00ba77b2c22f84",
+    "activity-emission": "72fc05b77a83c7ae2373a72a91869480100d07afcdf7e942a31687401006ddb8",
+    "stack-flow": "23d1006c892d153d07dd51e2ff485fd2a6f5de41454b0766443d43fbe029a3a1",
+    "stack-concentration": "252edbc72336ee975e26aa215f6e2508792ddda0a761213e5613a6c921fb500e",
+    "stack-velocity": "c0b4b2872842bf84779e696ba2498b264e4167f026735583e9a9fe600bb32a2b",
+    "flare-effective": "adc5c2092d478b5b9a4c0ebdeb9461bfa73909ed24f0f0c70a3e93bf99caa915",
+    "gas-ppm": "2d04b84b230b9483c9e9a8f52f03b486cb2bf6020606eefadc0def8b6b31aeb6",
+    "gas-ppb": "288c1acfe72f5b7bd34064fa1f68518ed9a71ce921b5a6daeeed3ee603031bc7",
+    "noise-point": "73af62c0db85661f2f329e13ce97aa6d6e1a3ec627acf739a67df34a8f95c0d4",
+    "noise-line": "8aab481c7369bae15504aa29a6e2b02e95e82772074a625ebfaab476f27c0d5d",
+    "noise-sum": "e88f8edd5cf8607cbee532b2e708a2499115893776be7a59f59a5fb15dde4682",
+    "sound-power": "4c91141bfdde4f8a57a280e0eef4e52d9a79cb3354fe5c097be13243d42f061b",
+    "noise-barrier": "a97960b17a2e80ddc06d5812c029b892f221bdc568796ca4d8cb74fcb8f3a778",
+    "ccme-wqi": "a1fa340c8bf2510c701922a6625d433693f54f89ce398059ba525dcfac4b5d18",
+    "seawater-density": "234d6f3be1f5c8c1e5ddd84a8a29ab5688fac3093ac816cf8767a0ae8b89f058",
+    "water-load": "bbd1ba36168d54d9a3c5c3a2dc9ab3b38afc6fb372afc8f4d13f10212f4506d1",
+    "retention-time": "e275a5c5902b45dab47f4c0e776adc7057240ad539a5b0b83cc278129f8ba298",
+    "water-hardness": "e126f033f5c8ce312741e0dd0a2f0bcc9dfc0a555b93c54e3fd507c0f008bba4",
+    "bod-cod": "efb8a78faced52497eef57b6b3f1c23364e06cc7272660d4aabff2ea570f56cf",
+    "soil-porosity": "7f1a490318805e4d8805fbc6e94fc7c610ada8c8d28a5499eaf1525ff000be81",
+    "soil-moisture": "91edbbb0747b6e847459c36e76bbf8a4638a1b94559aa0c25028ec082e6026db",
+    "soc-som": "0a75284b0c22488ad344bd5c21e828c435b56c59671ce96e792587427cbcb47c",
+    "waste-generation": "f30d0dd41195add3b62e41d57f1b87976b85fcbd20db44b93dfe32b5e3ce4fc2",
+    "landfill-volume": "d387eb646a37b07f4ed8675c926da1fac151d1e74bf875b676a96aba916be5e1",
+    "waste-diversion": "11052da6b8596fec8c0fd2bedda27270ffa507ce41da0d5ae811cb3b262fc4ed",
+    "carbon-co2": "510fa9cc2295b383eb6798a3a7331eadb756703b953d9fe77991b96c5fc9a0ea",
+    "alkalinity": "870e944ddcb03378eee8f8af5fb30fb1eddf14c0c34b206857e78ba1d18a03a5",
+    "overflow-rate": "de9d7e1d94b45bd052a7668461df0a34b5a7bbdbb3a2908fbcfe137a807d44ef",
+    "rational-runoff": "14c1528bb6f660e05255292bd16af8ffd0db83f4fc915fb04e1074df4904c682",
+    "removal-efficiency": "453be8117cf5bea7b136e3e58ac887e83b9fb66c9d9217ecba7de61e35bde0b1",
+    "solar-energy": "3b5fd0f9c12017a3adbe82d271248ea134d5f2b8b7e5d60fa56d02f1a9172636",
+    "dilution": "c2dda0a704ff267321fec5e3f2312c06b43883ba2eac64680c506f1c31501ff4",
+    "first-order-decay": "3f9278e26c0f41b67c4f34e97b19ecef9598abcb86a8a93aba80583fe7d634e3",
+    "soil-sar": "94dbdfb461154a39c4e05de4f53092fb5bc47eaa455e39985b389d62e6851544",
+    "aridity-unep": "4b2c316081add6d5335dbb986989e1bfe8e7ded351bfe1c7bb45728cbc104e62",
+    "aridity-demartonne": "4bcec179242f2c577c5716f5d4ad2f6c76cd69221cb406ec432eb6b746859756",
+    "vegetation-change": "86387a6e1c04208ec3240949f3f3c5d494a56025835c61a05c15e3c9c038da3f",
+    "heat-index": "3a6e69f8c8008fd0b1c08b706e1710bc328535e54ecd2cc896563ccfaff79308",
+    "wet-bulb": "64392a1eca9b5bf315af3d90b3eee2238f408cf6b8031c9b77d9fc97ff89129e",
+    "dew-point": "1292438698777c3b52804720d0689344892ddd1f7eba772eef82749671911a0d",
+    "diversity-community": "7e947f9e85883724fba057d66824aca8a056da040608dc471e198ffe11ac661f",
+    "diversity-shannon": "229d68b720c61a4a839d19ba13c03f2e8dfd5298de0c6e2e7b1fabd90b5e698f",
+    "diversity-simpson": "22bf839e46bbe0dc909b685b22c1c390f31e3a256526f06ac9930ef8cc027e1c",
+    "diversity-pielou": "d6685119e19e851a247a9a6765c557fc30a2ac3b0f7acf020bc5472d354ea5c6",
+    "richness-margalef": "330dff895feb1b2a6cd2b661d9a35513613974d9b8b2561df30424297135235f",
+    "richness-menhinick": "1fd54c986b79aaa3b739956f1fce0e898631e54d2252d77f7c265d953bc27bee",
+    "dominance-berger": "781d96e223f3b2da6195f73c8c192244354b74b8b0879424aa71b607b2ec9895",
+    "relative-abundance": "5f856b09d05627be70f3fd496ca3e8efedd826a8ec5c75fb996e49b9a0783015",
+    "ept-index": "d8a733bf070cdbd72a467101db67e823628678e83df7aeaace0e652428fb5ddb",
+    "hilsenhoff-fbi": "27d3b1ea3ee84d7f80db52d81b9035a613cc2075298c14238aee6d5cb346b14a",
+    "bmwp-aspt": "daa3e8d3e7064fd60b177680d102d2ce3a82d412d3ece66f61acaaeda645573b",
+    "similarity-jaccard": "25dc27cf252bf5340b2a5d0459a454acd892ed3e585fd4bc02c602953162fe1d",
+    "similarity-sorensen": "909f85dee7f23ec69eb07c431b7fd5874ebed5018a18fb54dbe3477973f891fe",
+    "dissimilarity-bray": "ec757f74fe8691d92085ad296e15a53042063203cefad0fd3ac99ab13e730a94",
+    "diversity-whittaker": "6d298a67e281918619812b8934e0cffccf6a88b949fdabbdee136b7b929b5844",
+    "richness-chao1": "8fb2d4b5c0f1f26a9acd34ad2748dece58e9530920a5e6cedad3b2f1f36d079e",
+    "geo-distance": "488500abf3af8e0299ca2ec0705e2f54e3906c35293b0d400f77149c7496fee0",
+    "geo-bearing": "e1d40fd195de74a45370b263072bc9dfb493722eef9d9e747ec6a0c1c2fb0a8b",
+    "geo-midpoint": "b85b7ee8b38ed7557574f3128efd223fc553dc56cbb4a6f4fdb69a6ac931af53",
+    "geo-buffer": "3df257e642c5a492c7cd501e02715673f2bae0a2a5d40b47f17dd2b12a0d8aa1",
+    "geo-dd-dms": "b9eeae016dd9c5ba86b348c40d281f6ff96b25dd1fb14c6f2414507001710b36",
+    "mcda-wlc": "014d41348df80ca52768e31a148010bf37e3518937b81e17d7cda0ece752d702",
+    "mcda-topsis": "17a39087ee35a9fee906f6d7853fd298b6c3a9063992e84e04cd015065b1d724",
+    "mcda-vikor": "7f6318b8b6740952a54a9235f4a346db58c9667caca17f893254c68eac9a30a3",
+    "mcda-waspas": "16af4968d574c739e25ea99df042d728dadec5fc712dddc236f58941d67a508e",
+    "mcda-owa": "1076fb5c638a78868bd60a1e0e294858af852bd205222b0090dfaa44cc57355d",
+    "mcda-promethee": "1948baaca8c34cc3da3420176ee050f1642f93cbc3851c24782848decfa762fc",
+    "mcda-electre": "6ef716d348ad4c2f8fef26adebe84fb1b152da88532ef371b158de5e34e30bb8",
+    "mcda-ahp": "9fb2e11314b75531168187a170a381bf3be4a39cd784fb27c786321de96b4a09",
+    "mcda-fuzzy-ahp": "04ec7906bf19f3ab52ee6bc9c7a3de3cf1072e9f2d2798aa4bd99ae9da134468",
+    "mcda-anp": "888775c9af4ab5f67632f5a596856f9598a6b57b5c3f3f40c5d0a38bda7eea27",
+    "mcda-swara": "ab112c34fb836fd80699423be49f6a6dea21ec07b2b160a4e65bc8dc18edc822",
+    "mcda-dematel": "5a1f9484ca2179ef369c9da7984a131f465a1e4327973af62632e256ab687bd1",
+    "mcda-fuzzy-dematel": "2b927863b1a04af71cad465863fc137e3b0b6562c09b31a672ca231eaaab2277",
+    "mcda-fuzzy-topsis": "8035dd054eb325a09ad3255751665b1ad3cbffcbf809e19240de95c44ae8745f",
+    "impact-weighted": "14879e86da811edbc0e8896c5bec9b7e5e9a3b597b397f8a9c41890050d1d2d5",
+    "impact-riam": "291c50115d2d8501511c7d47f33f546906ab374ca088fd5567e8140f4213c97e",
+    "impact-iranian": "3b85a7501d9a563833a2a3c67d0a3cf06abdfcfdd4b2adab1bc8444ec5189cac",
+    "impact-checklist": "dbed4d94204b0dd3ffcb5bf0222c3aed0ba5ff43fdd1325a3de2827c2b4f47f3",
+    "risk-fmea": "27337da174f1298eb0cc9bf7680c5e9f4ef8122458fe8a749f06a113e4729f50",
+    "risk-efmea": "a12805e5dbb574752c2b1248f63ba5b8797a4511637d6cec232b76321a41d1a1",
+    "analysis-statistics": "97bad3ada6fc78d961fa2e52707c19a7db91bc10a10b849d9fd9f758a5b20904",
+    "analysis-r-builder": "a836ae27224dcbbd1dc82d32da80968c61e31c9e840d32a4171e8ed3dc513352",
+    "analysis-timeseries": "331d69bb3c29358ba931d4abc5713351db1b00ce0d0efb796b58042f55d71d2c",
+    "analysis-regression": "c7ba7986ee6835aaaeab6cbc3ccd87983f9c8d4a1e36945a30b62046afd8bdac",
+    "analysis-pca": "2d07c5c55ec9d15f09a37560f7aee327e7cc466790054a2973d584dee90b863f",
+    "analysis-qaqc": "53ef6a35ec8e12987e5d931f795de76c4b19172fc671697dc93613bbde81573d",
+    "analysis-sampling": "39b7a754cd945344b37041e84cbd3f0cc7cf9c42fdd2b4312c96a8287a4978fa",
+    "analysis-spatial": "faa8466023e0e561f7866bbeca1a6b4ab363d946411f94f7878f1ff427acf607",
+    "analysis-standards": "7f9d59871f4500831e98ed7902ef856d0caa3038107b84dcefd3bdf0b308a7cb",
+    "ghg-co2e": "e41f90e5ad2e40688ace48db317dd3f6eae0dd828a545e2b3b0a1e30f65b293a",
+    "meteo-hourly": "5a71b3d4aeaec76f8b9f2cfb698e87859baa8e12100a1efdc42435b7addb8707",
+    "industrial-stack-lab": "308837e6d0db6526ba0091e9676a0962be1b64d18de83c7676100bcf309cb996",
+    "population-lab": "b46d9e5ff83c03081ab43e48edff56fcb94c48b0f16dea196d6b94da79ddfa9c",
+    "conductivity-resistivity": "5ec3bff7e32cde5a60e3a9a1203e8bc4774b44f667253d3bd32472d9264f0c7f",
+    "water-ion-balance": "178de3a6a66bca145ab416645d267358e70138a50e76e894f6da38fc0966bbc9",
+    "calcite-saturation-indices": "8b23af3bfd48a576523e25897af381a955d4a56e30938a7993bea2571c39b4c3",
+    "ammonia-water-equilibrium": "88436b79ef4bc7d5cf426aebc75f86d071aa0d5daa9091e50a8905ffec8ff5ad",
+    "water-acid-speciation": "edd95dc0e9204a2affea6a950da6c186be90daf816d793ec7b34346c36ac2672",
+    "oxygen-water-saturation": "46048ca384b96e2e281d27fe54905306a38a89042c9b988a4f74fb3d882b31a1",
+    "disinfection-contact-ct": "d921a68f05b7fcc69305cb242fa46d9fde6eef7757a4d7e386624b5ebd5060aa",
+    "uv-disinfection-dose": "f6d42208bc9727ebf37869487e40caa99e5633f64ac24b8ef1d1ca3ad26317d1",
+    "metal-oxidation-sludge": "7dafe66cbe12356860dd9108b6f0a13c52301537a7435afc5b14e3248b9733cd",
+    "water-ph-titration-dose": "eabc2b7ec5c506cbb608fb25ac0bea9f874961deeced2dc17f0e846b51a4e18b",
+    "ultimate-bod-estimation": "5f26f74f3ec96c11e774a0d3918c67159b4acea39ceba279fb51607cd2f32861",
+    "liquid-water-properties": "d2cd42b226fbbdda9ed50b0de806bb56454188f2c5c45654ef1c5687164468ff",
+    "gas-state-density": "36e5ceb09008022ff99e90510f13284f56cbff03796bd3a58edefc10685f8b93",
+    "boiler-blowdown-balance": "ff6a968cc100b97c3da20c31046ecae6c46deeab1cbf34d88da293e7252f9c52",
+    "membrane-ro-diagnostics": "fc25a00fad8b4dba762290fa1247db038e8fdb16737f122ca7187284d19c1456",
+    "modified-fouling-index": "ed94bd9dc3ed428af5465969b257ef8fd6ba26dc92899f16897f17ec63e72e09",
+    "filter-backwash-expansion": "832588010cc85d48dcc34d568a74e0629f671c279ff78f677aa548d1b9e4f686",
+    "carbonate-pure-water-co2": "270c6b86694db0f1d89987e4538bcd8d1ea2f1ad186dc0f54cf469275a64c82d",
+    "finance-water-cashflows": "b7a5960998afd79dfee331210e7713983e735160ac9394f96907b144175fc7d1",
+    "triangle-geometry": "249c5fc4fa3acf216785f79663f6bc990d76d5574005cb86fcba2baeaaaab237",
+    "tank-geometries": "8ec3bdbf8561f4f073edf8c1422ce006b1359776f01d48df32a98bc18ee67e8e",
+    "equalization-storage": "d9f68e5cc114f70a5026ac466c65082525bafe32c44d29f291417ed1ee6d3a97",
+    "municipal-design-flow": "800d19c894b3a3066f540f79eb0df2cc0fb223064dbacfa50793fa7206b47616",
+    "rain-harvest-volume": "935798f65acf4b8a4e1127175c456d03d4017026248958fde5976da9fc4a48e7",
+    "pipe-darcy-loss": "af4642c0010db406dc420c83f34ec5583f32e58af8b87d3ffdb3300a73667927",
+    "pump-duty-power": "3e091889d79eb4ee757e4a0dea2860b22a2c1b169a8dd6d2744095f125dab781",
+    "blower-duty-power": "cf73d39380f0c6c7a51b22746820b8d91eda0992e82cef13e565908ce7c7f035",
+    "open-channel-flow": "f03356393addee02e32ba325772bf5e77bb3057db5aae8f033eadf3bf92e08e2",
+    "orifice-flow": "37a37dde52624b55997d9cde1cac164b96d8732332463dd7b365f91c5c5557de",
+    "flume-rating-curve": "f5106894175c1f16a7da39338f96214b21bd7a71217758bfc45d661a838e7209",
+    "mixing-velocity-gradient": "416ddb8b4b464d1b7d9fbb104ec8df1b3bf0dc920b4fa640cf22fa47ab24768f",
+    "chemical-dosing-stock": "6ca582cfb7b63924d8381e5b91114008f4c283dff90e8c4d75039d6cc7c71fdb",
+    "molar-solution-preparation": "12b322998ab1e0329e9fdc80e31402942d82c0074aa471dc29a1ab16412cde1c",
+    "stream-blending": "59e0803d4cba1b17b5876e4e3bce415e8ecb9241cd1a6794156c26649d7fbb84",
+    "activated-sludge-operations": "4fba0cb03030ce58275c7d46bfe088d13c39694c6ff377fcb749fdaf95b049b7",
+    "clarifier-solids-loading": "ac9022a806db2c41cf50aac383fd416f044c4f739e520b7b065da7a60a17d902",
+    "stokes-settling": "9c7df34ba983653fafb1685ec1dda5fc5d4eddfa7abde3639a8c0b4bbb7196f5",
+    "bed-contact-capacity": "a901e57e7668f64c66773ece5c9d9aa01d94013724c610cd07ae60866e7ffd9b",
+    "ion-exchange-softening": "dbd23bb9393361bea3470ffc053c1a887f739dbd12a7c444c30810ae80b07419",
+    "filter-hydraulic-loading": "6234ef4fe053ac044592ae64788f5d5d77152768610094abbffee1d5cd513c0e",
+    "membrane-series-balance": "27996bd5e1281f2bdd56db05dbfbd54f2e8f4607d6a74315c16251d21bc9fc24",
+    "membrane-permeability": "871290fa1d538df91239c2635c5273f26e3eb8abe24dd1d357bd38765c1c2696",
+    "silt-density-index": "c61297f6ce4a1541c189d47ba93a5d7fb0572375264de9e38bc5a19c4a282211",
+    "granular-bed-headloss": "ef1bf7be5c799c6bd328cc4d236debe873b96f1077e8930cbbf84946e41adc52",
+    "biological-nutrient-train": "b084ee5de08cb22f228d365550eecfbeb9f86a4dd2a349df13e4b5365ce3ef75",
+    "oxygen-aeration-design": "3587d3ddb55ee49f296da74f1822cfd4082062304a197e97f44d765d38768d8c",
+    "nutrient-reagent-demand": "20c127c2a3d3e92ef978717063ef4b9d21390b56a3ce714b79e1e56fd6cae494",
+    "clarifier-duty-screen": "b8919c6daccdbee0c52427caa5d54c54b0a69b90f48f637c8e507c58a72d54ec",
+    "settling-solids-flux": "87999e2a9a34e6e41222831230c61ac473a84eed52d4d3177c92c12becd07426",
+    "wastewater-residuals-balance": "a75214e1c6a7d8c0df46e2e299faa6a883ac3bb733a44dc015eb6657aeef24c2",
+    "wastewater-headworks-sizing": "1e3cb86fe1cb69bd6d37cf2e9cdb661f16c5db043be7a5c81ccf5e429ec463a3",
+    "anaerobic-load-methane": "ac2352c808707a8b7944370b8a7c144d9cc6e80fc03e491a48a2e786b23987e3",
+    "daf-air-solids-screen": "6f0e76f651f50e1ae62d8d6b5d8f8f5d159dbe6b35d80afe88308d830cab018f",
+    "ion-exchange-equivalent-sizing": "afa46a857f7034e33cfe05da3a6d6dbfa8f93c7dfeae509fa6124537ed4eef5d",
+    "high-purity-sampling-plan": "0a211a98c7d9f40c82d8ad6be704924192dbe4ec58512530236c4a19ef326810",
+    "water-evidence-comparison": "a0e285d106338ee324a49149f4975e8ffc0c2ee88b91e9ac48c7266b4bdee2c9",
+    "post-ro-co2-conditioning": "efddb49caef870c5af630b89085f4a5a096353f7175a81481b69bc72dbeab611",
+    "pipe-continuity-basis": "43f03130a2c28c466e913db6cd79be1460d66cf9cd1960462dd0e8138140c6df",
+    "pipe-pressure-evidence": "1739cabd47109ddc919110c75196f3b2bb97341c6813f96a8e63eb2932d44def",
+    "pfas-lab-evidence": "02832659e539f63a372425819e89d68d24bf44ebe7f401335894a001a7f6959e",
+    "pfas-lead-lag-inventory": "c4edf61da2e130530dc9ecc4efc9ebf0ad4af8d8177fa2cf333c0a13d35ad186",
+    "plant-network-balance": "6ef5d4cdbd6033a1ea34d6355725e8422dffd439b77606a02bcb3674c9471cf1",
+    "influent-design-loading": "5e054a28310b5c56f6ff28cf2c17aa8451a992680fe74dccf645c2f228a322b6",
+    "source-water-design-data": "e3515fa0ec31395802ec3aa12b6a557330a0c06b313263b91b13f0c439095b2a",
+    "cooling-tower-cycles": "ed74bb6f056fef6ad257055e30a5adf5a5e093cadf2056b0fe1fcc511f33c1ad",
+    "water-plant-energy-profile": "2195ad69170843f962808bdf09466ca083f8b130be10b98585380cd00a1ce064",
+    "pipe-total-pressure-drop": "3a5250e0489f70c9b0e49c0dc64879afb701ecb54067ff24d7c7fed834ecf6d2",
+    "actuator-torque-envelope": "c0f1338bb427376bba0f0a11d4b3477f2c446bfd5ee136b6f790bdef6f73bf4e",
+    "air-valve-profile-screen": "2e542ede80eee5b2d07487840adfe6552805baa477678f8926885298f53f5a99",
+    "clearwell-inventory-turnover": "3dd1fbbcef04ce4cdfce76c623199547c1e82c1dd38b2da4bd9ac2c3c8357366",
+    "membrane-two-solute-design": "0e17209c11a943b4f623eba43b6c1e4ddfc5ed3b012a6a2472c74c3afee3f240",
+    "ufmf-train-cycle-sizing": "2321034e575f05d0a7cf92120f1f1ade3f20607b053ec9755987ab14d0ba0827",
+    "swro-energy-recovery": "ba43ae0040ae7b293803567589b9d21d6e999aab85612a6b9f41fd5355302590",
+    "gac-bed-breakthrough": "1dd7b85143c5d07dce34d2b18a5a63c84082c438683834a8f69d4d53f84b1c7d",
+    "adsorption-isotherm-fit": "7ccbd220cf5809e379e655a29ddd1785172ab85907a1a9783b25bbbe256d54a6",
+    "piping-topology-workbench": "45b23e0075e0dd40760e1165e50842ada65191808d33e3b0c440bfca3ae98866",
+    "chemical-feed-storage-duty": "6eb19eef0fe4aa3bd52b14e0ef69ce8ec97f5431f7b2242bd231810a006dd727",
+    "jar-test-coagulation-design": "75a414c5c7be1da7d8e22a4bae63e862040517165dd28b476b69f2bf8cc4cffa",
+    "industrial-pretreatment-mass": "1cedac9d0adad5f99bd056a2d048d05d818de882d0825f54e6facb431fe3ac9b",
+    "granular-filter-bank": "2dcf05f8b23495e680689e95059b6393b06ed204ca735db91d6d182049d5c7a8",
+    "contact-tank-residual-design": "4cbfb5802dc502f5427df3cb987878923cd6a1b8a7dfd78bbe2aacf57708253d",
+    "uv-reactor-bank-design": "98fe013224982897ec590b84c6889d54036e78f0514748dff02f871fa80822e2",
+    "ozone-generator-contact": "ccbaee471bd83e489082b046146f4c2cae7b001a35281c85fdc845289fc9eb4c",
+    "carbonate-water-stability": "ddd8c5303e4a2e8e0cee80b3992d7ad9d3488858d5df998aacf229e6257a3821",
+    "improvement-project-roi": "a20b0956c57a3116348cee23c4eeef36083d1867c8d9d9136b44548b929fb0cc",
+    "plant-oee-availability": "bfed092fb150c261d1365d7bbaba8a45bfeaef5d86912c5004807788b90329fd",
+    "water-specific-energy": "83752171c58bd0c1e715967cf7b19c37942d570f5612f5c7dde9006a57a615c6",
+    "pump-measured-efficiency": "e018332fbfebde022af929dc894423c52bfd85180f76caab04ba4dc88fa30f7a",
+    "industrial-water-intensity": "bdd1dc2aa09d30a2feb04ea2afede2caacccf4c51dd751fc66e6fce0ef36b2bc",
+    "chemical-cost-intensity": "db496c8334f40818b197fafb1a82eca2331c3a5f93eaeb2bfcde767c02b6212e",
+    "heat-exchanger-effectiveness": "6712dee3d24292e714e612665e9ea130d26423c591cfb1c323d05a9e24db3f98",
+    "hydraulic-capacity-utilization": "273bffdd2c1cdbf0be77aed3a9a6915db4df67851128bd3e14137373e28abbb5",
+    "alkalinity-fractionation-pm": "a7559f6140bdfadaa18c180818d3bad986b717733a3ea0e5efa1be4219895256",
+    "cooling-tower-water-losses": "14176fe063551fad61b25f636071579dce6d451c379a585688004fcf3473fb0e",
+    "boiler-blowdown-quality-limit": "8b3455ecdde1ace7b7611ee729498ed13535958bf4e7724d9ad36d372cc90895",
+    "membrane-observed-recovery-rejection": "befa2fb1c0a1afd3e7e193442b1e48d20c30883b84a95d1ebe162eaebe610693",
+    "membrane-normalized-flux-forecast": "626d6ac9487af4152bdd8464088cc063ccd87acb334c92773e593f8a5058bf3e",
+    "tds-conductivity-estimate": "f0fcf56a6c8508e76ba34441013ecc966a8ce89eacad349ce4545c1c6f6c4d2f",
+    "chlorine-active-dose": "4c360b9f8d979e65289ca4acd17e0324988ae0282287507505eb95a08ad1537a",
+    "sludge-specific-generation": "a7a6fdf22cca7456c51fbec91d64c78f7923b026dcb727079e258e2eab31d8c0",
+    "aerator-surface-field-power": "2fb0e9aef690692c364853f79b811366f7ec676772ac3e91ca583d7b6225fd7c",
+    "settling-column-sst-capture": "fdc328cc5abdd88a892868809e4bdf49c6259326ac007ea60179c734564cc251",
+    "nitrification-nitrogen-balance": "bb2a33ac3a56ceec75b94d09ccef5cfaa40907c2f14ac14fad9cc388c14650e3",
+    "organic-reactor-loading-pe": "0d3a15a29e551c559c56d9f76d466cdd81ab0c54e6948e8413aa6f6f9a20d777",
+    "wastewater-project-flows": "424830ae33c043ab99f41f96f0cfbb031cc9ab11f6acf0a4dfe6b5aa3503348d",
+    "pollutant-process-mass-balance": "159e040617771165718f7fd23a6eae236cd8049c82d1a31dfc3c7e7d24cac565",
+    "biological-carbon-nutrient-ratio": "a2763ee63e440bcaa3dcc340ca3066e1cc3b5eff4beb875d41047fecbc2cf797",
+    "household-carbon-footprint": "4ab6fa23965646e893f188c315ffa3e7f7c8ca48fc4c8070d79b6a11eb0e4219",
+    "ecological-footprint": "ef9758273e6b46455ff5c31c808bbd4f9a97227acd4052862a31f8f654b682d8",
+    "energy-efficiency-investment": "34d0c1a647c88270a168db7439e219dc06c41343e9dfc0040dcb2b009679395e",
+    "climate-scenario": "7451786f18a5e5fc8b0afe458af71434491254444fd0817b18580e763d2e66f6",
+    "climate-anomaly-forcing": "4a389cc3eec5412572a807a7b3e1f82c3b4ae5d4dd9d52c00a4877c8801277fb",
+    "forest-carbon-stock": "8fff5613153cc129dcc1025e23798f4b169c07da75639f634b30f244154fff5c",
+    "land-use-carbon": "2903740f4e1efa5042ad8730ad34c95088838025f04c3b8a84338ff8f0ae8f40",
+    "renewable-generation": "aade8fc089f6278dfb4b5e731c0e850a0c4caf59863d2ac5425559b3cf567477",
+    "transport-emissions": "160b663f96e4ec1184ed177befdc968955c5df30e4cbb4098d2e6f0507dc01d1",
+    "ozone-depleting-emissions": "02488710301ab2415d31b4bdc46929d4c36b3c85772c944b89f8c55052840aea",
+    "urban-heat-island": "a3b888a155fda088e55e34743675790b99fe02e76c357512e41bd7c3179def1a",
+    "life-cycle-inventory": "01420773ebb8e5d96da5a4d2be76c8dcc0660361a8577084f06f44913c448e8a",
+    "soil-rusle": "5371d5eabfabb570213a0e2752666eddd258a9f546485874017cab0199567777",
+    "agricultural-impact": "a13e44d80b5cbb353a7c37cacb4405c1f0160aad7878088667e2f1e7cd942551",
+    "water-weighted-index": "3298f1426568e2a462b8f36f94baceacdd105f9168fd02fb11f6f92cc2819dc2",
+    "water-pollution-mixing": "ca2f9b7823956a69c8a8e7f8c6dbd35c97dd790c4b4ff5f21e4ccd9500336edd",
+    "water-footprint": "dd606624e73aac54983089a977c3b14592e69bb3dca4ce3ef816a081ad5c3d51",
+    "water-conservation": "405518645c53f3d2289f9f6bd275a7bad459f3a4f1801e565891350e3766cde5",
+    "acid-deposition": "d2b7976841e16bb4e478f24fb6c6a189fc12bd8b0a514f7095b07092e9584c82",
+    "air-emission-inventory": "589cf3f5d4cce2cf7d16abdcbed8bf87e12151d2729f5af03d9f3f4ac837ff65",
+    "environmental-chemistry": "b44b4909e3f3d6f882cf114808c98643ed4362d5df825a74b8dbd4276a3fea9a",
+    "environmental-geology": "24bff1440983de35f09582875642d0b81f912c9f81bf2a4ab30256fec9628ca4",
+    "lake-trophic-state": "ececad757180f6b09b9a8f64f30c8433d9b3cb11cca9d492a47f6eccfb968ebd",
+    "environmental-meteorology": "cf55008cb4239ca405bf4b4bba722ec7f60e7b2876f9733d8c3dfe24075b7355",
+    "environmental-oceanography": "df79ec5a3deedc01416288bde79fd68fb9009c7cb6c23e21f47943df66da8b4f",
+    "environmental-physics": "ff7cc58555b61f17c047b94b7036a261725e3b4b5d5be11e33bc9f618694d5ce",
+    "ocean-carbonate": "835dd11119f59e8eeab92332fe3f75aae4894198307509da6ae00d52e993bc2f",
+    "noise-exposure-level": "89f8049b1f818ac8264a0c423377a9b219aa915ce8a459a17e0718c72e2fd650",
+    "ecosystem-services-value": "709ecebf3b80bf2d483281534e2f3c94e2b596b2c9caf748783f495eaf46691a",
+    "environmental-economic-value": "d2877db94c5c19097b2d593652e2506d77a75e20daf395137e03cbb945b1aa32",
+    "environmental-policy-appraisal": "d6951890d5f8c49ae12e34d8ffbb60b5f291d7b66ad8823f96b4d063d4866f8f",
+    "environmental-compliance-check": "0ac9a22063c11f0830ef6eba7af68c4fd3b25947f805ff0d436fc2a0a52debd0",
+    "environmental-monitoring-plan": "fbec49d76dc024417f97370776149910a2b31bff7461bbc112fe73b772f43183",
+    "environmental-impact-scenarios": "72ac6dd4ea2b5e680df814a5637990bb5e329f018fb629c7aa158752d8201093",
+    "environmental-risk-scenarios": "61e36afa015744d8d4d560f8fdce8d7d61c115fe266bb3f606280cfe7211e295",
+    "environmental-remediation-plan": "5d70a0233bb3f0e2840987b3692e25b37e829cf8cf771f2e12ee1f3c77ca28e8",
+    "environmental-toxicology-dose": "358c6e4e852790df1a3847488f1cad795f70cfa07a2e788effc3421e6158ca89",
+    "environmental-health-burden": "2f29f9f2abe7f847617bb3e52a2956d711e180a32d6cf97360e9533e0ecdd69b",
+    "green-building-leed": "240e65199762a0011ebd683406fa1bf17904cc4c953e69a0e7e0b9462c255022",
+    "waste-treatment-balance": "b3e2e9f578eff0d9dfad1a1591c243851bfd6785f0962e6cd1a2fd5d8a6b0252",
+    "waste-reduction-benefits": "76d0a69742bc495b4afcf9993605473501df40f07aca655395f4655b91ebe4c5",
+    "plastic-material-flow": "3ffd62d11800bcbe3dd6fdc65b6d8a6753c7257c9e1b667316c9c43392c76ad0",
+    "desertification-indicators": "3d3bb4b06b17eb9dd4a8f88a7f800dd67e2c1e5d603af8a2a58f4e9ab1922885",
+    "ecosystem-population-energy": "4dbd3aefd7549c224d257ae2824e6acc8fa30a3ab98b91f2f5ce613677e6fc8f",
+    "microbial-growth-biodegradation": "7cad1eb178482f4efd673478d047199397869f23ca8be40bc3625efab2d884a3",
+    "environmental-resource-performance": "fc73f02d44030177b2a869b258f29f2aceb548076e1c35d8b67e7833e5c1666a",
+    "sustainable-development-targets": "9a7d8675f2a8414de07a127852ccf59d873c18c260ac040d3fd9cdf7a14ae058",
+    "signal2": "39c608489a4e507b7d64c86b4af3aeca086e8dc6977387fe537a7fdb9e8c130b",
+    "building-hvac-loads": "1085d15a889ebf4f3ac72ffc7f6eb255aea455d611a63e3e99261178af86fe6a",
+    "building-annual-energy": "50a7c088bf2f5a69599c65860ef0d6c6d45387ab08a5d77cdff08fc01250dc9d",
+    "smart-building-controls": "dad7cb17ea62af482e4f219b97d1b49558252c792497646a767c86549a08a037",
+    "pv-monthly-resource": "55a7c67e82b5589139b49cbe98c18e195992c69970229b5cb26ad14598c2a859",
+    "pv-roof-appliances": "3cc9d68287a66f5919edbcc93640c8ee2c6ccd0e10fa33e34e90c7d4d1ead244",
+    "battery-backup-sizing": "21dc5c598ab11040309fd444c38f8968df254b652ef5dde7dfb3e372aecbbfbb",
+    "ev-charging-load": "bab9ae5acdf03dc7e49acd73c86c718e9c6efb57dc2472e603f114ce3bc1dded",
+    "building-energy-audit": "41ead1c6b029a58b74a4b7f74c1b5fdd91afe540873d375d65b9f2df98d708a4",
+    "energy-equipment-budget": "249e94c65a8541a60b500e8179683bd2c20dc9f4d908533020d013dde8a6075b",
+    "electricity-tariff-comparison": "ee6b56e9d086fd2f61e3c344c685f09137dd21375f1a1aecc00cef3aef06bb65",
+    "cleanroom-particle-recovery": "5cd535bb3e60313c076558d45f54cc2a101e264b75d022cd4162ba7b21418d9e",
+    "voc-biofilter-bed": "506ed3ee5223b7a81602695c24df1e90939a316372d120d4b07d74e3e1703cfd",
+    "venturi-scrubber-grade": "32472825d2d57c0289ba882efbe9898787a47b375dc72c5c49d3324f3364f1db",
+    "indoor-radon-ventilation": "30d7984b8d11bbe0b3adc654f94be81fcc9b13189026034c18824a4a9cdf4654",
+    "floating-roof-rim-seal-loss": "97569cd39594e8e348a42afafbce24d79654ad118fc5ee57caaa59d61cef6ebc",
+    "epa-air-quality-index": "81eade99c6263a58eef6c23391efc09b093552921aeaf3c5b7f39253f668fdca",
+    "greenhouse-radiative-forcing": "65a662693c4fb0b09ad66e1b4cfe8f97d6302e3062d0c3c84c798cfc48493212",
+    "landfill-methane-deposition-series": "c78b7441691813354ad94aaf123f9a9682db7efa5062b4ab2b76f5ceedaab998",
+    "net-zero-emissions-path": "b03e09439cc2da74718c4757f662cef316e309778de6b828122735a48bc76b35",
+    "amine-co2-absorber-screen": "3f76d48907088ec8ffe8a141743d7ab0cec62b31c82b468b54d744fcdb9267d1",
+    "direct-air-capture-net": "02112ca6fea9e7a318e703db4a36ffb45ba40907a491ee7a4f765ff58e799552",
+    "glacier-elevation-mass-balance": "89c0caaba89af677e81782cd2fe958fe480dc01934ea3af7a7ab3557475d9ace",
+    "membrane-mwco-curve": "801cb02e4e0e5031814517f09007dc0b029bb3b3c95c2110c31c92d3650509f4",
+    "seawater-desalination-technology": "3d2e8d6e517f04b2cccb75221c650c1b5792c5420127c713420963b6d1e5845f",
+    "ozone-depleting-stock-scenario": "071fd7a6ee0f5fc6c5c43c8dc33aaedbe704c886176181d3c9287470bdea9500",
+    "urban-heat-island-scenario": "941f2e6250cff12fddf419a47112cce0cb32f5646cc3e4a18be85f1b14fd79a2",
+    "fishway-hydraulic-screen": "0c7cbaf41ab63aad59b65ff528619313414d10e7cb6866306b596d2f9df2e195",
+    "pond-aerator-oxygen-balance": "378ffc5eb1745eafa2d58166e1b5827d753107d4b48653eb668a7b189ff39a33",
+    "fishery-surplus-production": "5bdcc624c69ebbcfc2a18bb5ec62ada237ff581161c4493f0319fd423d3ea23e",
+    "forest-tree-allometry": "b31c5102dc30cf65f6871d6d925aea7cc81180605738ab7ba0896c431ce89d90",
+    "cropland-nitrate-leaching": "41be9d9ea389360460bec07f7e398ff1589bd1c44de1279736eecd4e36b92a4f",
+    "soybean-emergence-thermal-time": "b22c70d19f0ccb6347620fc62f786db862930a28f85f5f16d4eca8727d5079a9",
+    "cylindrical-atmospheric-icing": "03d8e83412b26af487688b1dde255ba6a38b32cecd63282a9d93a3985c738baf",
+    "avalanche-alpha-beta-profile": "534f678421c722b6ea6018e4dff802e4205d4f672e7290a6745bdc1945d7264d",
+    "tsunami-solitary-wave-runup": "69c690e8497b8a477114111f3740b38cf574a16db94bf3859033a30020e17115",
+    "tornado-debris-force-screen": "5e90dacd1f2275dc17b4ee16d017afe2b02483dad542ddd4dfb81f779ac95240",
+    "facade-wind-driven-rain": "ae46f419d84c3b7643d85d8cb0ea144ca73b3999bfba666987464e644d8f6000",
+    "curve-number-runoff": "70b10a1fa276dfc7fab2b5b344c8cb351dd9988a45cc6635600fb865cb30170d",
+    "rational-drain-capacity": "e3f1e7d898947bd44214feb8c11ac3a1e1940bf147df59e6a6a9bf40289d5096",
+    "bioretention-event-balance": "90a3166a52f90b9430321c63d6de035e2a37cbddd0cf6ed11e78e30bd419b7a3",
+    "rainwater-storage-simulation": "529895723eb861dddcdfda487c6578a07810e566c712445c7018e5d913bba9e6",
+    "snowmelt-swe-balance": "841eab849c996d857d3237d4db52f24a8afae8deec7c3f80a0b9bffa0f0f6bdc",
+    "bankfull-channel-screen": "7547b67e39d0e49bb1d78eeab0f79b172c57e214e8bbb4dd80559bd668e8ea22",
+    "activated-sludge-monod-cstr": "9885a085630e50f50f71d2aa7e64b72ae00c88f68010c37dc2c7005b0f7810eb",
+    "iron-media-arsenic-adsorption": "5040d74efddcd805437d7162d2cd7146b8f590f6d724f936d263b7aa0c4f987c",
+    "trickling-filter-loading": "298d4c3c8ea5dd7f080eb8fa27ae9707c4d2a7faac45e8b673b1dc3e4b484830",
+    "treatment-wetland-area": "11fa9a0d974e8f42dda2741da3c04fdf16a6422efaa19bb1be3a7cc11a3069e6",
+    "mbr-process-membrane-sizing": "54c35d857172e25fbd374f75e0fdb4fbb9aeccd1aed5279d64d18d8451d0fa93",
+    "streeter-phelps-river-oxygen": "6e4584ab3cf5bcc643c4112d306c0c15e19fae1b9478b585c7dc713a2449f866",
+    "river-discharge-mixing-limit": "c50743aea2c94285a3883ee79366801707053628cc1ec092e88de5f74f776ebe",
+    "pool-chlorine-residual-decay": "e73e79acfc22dfb5c0b867fc653bc1b48b7f9d807b718596f06bb7265a3c1703",
+    "ozone-pilot-bromate-screen": "c9ec37baec5094fd858c29b3b1f5304c4342ae9cd3565c010941af7f6490f6f2"
+  },
+  "pilots": {
+    "mbr-process-membrane-sizing": {
+      "inputs": {
+        "q": 1750,
+        "peak": 2,
+        "bod": 240,
+        "mlss": 8500,
+        "volatile": 75,
+        "fm": 0.12,
+        "hrt": 7,
+        "srt": 22,
+        "purge": 9500,
+        "flux": 16,
+        "duty": 85,
+        "tmp": 22
+      },
+      "outputs": {
+        "metrics": [
+          [
+            "Área de membrana a punta",
+            10723.039215686276,
+            "m²"
+          ],
+          [
+            "Volumen biológico",
+            549.0196078431372,
+            "m³"
+          ],
+          [
+            "Retención a caudal medio",
+            7.529411764705882,
+            "h"
+          ],
+          [
+            "Inventario de sólidos",
+            4666.666666666667,
+            "kg"
+          ],
+          [
+            "Purga teórica",
+            22.32854864433812,
+            "m³/d"
+          ],
+          [
+            "Permeabilidad aparente a punta",
+            72.72727272727273,
+            "L/m²·h·bar"
+          ]
+        ]
+      }
+    },
+    "curve-number-runoff": {
+      "inputs": {
+        "rain": 112,
+        "cn": 86,
+        "lambda": 0.2,
+        "area": 3.8,
+        "tp": 2.2
+      },
+      "outputs": {
+        "metrics": [
+          [
+            "Lámina de escorrentía",
+            74.16618512796961,
+            "mm"
+          ],
+          [
+            "Volumen de escorrentía",
+            281831.5034862845,
+            "m³"
+          ],
+          [
+            "Pico indicativo",
+            26.64588760233962,
+            "m³/s"
+          ],
+          [
+            "Abstracción inicial",
+            8.269767441860461,
+            "mm"
+          ],
+          [
+            "Retención potencial",
+            41.3488372093023,
+            "mm"
+          ]
+        ],
+        "headers": [
+          "Lluvia (mm)",
+          "Escorrentía (mm)"
+        ],
+        "rows": [
+          [
+            0,
+            0
+          ],
+          [
+            2.8,
+            0
+          ],
+          [
+            5.6,
+            0
+          ],
+          [
+            8.4,
+            0.0004088934321492745
+          ],
+          [
+            11.2,
+            0.19391244870041094
+          ],
+          [
+            14,
+            0.6974556917237621
+          ],
+          [
+            16.8,
+            1.4588256724755624
+          ],
+          [
+            19.6,
+            2.436910340069569
+          ],
+          [
+            22.4,
+            3.5988972595261517
+          ],
+          [
+            25.2,
+            4.918279849291935
+          ],
+          [
+            28,
+            6.3734120097188525
+          ],
+          [
+            30.8,
+            7.946442879833113
+          ],
+          [
+            33.6,
+            9.622519985465123
+          ],
+          [
+            36.4,
+            11.389185065713482
+          ],
+          [
+            39.2,
+            13.235910328933594
+          ],
+          [
+            42,
+            15.15373847798464
+          ],
+          [
+            44.8,
+            17.135000388893218
+          ],
+          [
+            47.6,
+            19.17309157797925
+          ],
+          [
+            50.4,
+            21.262293654536887
+          ],
+          [
+            53.2,
+            23.39763053971041
+          ],
+          [
+            56,
+            25.5747518019856
+          ],
+          [
+            58.8,
+            27.789837324674906
+          ],
+          [
+            61.6,
+            30.039518889350965
+          ],
+          [
+            64.4,
+            32.32081527395879
+          ],
+          [
+            67.2,
+            34.63107822410149
+          ],
+          [
+            70,
+            36.96794723001662
+          ],
+          [
+            72.8,
+            39.32931147916131
+          ],
+          [
+            75.6,
+            41.71327769030335
+          ],
+          [
+            78.4,
+            44.11814279504456
+          ],
+          [
+            81.2,
+            46.54237063539391
+          ],
+          [
+            84,
+            48.98457200507024
+          ],
+          [
+            86.8,
+            51.44348748784155
+          ],
+          [
+            89.6,
+            53.91797264602775
+          ],
+          [
+            92.4,
+            56.40698519206866
+          ],
+          [
+            95.2,
+            58.909573840160554
+          ],
+          [
+            98,
+            61.42486858674431
+          ],
+          [
+            100.8,
+            63.952072210659686
+          ],
+          [
+            103.6,
+            66.49045281806397
+          ],
+          [
+            106.4,
+            69.03933728530173
+          ],
+          [
+            109.2,
+            71.59810547602576
+          ],
+          [
+            112,
+            74.16618512796961
+          ]
+        ],
+        "series": [
+          {
+            "name": "Escorrentía",
+            "data": [
+              [
+                0,
+                0
+              ],
+              [
+                2.8,
+                0
+              ],
+              [
+                5.6,
+                0
+              ],
+              [
+                8.4,
+                0.0004088934321492745
+              ],
+              [
+                11.2,
+                0.19391244870041094
+              ],
+              [
+                14,
+                0.6974556917237621
+              ],
+              [
+                16.8,
+                1.4588256724755624
+              ],
+              [
+                19.6,
+                2.436910340069569
+              ],
+              [
+                22.4,
+                3.5988972595261517
+              ],
+              [
+                25.2,
+                4.918279849291935
+              ],
+              [
+                28,
+                6.3734120097188525
+              ],
+              [
+                30.8,
+                7.946442879833113
+              ],
+              [
+                33.6,
+                9.622519985465123
+              ],
+              [
+                36.4,
+                11.389185065713482
+              ],
+              [
+                39.2,
+                13.235910328933594
+              ],
+              [
+                42,
+                15.15373847798464
+              ],
+              [
+                44.8,
+                17.135000388893218
+              ],
+              [
+                47.6,
+                19.17309157797925
+              ],
+              [
+                50.4,
+                21.262293654536887
+              ],
+              [
+                53.2,
+                23.39763053971041
+              ],
+              [
+                56,
+                25.5747518019856
+              ],
+              [
+                58.8,
+                27.789837324674906
+              ],
+              [
+                61.6,
+                30.039518889350965
+              ],
+              [
+                64.4,
+                32.32081527395879
+              ],
+              [
+                67.2,
+                34.63107822410149
+              ],
+              [
+                70,
+                36.96794723001662
+              ],
+              [
+                72.8,
+                39.32931147916131
+              ],
+              [
+                75.6,
+                41.71327769030335
+              ],
+              [
+                78.4,
+                44.11814279504456
+              ],
+              [
+                81.2,
+                46.54237063539391
+              ],
+              [
+                84,
+                48.98457200507024
+              ],
+              [
+                86.8,
+                51.44348748784155
+              ],
+              [
+                89.6,
+                53.91797264602775
+              ],
+              [
+                92.4,
+                56.40698519206866
+              ],
+              [
+                95.2,
+                58.909573840160554
+              ],
+              [
+                98,
+                61.42486858674431
+              ],
+              [
+                100.8,
+                63.952072210659686
+              ],
+              [
+                103.6,
+                66.49045281806397
+              ],
+              [
+                106.4,
+                69.03933728530173
+              ],
+              [
+                109.2,
+                71.59810547602576
+              ],
+              [
+                112,
+                74.16618512796961
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "epa-air-quality-index": {
+      "inputs": {
+        "pm25": "35,9",
+        "pm10": "68",
+        "o8": "78,533",
+        "o1": "160",
+        "co": "8,4",
+        "no2": "44",
+        "so1": "350",
+        "so24": "280"
+      },
+      "outputs": {
+        "metrics": [
+          [
+            "AQI de los datos evaluables",
+            200,
+            "AQI"
+          ],
+          [
+            "Categoría",
+            "Dañina",
+            ""
+          ],
+          [
+            "Contaminante y período dominantes",
+            "SO₂ · máximo diario de 1 h",
+            ""
+          ]
+        ],
+        "headers": [
+          "Contaminante y período",
+          "Concentración truncada",
+          "Unidad",
+          "Subíndice AQI"
+        ],
+        "rows": [
+          [
+            "PM₂,₅ · promedio 24 h",
+            35.9,
+            "µg/m³",
+            102
+          ],
+          [
+            "PM₁₀ · promedio 24 h",
+            68,
+            "µg/m³",
+            57
+          ],
+          [
+            "O₃ · máximo diario de 8 h",
+            78,
+            "ppb",
+            126
+          ],
+          [
+            "O₃ · máximo diario de 1 h",
+            160,
+            "ppb",
+            145
+          ],
+          [
+            "CO · máximo diario de 8 h",
+            8.4,
+            "ppm",
+            90
+          ],
+          [
+            "NO₂ · máximo diario de 1 h",
+            44,
+            "ppb",
+            42
+          ],
+          [
+            "SO₂ · máximo diario de 1 h",
+            350,
+            "ppb",
+            200
+          ],
+          [
+            "SO₂ · promedio 24 h",
+            280,
+            "ppb",
+            "Sin subíndice"
+          ]
+        ]
+      }
+    }
+  }
+}

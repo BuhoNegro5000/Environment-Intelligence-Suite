@@ -1,0 +1,36 @@
+{
+  "state": "complete",
+  "created": 1794366542.2921858,
+  "duration": 7.3,
+  "sampleRate": 48000,
+  "channels": 1,
+  "threshold": 0.25,
+  "detections": [
+    {
+      "start_time": 0.0,
+      "end_time": 3.0,
+      "species_name": "Poecile atricapillus_Black-capped Chickadee",
+      "confidence": 0.918446958065033
+    },
+    {
+      "start_time": 0.0,
+      "end_time": 3.0,
+      "species_name": "Haemorhous mexicanus_House Finch",
+      "confidence": 0.45412105321884155
+    },
+    {
+      "start_time": 3.0,
+      "end_time": 6.0,
+      "species_name": "Poecile atricapillus_Black-capped Chickadee",
+      "confidence": 0.8488947153091431
+    },
+    {
+      "start_time": 6.0,
+      "end_time": 7.30078125,
+      "species_name": "Baeolophus bicolor_Tufted Titmouse",
+      "confidence": 0.277884304523468
+    }
+  ],
+  "model": "BirdNET V3.0 ONNX fp32",
+  "finished": 1794366546.566061
+}

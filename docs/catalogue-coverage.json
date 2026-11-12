@@ -1,0 +1,1302 @@
+{
+  "consulted": "2026-11-10",
+  "source": "https://envix.ir/en/tools",
+  "description": "113 rutas nativas con estado de implementación y verificación por herramienta.",
+  "existingTools": 32,
+  "newTools": 316,
+  "totalTools": 339,
+  "entries": [
+    {
+      "catalogueNumber": 1,
+      "id": "air-quality-index",
+      "title": "Calidad del aire · ICA y comparación con ECA/OMS",
+      "suite": "air",
+      "implementation": "existente",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/air-quality-index",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 2,
+      "id": "mass-emission",
+      "title": "Tasa de emisión de una chimenea",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "Concentración y caudal deben compartir temperatura, presión y base seca/húmeda.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mass-emission",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 3,
+      "id": "activity-emission",
+      "title": "Emisiones por factor de actividad",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "Usa un factor documentado y unidades de actividad compatibles.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/activity-emission",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 4,
+      "id": "stack-flow",
+      "title": "Normalización de caudal de gases",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "La corrección por oxígeno es una base equivalente que conserva masa con la concentración corregida; no es el caudal físico de salida. Presiones absolutas.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/stack-flow",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 5,
+      "id": "stack-concentration",
+      "title": "Concentración de gases en condiciones de referencia",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "Gas ideal; oxígeno en base seca. No vuelvas a corregir datos ya normalizados.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/stack-concentration",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 6,
+      "id": "stack-velocity",
+      "title": "Velocidad de salida de chimenea",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/stack-velocity",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 7,
+      "id": "flare-effective",
+      "title": "Antorcha · parámetros efectivos de emisión",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "Pseudoparámetros de cribado SCREEN/AERSCREEN; no representan la geometría física de la llama.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/flare-effective",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 8,
+      "id": "gas-ppm",
+      "title": "Gases · ppm y mg/m³",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "Gases ideales; no usar para partículas. La unidad del campo de entrada cambia según el sentido seleccionado.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/gas-ppm",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "catalogueNumber": 9,
+      "id": "gas-ppb",
+      "title": "Gases traza · ppb y µg/m³",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "Gases ideales; no usar para partículas. La unidad del campo de entrada cambia según el sentido seleccionado.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/gas-ppb",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "catalogueNumber": 10,
+      "id": "noise-point",
+      "title": "Ruido · propagación de fuente puntual",
+      "suite": "noise",
+      "implementation": "nueva",
+      "scope": "Campo libre ideal; excluye reflexión, absorción atmosférica, terreno y obstáculos.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/noise-point",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 11,
+      "id": "noise-line",
+      "title": "Ruido · propagación de fuente lineal",
+      "suite": "noise",
+      "implementation": "nueva",
+      "scope": "Campo libre ideal; excluye reflexión, absorción atmosférica, terreno y obstáculos.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/noise-line",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 12,
+      "id": "noise-sum",
+      "title": "Suma energética de niveles sonoros",
+      "suite": "noise",
+      "implementation": "nueva",
+      "scope": "Fuentes incoherentes y mediciones representativas en el mismo receptor.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/noise-sum",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 13,
+      "id": "sound-power",
+      "title": "Potencia sonora desde presión acústica",
+      "suite": "noise",
+      "implementation": "nueva",
+      "scope": "Fuente puntual en campo lejano; presión referida a 20 µPa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/sound-power",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 14,
+      "id": "noise-barrier",
+      "title": "Barrera acústica · difracción simplificada",
+      "suite": "noise",
+      "implementation": "nueva",
+      "scope": "Aproximación de Maekawa para barrera delgada con receptor en sombra acústica. No incluye transmisión ni difracción lateral.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/noise-barrier",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 15,
+      "id": "ccme-wqi",
+      "title": "Índice de calidad del agua · CCME",
+      "suite": "water",
+      "implementation": "nueva",
+      "scope": "Introduce componentes F₁, F₂ y F₃ previamente calculados conforme al manual; no son concentraciones.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/ccme-wqi",
+      "relatedSuites": [
+        "metrology"
+      ]
+    },
+    {
+      "catalogueNumber": 16,
+      "id": "seawater-density",
+      "title": "Densidad superficial del agua de mar",
+      "suite": "water",
+      "implementation": "nueva",
+      "scope": "UNESCO EOS-80; superficie, 0–40 °C y salinidad 0–42. No aplica a grandes profundidades.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/seawater-density",
+      "relatedSuites": [
+        "membranes"
+      ]
+    },
+    {
+      "catalogueNumber": 17,
+      "id": "water-load",
+      "title": "Carga contaminante en agua",
+      "suite": "water",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/water-load",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "catalogueNumber": 18,
+      "id": "retention-time",
+      "title": "Tiempo de retención hidráulica",
+      "suite": "hydraulics",
+      "implementation": "nueva",
+      "scope": "Flujo estacionario y volumen activo; no representa cortocircuitos ni distribución de edades.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/retention-time",
+      "relatedSuites": [
+        "water",
+        "wastewater"
+      ]
+    },
+    {
+      "catalogueNumber": 19,
+      "id": "water-hardness",
+      "title": "Dureza total del agua",
+      "suite": "water",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/water-hardness",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 20,
+      "id": "bod-cod",
+      "title": "Biodegradabilidad · relación DBO₅/DQO",
+      "suite": "wastewater",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/bod-cod",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 21,
+      "id": "ghg-co2e",
+      "title": "Huella de gases · equivalencia CO₂e",
+      "suite": "climate",
+      "implementation": "nueva",
+      "scope": "Elige factores compatibles con tu inventario. Para combustión fósil con CO₂ basado en carbono total, evita contar dos veces la oxidación del metano.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/ghg-co2e",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 22,
+      "id": "heat-index",
+      "title": "Sensación térmica · índice de calor",
+      "suite": "climate",
+      "implementation": "nueva",
+      "scope": "Sombra y viento débil; no equivale a WBGT ni evalúa por sí solo la exposición laboral.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/heat-index",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 23,
+      "id": "wet-bulb",
+      "title": "Temperatura de bulbo húmedo · Stull",
+      "suite": "climate",
+      "implementation": "nueva",
+      "scope": "Aproximación a presión cercana al nivel del mar, −20 a 50 °C y HR 5–99 %; menor fiabilidad en extremos fríos y secos. No es bulbo húmedo natural ni WBGT.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/wet-bulb",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 24,
+      "id": "dew-point",
+      "title": "Temperatura de punto de rocío",
+      "suite": "climate",
+      "implementation": "nueva",
+      "scope": "Aproximación de Magnus respecto al agua líquida; no es punto de escarcha.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/dew-point",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 25,
+      "id": "soil-porosity",
+      "title": "Porosidad total del suelo",
+      "suite": "soil",
+      "implementation": "nueva",
+      "scope": "Porosidad total estimada; no distingue poros conectados.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/soil-porosity",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 26,
+      "id": "soil-moisture",
+      "title": "Humedad gravimétrica y volumétrica",
+      "suite": "soil",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/soil-moisture",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "catalogueNumber": 27,
+      "id": "soc-som",
+      "title": "Carbono orgánico y materia orgánica",
+      "suite": "soil",
+      "implementation": "nueva",
+      "scope": "1,724 es el factor convencional de Van Bemmelen; varía con suelo, material y método analítico.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/soc-som",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "catalogueNumber": 28,
+      "id": "waste-generation",
+      "title": "Generación específica de residuos",
+      "suite": "waste",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/waste-generation",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 29,
+      "id": "landfill-volume",
+      "title": "Volumen compactado de residuos",
+      "suite": "waste",
+      "implementation": "nueva",
+      "scope": "No incluye asentamiento, bermas, drenajes ni capacidad geométrica de las celdas.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/landfill-volume",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 30,
+      "id": "waste-diversion",
+      "title": "Tasa de aprovechamiento de residuos",
+      "suite": "waste",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/waste-diversion",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 31,
+      "id": "geo-dd-dms",
+      "title": "Coordenadas · grados decimales y DMS",
+      "suite": "spatial",
+      "implementation": "nueva",
+      "scope": "Coordenadas geográficas en grados, latitud −90…90 y longitud −180…180. Modelo esférico de radio 6371,0088 km; no reemplaza geodesia elipsoidal.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/geo-dd-dms",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "catalogueNumber": 32,
+      "id": "geo-distance",
+      "title": "Distancia entre coordenadas",
+      "suite": "spatial",
+      "implementation": "nueva",
+      "scope": "Coordenadas geográficas en grados, latitud −90…90 y longitud −180…180. Modelo esférico de radio 6371,0088 km; no reemplaza geodesia elipsoidal.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/geo-distance",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 33,
+      "id": "geo-bearing",
+      "title": "Rumbo inicial entre coordenadas",
+      "suite": "spatial",
+      "implementation": "nueva",
+      "scope": "Coordenadas geográficas en grados, latitud −90…90 y longitud −180…180. Modelo esférico de radio 6371,0088 km; no reemplaza geodesia elipsoidal.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/geo-bearing",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 34,
+      "id": "geo-midpoint",
+      "title": "Punto medio geográfico",
+      "suite": "spatial",
+      "implementation": "nueva",
+      "scope": "Coordenadas geográficas en grados, latitud −90…90 y longitud −180…180. Modelo esférico de radio 6371,0088 km; no reemplaza geodesia elipsoidal.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/geo-midpoint",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 35,
+      "id": "geo-buffer",
+      "title": "Área y perímetro de un buffer circular",
+      "suite": "spatial",
+      "implementation": "nueva",
+      "scope": "Geometría plana; usa un sistema proyectado local para construir buffers reales.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/geo-buffer",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 36,
+      "id": "iperc-matrix",
+      "title": "Matriz IPERC 5×5 · probabilidad × severidad",
+      "suite": "safety",
+      "implementation": "existente",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/iperc-matrix",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 37,
+      "id": "impact-weighted",
+      "title": "Significancia ambiental ponderada",
+      "suite": "impact",
+      "implementation": "nueva",
+      "scope": "Escalas de juicio experto. Define alcance, receptores, escenario y criterios antes de puntuar; el resultado no determina una aprobación ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/impact-weighted",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 38,
+      "id": "bioacoustics",
+      "title": "Bioacústica · reconocimiento de vocalizaciones",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "BirdNET acústico y geográfico V3 ONNX en CPU local. Filtro opcional por sitio y fecha, puntuaciones independientes, reproducción, revisión y exportación. Requiere el motor Python de la suite.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/bioacoustics",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 39,
+      "id": "taxonomy",
+      "title": "Explorador de especies y taxonomía",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "18 093 registros BirdNET+ v0.5. Nombres en 36 variantes de idioma, alias, identificadores, búsqueda, comparación, CSV y fotografías del proveedor con crédito bajo demanda.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/taxonomy",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 40,
+      "id": "diversity-community",
+      "title": "Panel de diversidad de comunidades",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/diversity-community",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 41,
+      "id": "diversity-shannon",
+      "title": "Diversidad de Shannon",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/diversity-shannon",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 42,
+      "id": "diversity-simpson",
+      "title": "Diversidad y dominancia de Simpson",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/diversity-simpson",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 43,
+      "id": "diversity-pielou",
+      "title": "Equidad de Pielou",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/diversity-pielou",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 44,
+      "id": "richness-margalef",
+      "title": "Riqueza de Margalef",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/richness-margalef",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 45,
+      "id": "richness-menhinick",
+      "title": "Riqueza de Menhinick",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/richness-menhinick",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 46,
+      "id": "dominance-berger",
+      "title": "Dominancia de Berger–Parker",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/dominance-berger",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 47,
+      "id": "relative-abundance",
+      "title": "Abundancia relativa por taxón",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/relative-abundance",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 48,
+      "id": "ept-index",
+      "title": "Riqueza y proporción EPT",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/ept-index",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 49,
+      "id": "biotic-workbench",
+      "title": "Evaluación biótica integrada",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Muestra única para H-FBI, BMWP/ASPT, EPT, SIGNAL2 OCP y diversidad. Perfiles de referencia y local seleccionables, alias y cobertura explícita por indicador.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/biotic-workbench",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 50,
+      "id": "biotic-library",
+      "title": "Biblioteca de referencias bióticas",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Consulta de taxones y alias, fuentes por puntuación, Hilsenhoff original, 85 registros BMWP originales y 33 grados SIGNAL2 OCP. Importación, edición y exportación de perfiles locales.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/biotic-library",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 51,
+      "id": "signal2",
+      "title": "SIGNAL2 · perfil OCP",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "33 grados OCP publicados, conteos agregados, ponderación por abundancia, índices simple y ponderado, exclusiones explícitas, informe y CSV. Sin clasificación regional automática.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/signal2",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 52,
+      "id": "hilsenhoff-fbi",
+      "title": "Índice biótico de Hilsenhoff",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Promedio ponderado por abundancia con tolerancias de Hilsenhoff original y perfil local opcional. Muestra trazable y porcentaje de individuos con tolerancia.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/hilsenhoff-fbi",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 53,
+      "id": "bmwp-aspt",
+      "title": "Bioindicación · BMWP y ASPT",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Suma por taxón presente y promedio ASPT, 85 registros del BMWP original, perfil local opcional y cobertura por taxón.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/bmwp-aspt",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 54,
+      "id": "similarity-jaccard",
+      "title": "Similitud de Jaccard",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/similarity-jaccard",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 55,
+      "id": "similarity-sorensen",
+      "title": "Similitud de Sørensen–Dice",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/similarity-sorensen",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 56,
+      "id": "richness-chao1",
+      "title": "Estimación de riqueza · Chao1",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/richness-chao1",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 57,
+      "id": "dissimilarity-bray",
+      "title": "Disimilitud de Bray–Curtis",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/dissimilarity-bray",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 58,
+      "id": "diversity-whittaker",
+      "title": "Diversidad beta de Whittaker",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Abundancias no negativas, esfuerzo de muestreo comparable y taxonomía homogénea. Los índices no son categorías automáticas de calidad ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/diversity-whittaker",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 59,
+      "id": "carbon-co2",
+      "title": "Conversión entre carbono y CO₂",
+      "suite": "climate",
+      "implementation": "nueva",
+      "scope": "Conversión estequiométrica de carbono elemental; no es una equivalencia de potencial de calentamiento.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/carbon-co2",
+      "relatedSuites": [
+        "conversion"
+      ]
+    },
+    {
+      "catalogueNumber": 60,
+      "id": "alkalinity",
+      "title": "Conversión de alcalinidad",
+      "suite": "water",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/alkalinity",
+      "relatedSuites": [
+        "conversion",
+        "industrial-water"
+      ]
+    },
+    {
+      "catalogueNumber": 61,
+      "id": "overflow-rate",
+      "title": "Carga superficial de sedimentación",
+      "suite": "water",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/overflow-rate",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "catalogueNumber": 62,
+      "id": "rational-runoff",
+      "title": "Caudal pico · método racional",
+      "suite": "hydraulics",
+      "implementation": "nueva",
+      "scope": "Cuencas pequeñas y lluvia uniforme; duración de lluvia igual o mayor al tiempo de concentración.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/rational-runoff",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 63,
+      "id": "removal-efficiency",
+      "title": "Eficiencia de remoción",
+      "suite": "water",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/removal-efficiency",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "catalogueNumber": 64,
+      "id": "solar-energy",
+      "title": "Energía a partir de irradiancia",
+      "suite": "energy",
+      "implementation": "nueva",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/solar-energy",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 65,
+      "id": "dilution",
+      "title": "Preparación de una dilución",
+      "suite": "metrology",
+      "implementation": "nueva",
+      "scope": "Mezcla ideal; afora al volumen final. La aditividad de volúmenes es aproximada.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/dilution",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 66,
+      "id": "first-order-decay",
+      "title": "Decaimiento de primer orden",
+      "suite": "water",
+      "implementation": "nueva",
+      "scope": "Constante fija, sistema homogéneo y ausencia de aportes adicionales.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/first-order-decay",
+      "relatedSuites": [
+        "wastewater"
+      ]
+    },
+    {
+      "catalogueNumber": 67,
+      "id": "unit-length",
+      "title": "Conversor de longitud",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "La conversión conserva el signo del valor; no cambia las condiciones físicas de referencia.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/length",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 68,
+      "id": "unit-area",
+      "title": "Conversor de área",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "La conversión conserva el signo del valor; no cambia las condiciones físicas de referencia.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/area",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 69,
+      "id": "unit-volume",
+      "title": "Conversor de volumen",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "La conversión conserva el signo del valor; no cambia las condiciones físicas de referencia.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/volume",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 70,
+      "id": "unit-mass",
+      "title": "Conversor de masa",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "La conversión conserva el signo del valor; no cambia las condiciones físicas de referencia.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/mass",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 71,
+      "id": "unit-density",
+      "title": "Conversor de densidad",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "La conversión conserva el signo del valor; no cambia las condiciones físicas de referencia.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/density",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 72,
+      "id": "unit-pressure",
+      "title": "Conversor de presión",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "La conversión conserva el signo del valor; no cambia las condiciones físicas de referencia.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/pressure",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 73,
+      "id": "unit-temperature",
+      "title": "Conversor de temperatura",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "Temperaturas absolutas, no diferencias de temperatura.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/temperature",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 74,
+      "id": "unit-flow",
+      "title": "Conversor de caudal volumétrico",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "La conversión conserva el signo del valor; no cambia las condiciones físicas de referencia.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/flow",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 75,
+      "id": "unit-mass-flow",
+      "title": "Conversor de caudal másico",
+      "suite": "conversion",
+      "implementation": "nueva",
+      "scope": "La conversión conserva el signo del valor; no cambia las condiciones físicas de referencia.",
+      "status": "Implementada · integrada en el conversor central",
+      "route": "#/tool/unit-converter/massFlow",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 76,
+      "id": "soil-texture",
+      "title": "Triángulo textural USDA interactivo",
+      "suite": "soil",
+      "implementation": "existente",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/soil-texture",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 77,
+      "id": "soil-sar",
+      "title": "Relación de adsorción de sodio · SAR",
+      "suite": "soil",
+      "implementation": "nueva",
+      "scope": "No introducir mg/L directamente. La interpretación requiere conductividad eléctrica y propiedades del suelo.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/soil-sar",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 78,
+      "id": "aridity-unep",
+      "title": "Índice de aridez · precipitación y PET",
+      "suite": "climate",
+      "implementation": "nueva",
+      "scope": "Totales anuales comparables; no sustituye el balance hídrico estacional.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/aridity-unep",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 79,
+      "id": "aridity-demartonne",
+      "title": "Índice de aridez de De Martonne",
+      "suite": "climate",
+      "implementation": "nueva",
+      "scope": "Índice empírico; no aplicar con temperatura media anual ≤ −10 °C.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/aridity-demartonne",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 80,
+      "id": "vegetation-change",
+      "title": "Cambio de cobertura vegetal",
+      "suite": "ecology",
+      "implementation": "nueva",
+      "scope": "Requiere misma extensión, clasificación y resolución en ambas fechas.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/vegetation-change",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 81,
+      "id": "mcda-ahp",
+      "title": "Pesos y consistencia · AHP",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-ahp",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 82,
+      "id": "mcda-anp",
+      "title": "Prioridades de red · ANP",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-anp",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 83,
+      "id": "mcda-fuzzy-ahp",
+      "title": "Pesos triangulares · AHP difuso",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Medias geométricas de Buckley con amplitud o juicios triangulares explícitos, recíprocos, prioridades defuzzificadas y CR modal.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/mcda-fuzzy-ahp",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 84,
+      "id": "mcda-wlc",
+      "title": "Combinación lineal ponderada · WLC",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-wlc",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 85,
+      "id": "mcda-topsis",
+      "title": "Priorización de alternativas · TOPSIS",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-topsis",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 86,
+      "id": "impact-riam",
+      "title": "Evaluación rápida de impactos · RIAM",
+      "suite": "impact",
+      "implementation": "nueva",
+      "scope": "Escalas de juicio experto. Define alcance, receptores, escenario y criterios antes de puntuar; el resultado no determina una aprobación ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/impact-riam",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 87,
+      "id": "leopold-matrix",
+      "title": "Matriz de Leopold interactiva",
+      "suite": "impact",
+      "implementation": "existente",
+      "scope": "Herramienta del proyecto conservada; consulta su metodología en pantalla.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/leopold-matrix",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 88,
+      "id": "impact-iranian",
+      "title": "Matriz de interacciones · escala −5 a +5",
+      "suite": "impact",
+      "implementation": "nueva",
+      "scope": "Escalas de juicio experto. Define alcance, receptores, escenario y criterios antes de puntuar; el resultado no determina una aprobación ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/impact-iranian",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 89,
+      "id": "impact-checklist",
+      "title": "Lista ponderada de alertas ambientales",
+      "suite": "impact",
+      "implementation": "nueva",
+      "scope": "Escalas de juicio experto. Define alcance, receptores, escenario y criterios antes de puntuar; el resultado no determina una aprobación ambiental.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/impact-checklist",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 90,
+      "id": "mcda-dematel",
+      "title": "Relaciones causa y efecto · DEMATEL",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-dematel",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 91,
+      "id": "mcda-fuzzy-dematel",
+      "title": "Influencia incierta · DEMATEL difuso",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Escala lingüística triangular o amplitud numérica. Relación total inferior, modal y superior, prominencia, influencia neta y rol.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/mcda-fuzzy-dematel",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 92,
+      "id": "mcda-vikor",
+      "title": "Solución de compromiso · VIKOR",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-vikor",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 93,
+      "id": "mcda-fuzzy-topsis",
+      "title": "Alternativas con datos triangulares · TOPSIS difuso",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Evaluaciones lingüísticas o triangulares, pesos nítidos o difusos, beneficio/costo, distancias a ideales y orden con empates.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/mcda-fuzzy-topsis",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 94,
+      "id": "mcda-electre",
+      "title": "Relación de sobreclasificación · ELECTRE I",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-electre",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 95,
+      "id": "mcda-promethee",
+      "title": "Flujos de preferencia · PROMETHEE II",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-promethee",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 96,
+      "id": "mcda-swara",
+      "title": "Ponderación escalonada · SWARA",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-swara",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 97,
+      "id": "mcda-waspas",
+      "title": "Ranking combinado · WASPAS",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-waspas",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 98,
+      "id": "mcda-owa",
+      "title": "Agregación ordenada · OWA",
+      "suite": "decision",
+      "implementation": "nueva",
+      "scope": "Los criterios, pesos y preferencias son decisiones del analista. Examina sensibilidad y empates antes de seleccionar una alternativa.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/mcda-owa",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 99,
+      "id": "analysis-statistics",
+      "title": "Laboratorio de estadística descriptiva",
+      "suite": "analysis",
+      "implementation": "nueva",
+      "scope": "Descriptivos e IC95 %, histograma, Jarque–Bera, Welch, Mann–Whitney, correlaciones de Pearson y Spearman y transformaciones z y min–max.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/analysis-statistics",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 100,
+      "id": "analysis-r-builder",
+      "title": "Generador de análisis reproducible en R",
+      "suite": "analysis",
+      "implementation": "nueva",
+      "scope": "Generación y edición de scripts, ejecución real R 4.6.0 mediante WebR 0.6.1 local, gráficos, errores, descarga e informe. R base incluido; sin paquetes externos precargados.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/analysis-r-builder",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 101,
+      "id": "analysis-timeseries",
+      "title": "Series temporales · tendencia y anomalías",
+      "suite": "analysis",
+      "implementation": "nueva",
+      "scope": "Análisis exploratorio. Revisa independencia, representatividad, unidades y supuestos; los datos de ejemplo son sintéticos.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/analysis-timeseries",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 102,
+      "id": "analysis-regression",
+      "title": "Regresión lineal múltiple y residuos",
+      "suite": "analysis",
+      "implementation": "nueva",
+      "scope": "Análisis exploratorio. Revisa independencia, representatividad, unidades y supuestos; los datos de ejemplo son sintéticos.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/analysis-regression",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 103,
+      "id": "analysis-pca",
+      "title": "Componentes principales · PCA",
+      "suite": "analysis",
+      "implementation": "nueva",
+      "scope": "Análisis exploratorio. Revisa independencia, representatividad, unidades y supuestos; los datos de ejemplo son sintéticos.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/analysis-pca",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 104,
+      "id": "analysis-qaqc",
+      "title": "Control de calidad de datos · QA/QC",
+      "suite": "analysis",
+      "implementation": "nueva",
+      "scope": "Análisis exploratorio. Revisa independencia, representatividad, unidades y supuestos; los datos de ejemplo son sintéticos.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/analysis-qaqc",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 105,
+      "id": "analysis-sampling",
+      "title": "Muestreo e incertidumbre · Monte Carlo",
+      "suite": "analysis",
+      "implementation": "nueva",
+      "scope": "Tamaño muestral para proporción y media con confianza configurable. Simulación normal de medias con semilla, percentiles e histograma.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/analysis-sampling",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 106,
+      "id": "analysis-spatial",
+      "title": "Autocorrelación y vecindad espacial",
+      "suite": "analysis",
+      "implementation": "nueva",
+      "scope": "Moran global y local con ponderación inversa a la distancia o binaria, umbral de vecindad, distancia al vecino más próximo y mapa de puntos.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/analysis-spatial",
+      "relatedSuites": [
+        "spatial"
+      ]
+    },
+    {
+      "catalogueNumber": 107,
+      "id": "analysis-standards",
+      "title": "Comparador de límites ambientales",
+      "suite": "metrology",
+      "implementation": "nueva",
+      "scope": "Análisis exploratorio. Revisa independencia, representatividad, unidades y supuestos; los datos de ejemplo son sintéticos.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/analysis-standards",
+      "relatedSuites": [
+        "impact",
+        "analysis"
+      ]
+    },
+    {
+      "catalogueNumber": 108,
+      "id": "meteo-hourly",
+      "title": "Meteorología · de registros trihorarios a horarios",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "La interpolación no crea observaciones reales ni rellena periodos fuera de los extremos. CSV intermedio para preparación meteorológica; no es archivo AERMET .SFC/.PFL ni ejecuta AERMOD.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/meteo-hourly",
+      "relatedSuites": [
+        "climate",
+        "conversion"
+      ]
+    },
+    {
+      "catalogueNumber": 109,
+      "id": "risk-fmea",
+      "title": "AMEF · modos de falla y riesgo residual",
+      "suite": "safety",
+      "implementation": "nueva",
+      "scope": "Hoja editable por modo de falla, efectos, causas, controles, acciones y responsables. NPR inicial y residual con severidad y umbrales configurables.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/risk-fmea",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 110,
+      "id": "risk-efmea",
+      "title": "AMEF ambiental · aspectos y riesgo residual",
+      "suite": "impact",
+      "implementation": "nueva",
+      "scope": "Hoja editable por aspecto, etapa, impacto, receptor y obligación. NPR inicial y residual con prioridades normativa, por severidad y por umbral.",
+      "status": "Implementada · alcance público comprobado",
+      "route": "#/tool/risk-efmea",
+      "relatedSuites": [
+        "safety"
+      ]
+    },
+    {
+      "catalogueNumber": 111,
+      "id": "industrial-stack-lab",
+      "title": "Laboratorio de emisiones industriales y fuente puntual",
+      "suite": "air",
+      "implementation": "nueva",
+      "scope": "Preparación de parámetros de fuente puntual. No ejecuta dispersión, AERMOD ni AERSCREEN. Las mediciones deben compartir base real húmeda; no introduzcas una concentración ya normalizada.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/industrial-stack-lab",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 112,
+      "id": "population-lab",
+      "title": "Población · indicadores y escenarios de proyección",
+      "suite": "population",
+      "implementation": "nueva",
+      "scope": "Escenarios de tasa constante; no son pronósticos oficiales ni modelos por cohortes. Las tasas de eventos usan la población inicial como aproximación a la población media.",
+      "status": "Implementada · pendiente auditoría funcional comparativa",
+      "route": "#/tool/population-lab",
+      "relatedSuites": []
+    },
+    {
+      "catalogueNumber": 113,
+      "id": "spatial-workbench",
+      "title": "Laboratorio espacial · proyectos y análisis vectorial",
+      "suite": "spatial",
+      "implementation": "nueva",
+      "scope": "Proyectos locales en IndexedDB, archivo .gowl, GeoJSON/CSV/KML/SHP, mapa Leaflet sin conexión, tabla y gráficos, medición, filtros, buffers, reproyección, superposición, unión espacial y bitácora.",
+      "status": "Implementada · flujo vectorial verificado",
+      "route": "#/tool/spatial-workbench",
+      "relatedSuites": []
+    }
+  ],
+  "sourceEntries": 113,
+  "missingEntries": 0,
+  "runtimeComponents": {
+    "taxonomy": "BirdNET+ v0.5-Nov2026, 18093 records",
+    "birdnet": "V3.0 ONNX fp32, local Python CPU service",
+    "R": "4.6.0, WebR 0.6.1 local WebAssembly",
+    "GIS": "Turf 7.4.0 and Proj4js 2.22.0 local"
+  },
+  "suiteCount": 16
+}
