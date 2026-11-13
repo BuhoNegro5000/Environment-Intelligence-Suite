@@ -59,6 +59,208 @@
   };
   Object.keys(suites).forEach(id => { const s = suites[id]; G.suites[id] = { id, name:s[0], short:s[1], icon:s[2], color:s[3], desc:s[4] }; });
   const display = x => typeof x === 'number' ? G.fmt(x, 6) : String(x == null ? '—' : x);
+
+  /* ------------------------------------------- kit visual del banco */
+  const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  const motionOff = () => Boolean(motionQuery && motionQuery.matches);
+  let vizSeq = 0;
+
+  /* Convierte una tabla de resultados en una lectura de barras cuando la
+     estructura lo permite. Devuelve null para matrices y tablas sin eje. */
+  const normHeader = s => String(s == null ? '' : s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  const isTimeHeader = h => ['ano', 'year', 'mes', 'month', 'dia', 'day', 'hora', 'hour', 'fecha', 'date', 'periodo', 'semana', 'week', 'trimestre', 'tiempo', 'time'].includes(normHeader(h));
+  const isAxisHeader = h => isTimeHeader(h) || /^(tiempo|hora|ano|year|mes|month|dia|day|fecha|date|periodo|semana|trimestre|volumen|distancia|angulo|dosis|marcador|elevacion|tamano|lluvia|biomasa|abscisa|intervalo|longitud|profundidad|bv|x|c)\b/.test(normHeader(h));
+  const headerWeight = h => {
+    if (isAxisHeader(h)) return -0.6;
+    const s = normHeader(h);
+    if (/^(n|id|#|codigo|rank|posicion|orden|puesto|ano|mes|dia|hora)$/.test(s)) return -0.6;
+    let weight = 0;
+    if (/(puntuaci|score|indice|aqi|media|promedio|mean|mediana|total|suma|resultado|valor|carga|emisi|concentra|npr|caudal|dosis|riesgo|prioridad|nivel|balance)/.test(s)) weight += 0.45;
+    if (/(posici|rank|orden|puesto|variaci)/.test(s)) weight -= 0.4;
+    return weight;
+  };
+  const identityHeader = h => /^(taxon|especie|ion|corriente|alternativa|escenario|punto|segmento|etapa|hora|sistema|tren|posicion|actividad|variable|muestra|parametro|condicion|tratamiento|canal|compuesto|nombre|id|elemento|fila|periodo|fecha|dia|ano|mes|sitio|estacion|reactor|proceso|fuente|zona|categoria|clase|grupo|metodo|responsable|estado|tipo|nivel|caso|sujeto|suelo|cultivo|producto|ruta|material|sustancia|servicio|impacto|indicador|transicion|uso|tramo|nodo|marcador|angulo|distancia|tiempo|volumen|elevacion|tamano|dosis|lluvia|biomasa|abscisa|intervalo|sector|componente|tanda|filtro|aplicacion|practica|tecnologia|opcion|linea|unidad experimental|unidad)/.test(normHeader(h));
+
+  function autoViz(r, renderValue) {
+    if (!r.headers || !r.rows || r.rows.length < 2 || r.rows.length > 400) return null;
+    const cols = r.headers.length;
+    if (cols < 2 || cols > 30 || r.rows.some(row => !Array.isArray(row) || row.length !== cols)) return null;
+    const isText = c => r.rows.filter(row => typeof row[c] === 'string' && row[c].trim()).length >= Math.ceil(r.rows.length * 0.6);
+    const numericCols = [];
+    for (let c = 0; c < cols; c++) {
+      const nums = r.rows.map(row => row[c]).filter(v => typeof v === 'number' && Number.isFinite(v));
+      if (nums.length < Math.ceil(r.rows.length * 0.6) || new Set(nums).size < 2) continue;
+      if (nums.every(v => v === 0 || v === 1)) continue;
+      numericCols.push(c);
+    }
+    if (!numericCols.length) return null;
+    const textCols = [...Array(cols).keys()].filter(isText);
+    const distinct = c => new Set(r.rows.map(row => String(row[c]))).size;
+    let labelCol = textCols.find(c => distinct(c) >= Math.max(2, Math.ceil(r.rows.length * 0.5)));
+    const timeCols = [...Array(cols).keys()].filter(c => isTimeHeader(r.headers[c]));
+    if (labelCol === undefined) {
+      if (timeCols.length) labelCol = undefined;
+      else labelCol = [...Array(cols).keys()].find(c => (identityHeader(r.headers[c]) || isAxisHeader(r.headers[c])) && distinct(c) > 1 && numericCols.includes(c));
+    }
+    if (labelCol === undefined && !timeCols.length) return null;
+    /* Matriz numérica: las cabeceras numéricas repiten las etiquetas de fila. */
+    if (labelCol !== undefined && numericCols.length >= 3 && r.rows.length === numericCols.length) {
+      const rowLabels = new Set(r.rows.map(row => normHeader(row[labelCol])));
+      const isMatrix = numericCols.every(c => rowLabels.has(normHeader(r.headers[c])));
+      if (isMatrix) return null;
+    }
+    const candidates = numericCols.filter(c => c !== labelCol && !isAxisHeader(r.headers[c]));
+    if (!candidates.length) return null;
+    let valueCol = candidates[0];
+    candidates.forEach(c => { if (headerWeight(r.headers[c]) > headerWeight(r.headers[valueCol]) + 1e-9) valueCol = c; });
+    const pad = v => String(v).padStart(2, '0');
+    const timeLabel = row => {
+      const at = key => timeCols.find(c => normHeader(r.headers[c]) === key);
+      const y = at('ano') ?? at('year'), m = at('mes') ?? at('month'), d = at('dia') ?? at('day'), hr = at('hora') ?? at('hour');
+      if (y !== undefined && m !== undefined && d !== undefined) {
+        const base = `${row[y]}-${pad(row[m])}-${pad(row[d])}`;
+        return hr !== undefined ? `${base} ${pad(row[hr])}:00` : base;
+      }
+      const date = at('fecha') ?? at('date');
+      if (date !== undefined) return hr !== undefined ? `${row[date]} ${pad(row[hr])}:00` : String(row[date]);
+      return timeCols.map(c => row[c]).join(' · ');
+    };
+    const pairs = r.rows.map((row, i) => {
+      const v = row[valueCol];
+      if (typeof v !== 'number' || !Number.isFinite(v)) return null;
+      let label;
+      if (labelCol !== undefined) {
+        const cell = row[labelCol];
+        label = typeof cell === 'string' && cell.trim() ? cell : String(cell == null ? 'Fila ' + (i + 1) : cell);
+      } else {
+        label = timeLabel(row);
+      }
+      return { label, value: v };
+    }).filter(Boolean);
+    if (pairs.length < 2) return null;
+    /* Una columna de identidad que solo numera filas (1, 2, 3…) se lee mejor
+       con su encabezado: «Ion 1» en vez de un «1» huérfano. */
+    const labelHeader = labelCol !== undefined ? String(r.headers[labelCol] || '') : '';
+    if (labelHeader && pairs.every((p, i) => p.label === String(i + 1))) {
+      pairs.forEach((p, i) => { p.label = labelHeader + ' ' + (i + 1); });
+    }
+    const short = v => G.fmtSmart(v);
+    const lo = Math.min(...pairs.map(p => p.value)), hi = Math.max(...pairs.map(p => p.value));
+    if (!(hi > lo)) return null;
+    const seq = ++vizSeq;
+    const header = r.headers[valueCol] || 'Valor';
+    const labelName = labelCol !== undefined ? (r.headers[labelCol] || 'fila') : 'período';
+    /* Series y curvas: eje numérico o temporal continuo. */
+    const isAxis = labelCol === undefined || isAxisHeader(r.headers[labelCol]);
+    const useLine = pairs.length >= 3 && isAxis;
+    if (!useLine && pairs.length > 24) return null;
+    let pane;
+    if (useLine) {
+      const W = 620, H = 200, PX = 12, PY = 18;
+      const vSpan = hi - lo, lowPad = lo - vSpan * 0.1, highPad = hi + vSpan * 0.1;
+      const xAt = i => PX + (W - 2 * PX) * (i / (pairs.length - 1));
+      const yAt = v => PY + (H - 2 * PY) * (1 - (v - lowPad) / (highPad - lowPad));
+      const points = pairs.map((p, i) => `${xAt(i).toFixed(1)},${yAt(p.value).toFixed(1)}`);
+      const linePath = `M${points.join(' L')}`;
+      const areaPath = `${linePath} L${xAt(pairs.length - 1).toFixed(1)},${H - PY} L${xAt(0).toFixed(1)},${H - PY} Z`;
+      const dots = pairs.map((p, i) => {
+        const last = i === pairs.length - 1;
+        return `<circle class="lab-line-point${last ? ' is-last' : ''}" cx="${xAt(i).toFixed(1)}" cy="${yAt(p.value).toFixed(1)}" r="${last ? 3.6 : 2.1}"><title>${E(p.label)} · ${E(renderValue(p.value))}</title></circle>`;
+      }).join('');
+      pane = `<div class="lab-line-wrap">
+        <svg class="lab-line${pairs.length > 24 ? ' is-dense' : ''}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="lab-line-t-${seq}">
+          <title id="lab-line-t-${seq}">${E(header)} frente a ${E(labelName)}: ${pairs.length} puntos, de ${E(G.fmtSmart(lo))} a ${E(G.fmtSmart(hi))}.</title>
+          <line class="lab-line-grid" x1="${PX}" y1="${H / 2}" x2="${W - PX}" y2="${H / 2}"></line>
+          <path class="lab-line-area" d="${areaPath}"></path>
+          <path class="lab-line-path" d="${linePath}"></path>
+          ${dots}
+        </svg>
+        <div class="lab-line-axis"><span>${E(pairs[0].label)}</span><span>${E(pairs[pairs.length - 1].label)}</span></div>
+      </div>`;
+    } else {
+      const min = Math.min(0, lo), max = Math.max(0, hi), span = max - min;
+      const zero = (0 - min) / span * 100;
+      const signed = min < 0;
+      const bars = pairs.map(p => {
+        const pct = Math.abs(p.value) / span * 100;
+        return `<li class="lab-bar" title="${E(p.label)} · ${E(short(p.value))}">
+          <span class="lab-bar-label">${E(p.label)}</span>
+          <span class="lab-bar-track" aria-hidden="true"><span class="lab-bar-fill${p.value < 0 ? ' neg' : ''}" data-pct="${pct.toFixed(3)}" style="--pct:${pct.toFixed(3)}"></span></span>
+          <span class="lab-bar-value">${E(short(p.value))}</span>
+        </li>`;
+      }).join('');
+      pane = `<ol class="lab-bars${signed ? ' is-signed' : ''}" style="--zero:${zero.toFixed(2)}" aria-label="${E(header)} por ${E(labelName)}">${bars}</ol>`;
+    }
+    const note = useLine
+      ? `${pairs.length} puntos · ${E(G.fmtSmart(lo))} a ${E(G.fmtSmart(hi))}`
+      : `${pairs.length} filas · ${Math.min(0, lo) < 0 ? 'escala centrada en cero' : 'escala desde cero'}`;
+    return `<div class="lab-viz" data-lab-viz>
+      <div class="lab-viz-head">
+        <div class="lab-viz-title"><span class="lab-eyebrow">LECTURA VISUAL</span><h3>${E(header)}</h3><p>${note}</p></div>
+        <div class="lab-viz-tabs" role="tablist" aria-label="Vista de resultados">
+          <button type="button" role="tab" id="lab-viz-tab-${seq}-bars" aria-controls="lab-viz-pane-${seq}-bars" aria-selected="true" tabindex="0" data-viz-mode="bars">${useLine ? 'Tendencia' : 'Barras'}</button>
+          <button type="button" role="tab" id="lab-viz-tab-${seq}-table" aria-controls="lab-viz-pane-${seq}-table" aria-selected="false" tabindex="-1" data-viz-mode="table">Tabla</button>
+        </div>
+      </div>
+      <div class="lab-viz-pane" id="lab-viz-pane-${seq}-bars" role="tabpanel" aria-labelledby="lab-viz-tab-${seq}-bars" data-viz-pane="bars">${pane}</div>
+      <div class="lab-viz-pane" id="lab-viz-pane-${seq}-table" role="tabpanel" aria-labelledby="lab-viz-tab-${seq}-table" data-viz-pane="table" hidden>${L.tableHTML(r.headers, r.rows, renderValue)}</div>
+    </div>`;
+  }
+
+  L.autoViz = autoViz;
+
+  function animateViz(viz) {
+    if (!viz) return;
+    const line = viz.querySelector('.lab-line-path');
+    if (line) {
+      viz.classList.remove('is-animated');
+      if (!motionOff()) {
+        void line.getBoundingClientRect();
+        viz.classList.add('is-animated');
+      }
+    }
+    if (motionOff()) return;
+    const bars = Array.from(viz.querySelectorAll('.lab-bar-fill'));
+    if (!bars.length) return;
+    bars.forEach((bar, i) => {
+      bar.style.setProperty('--pct', '0');
+      bar.style.transitionDelay = Math.min(i * 24, 280) + 'ms';
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      bars.forEach(bar => bar.style.setProperty('--pct', bar.dataset.pct));
+    }));
+  }
+
+  function wireViz(output) {
+    output.querySelectorAll('[data-lab-viz]').forEach(viz => {
+      const tabs = Array.from(viz.querySelectorAll('[data-viz-mode]'));
+      const panes = Array.from(viz.querySelectorAll('[data-viz-pane]'));
+      const select = mode => {
+        tabs.forEach(tab => {
+          const on = tab.dataset.vizMode === mode;
+          tab.setAttribute('aria-selected', String(on));
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panes.forEach(pane => { pane.hidden = pane.dataset.vizPane !== mode; });
+        if (mode === 'bars') animateViz(viz);
+      };
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(tab.dataset.vizMode));
+        tab.addEventListener('keydown', event => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          let next = i;
+          if (event.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'ArrowRight') next = (i + 1) % tabs.length;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = tabs.length - 1;
+          tabs[next].focus();
+          select(tabs[next].dataset.vizMode);
+        });
+      });
+    });
+  }
+
   L.tableHTML = (headers, rows, renderValue=display) => `<div class="lab-table-scroll"><table class="lab-table"><thead><tr>${headers.map(h => `<th>${E(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map(c => `<td>${E(renderValue(c))}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   L.register = function (d) {
     L.definitions.push(d);
@@ -119,7 +321,7 @@
           });
           raw.addEventListener('input',draw); editors[id] = draw; draw();
         });
-        let presentation;
+        let presentation, hasRendered = false;
         const update = () => {
           this._report = null; this._csv = null;
           const renderValue=presentation?.display||display;
@@ -148,12 +350,18 @@
             L.assert(r && r.metrics && r.metrics.every(m => typeof m[1] !== 'number' || Number.isFinite(m[1])), 'Resultado indefinido; revisa los datos y denominadores.');
             L.assert(!(r.rows || []).some(row => row.some(x => typeof x === 'number' && !Number.isFinite(x))), 'El cálculo produjo un valor indefinido.');
             const table = r.headers && r.rows ? L.tableHTML(r.headers, r.rows,renderValue) : '';
-            const renderedTable=presentation&&table?`<details class="calc-results-table"><summary>Ver tabla de resultados</summary>${table}</details>`:table;
+            const viz = !presentation && r.headers && r.rows ? autoViz(r, renderValue) : null;
+            const renderedTable=presentation&&table?`<details class="calc-results-table"><summary>Ver tabla de resultados</summary>${table}</details>`:(viz || table);
             output.innerHTML = `<div class="lab-metrics">${r.metrics.map((m,i) => presentation?G.calculatorUI.metric(m,i,renderValue):`<div class="lab-metric ${i ? '' : 'lab-primary'}"><span>${E(m[0])}</span><strong>${E(display(m[1]))}</strong><small>${E(m[2] || '')}</small></div>`).join('')}</div>${r.message ? `<div class="lab-insight"><span>↗</span><p>${E(r.message)}</p></div>` : ''}${r.series ? '<div class="lab-chart"><canvas aria-label="Evolución de resultados" role="img"></canvas></div>' : ''}${renderedTable}${r.code ? `<label class="field"><span>Script R editable · ejecución real local</span><textarea class="lab-code" data-r-editor rows="12" spellcheck="false" style="width:100%;color:var(--text)">${E(r.code)}</textarea></label><div class="lab-data-actions"><button type="button" class="btn sm" data-download-code>↓ Descargar script R</button><button type="button" class="btn primary" data-run-r>Ejecutar R aquí</button><button type="button" class="btn sm" data-stop-r>Detener y reiniciar R</button></div><p class="map-hint">R base se carga desde esta carpeta, sin CDN. Requiere abrir la suite por HTTP local. Los paquetes externos no están precargados.</p><pre class="lab-code" data-r-result aria-live="polite">Listo para ejecutar.</pre><div data-r-images></div>` : ''}`;
             presentation?.results(r.metrics[0]);
             if(r.download){
               const button=document.createElement('button');button.type='button';button.className='btn sm';button.textContent='Descargar modelo JSON';
               button.onclick=()=>G.download(r.download.name,r.download.text,'application/json');output.appendChild(button);
+            }
+            wireViz(output);
+            if (!hasRendered) {
+              const firstViz = output.querySelector('[data-lab-viz]');
+              if (firstViz) { animateViz(firstViz); hasRendered = true; }
             }
             G.clearCharts();
             if (r.series) G.chart(output.querySelector('canvas'), { type:r.series.length===1&&r.series[0].type==='bar'?'bar':'line', series:r.series, x:{ label:r.xLabel || 'Escenario' }, y:{ label:r.yLabel || 'Resultado' } });

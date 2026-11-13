@@ -1,10 +1,8 @@
 {
-  "status": "histórico",
-  "note": "Estado previo a la consolidación del conversor central (11/11/2026). El registro actual tiene 339 herramientas; las nueve rutas unit-* anteriores redirigen a #/tool/unit-converter/<magnitud>. Los conteos de este archivo corresponden al barrido original.",
-  "totalTools": 348,
-  "newTools": 316,
-  "routesVerified": 348,
-  "mobileVerified": 316,
+  "totalTools": 339,
+  "newTools": 307,
+  "routesVerified": 339,
+  "mobileVerified": 307,
   "consoleErrors": 0,
   "externalRequests": 0,
   "checks": [

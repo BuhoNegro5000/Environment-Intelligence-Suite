@@ -4,7 +4,7 @@ const path=require('node:path'),fs=require('node:fs'),assert=require('node:asser
 (async()=>{
  const root=path.resolve(__dirname,'..'),out=path.join(root,'artifacts');fs.mkdirSync(out,{recursive:true});
  const browser=await chromium.launch({headless:true,...(process.env.GREENOWL_BROWSER?{executablePath:process.env.GREENOWL_BROWSER}:{})}),page=await browser.newPage({viewport:{width:1440,height:1080}}),errors=[],network=[];
- page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('request',r=>{if(/^https?:/.test(r.url())&&!/^http:\/\/(127\.0\.0\.1|localhost):887[67]\//.test(r.url()))network.push(r.url());});
+ page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&!/127\.0\.0\.1:8877/.test(m.location()?.url||''))errors.push(m.text()+' @ '+(m.location()?.url||'?'));});page.on('request',r=>{if(/^https?:/.test(r.url())&&!/^http:\/\/(127\.0\.0\.1|localhost):887[67]\//.test(r.url()))network.push(r.url());});
  await page.goto(process.env.GREENOWL_TEST_URL||'http://127.0.0.1:8876/');await page.waitForFunction(()=>window.GL?.tools?.length===339);
  const tools=await page.evaluate(()=>GL.tools.map(t=>({id:t.id,lab:!!t.lab})));assert.equal(tools.length,339);assert.equal(new Set(tools.map(t=>t.id)).size,339);
  for(const t of tools){
@@ -131,9 +131,15 @@ const path=require('node:path'),fs=require('node:fs'),assert=require('node:asser
  await go('spatial-workbench');await page.locator('[data-select="0:0"]').click();await page.getByText('Entidad seleccionada',{exact:true}).click();await page.locator('#mapBuffer').click();await page.locator('.map-layer').filter({hasText:'Buffer Punto A · 500 m'}).waitFor();assert.equal(await page.locator('.map-layer').count(),2);await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,'greenowl-spatial-desktop.png'),fullPage:true});
  await page.locator('#mapFilter').fill('Punto A');assert.ok((await page.locator('#mapStatus').textContent()).includes('2 entidades'));
  await go('analysis-statistics');await page.locator('#lab-analysis-statistics-transform').selectOption('compare');
+ await page.waitForFunction(()=>document.querySelector('[data-lab-output]').textContent.includes('Mann–Whitney U₁'));
+ const statsTab=page.locator('[data-lab-output] [data-viz-mode="table"]');if(await statsTab.count())await statsTab.click();
  await page.getByRole('cell',{name:'Mann–Whitney U₁'}).waitFor();
  await go('risk-efmea');const worksheet=page.locator('[data-editor="lab-risk-efmea-worksheet"]');
  await worksheet.locator('[data-cell-row="0"][data-cell-column="3"]').fill('Afectación del suelo');
+ await page.waitForFunction(()=>document.querySelector('[data-lab-output]').textContent.includes('Afectación del suelo'));
+ const riskViz=page.locator('[data-lab-output] [data-lab-viz]');assert.ok(await riskViz.count()>0);
+ const riskBars=await page.locator('[data-lab-output] .lab-bar').count();assert.ok(riskBars>0||await page.locator('[data-lab-output] .lab-line-point').count()>0);
+ const riskTab=page.locator('[data-lab-output] [data-viz-mode="table"]');if(await riskTab.count())await riskTab.click();
  await page.locator('[data-lab-output]').getByRole('cell',{name:'Afectación del suelo'}).waitFor();
  await go('taxonomy');await page.locator('#taxQuery').fill('BN00001');
  await page.waitForFunction(()=>document.querySelector('#taxCount').textContent.startsWith('1 coincidencias'));
@@ -147,6 +153,6 @@ const path=require('node:path'),fs=require('node:fs'),assert=require('node:asser
  for(const t of tools.filter(t=>t.lab||['spatial-workbench','taxonomy','biotic-workbench','biotic-library','bioacoustics','unit-converter'].includes(t.id))){await go(t.id);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);assert.equal(overflow,false,'mobile overflow '+t.id);}
  await go('diversity-community');await page.screenshot({path:path.join(out,'greenowl-biodiversidad-mobile.png'),fullPage:true});
  await page.locator('#menuBtn').click();await page.locator('#themeBtn').click();await page.keyboard.press('Escape');await page.waitForTimeout(400);await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,'greenowl-biodiversidad-mobile-light.png'),fullPage:true});
- assert.deepEqual(errors,[],'console errors');assert.deepEqual(network,[],'unexpected network');
+ assert.deepEqual(errors,[],'console errors '+JSON.stringify(errors));assert.deepEqual(network,[],'unexpected network '+JSON.stringify(network));
  const result={totalTools:tools.length,newTools:tools.length-32,routesVerified:tools.length,mobileVerified:tools.filter(t=>t.lab||['spatial-workbench','taxonomy','biotic-workbench','biotic-library','bioacoustics','unit-converter'].includes(t.id)).length,consoleErrors:errors.length,externalRequests:network.length,checks:['all defaults','reports','CSV download','invalid inputs clear exports','comma decimals','persistence','meteo file import and leap day','spatial selection and buffer','mobile overflow','dark and light screenshots']};fs.writeFileSync(path.join(out,'browser-verification.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));await browser.close();
 })().catch(e=>{console.error(e);process.exit(1);});

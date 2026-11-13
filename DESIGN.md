@@ -280,6 +280,13 @@ Rejilla de fichas de color para datos categóricos continuos, usada por la carta
 
 **La regla de la ficha limpia.** Una ficha de color no repite su etiqueta dentro del relleno. Si hace falta el valor exacto, se lee en el eje o en la lectura inferior; la pureza del color es el dato.
 
+### Result Readout (signature)
+El banco no deja una tabla numérica sin lectura visual. Toda tabla de 2 a 24 filas con una columna de identidad y una medida se abre en barras horizontales; las series temporales y las curvas —hasta 400 puntos— se abren en una línea con área. El encabezado declara el campo medido y la escala —desde cero o centrada en cero— y un conmutador `Barras | Tabla` (o `Tendencia | Tabla`) conserva el dato exacto a un clic o una tecla. Los valores viven en mono a la derecha; las barras entran escalonadas 24 ms por fila y la línea se dibuja una sola vez. En móvil la etiqueta cede ancho antes que la barra y la tabla se desplaza en horizontal.
+
+**La regla del eje honesto.** Las barras parten de cero; si hay negativos, se dibuja la línea de cero y la barra cambia de lado. El eje no se recorta para dramatizar una diferencia. En una tendencia el eje se ajusta al rango observado y ese rango se declara en la nota.
+
+**La regla de la tabla a un toque.** Toda visualización conserva su tabla de resultados a un clic o una tecla; el gráfico no reemplaza el dato exportable.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -290,6 +297,7 @@ Rejilla de fichas de color para datos categóricos continuos, usada por la carta
 - **Do** acompañar cada veredicto con su razón y su referencia normativa o método.
 - **Do** respetar `prefers-reduced-motion`: el sistema ya anula animaciones y transiciones, y cualquier animación nueva debe hacer lo mismo.
 - **Do** mantener el foco visible con 2 px de acento y 2 px de separación, incluso dentro de controles compuestos.
+- **Do** abrir toda tabla numérica en su lectura visual y dejar la tabla a un clic o una tecla.
 
 ### Don't:
 - **Don't** teñir superficies completas de verde señal ni usarlo como fondo de secciones; su valor es la rareza.
@@ -297,5 +305,6 @@ Rejilla de fichas de color para datos categóricos continuos, usada por la carta
 - **Don't** usar radios de píldora en botones de acción ni radios menores a 7 px en controles.
 - **Don't** poner texto blanco sobre el verde señal; la tinta oscura es la única combinación válida.
 - **Don't** bajar de 9 px en etiquetas ni de 11.5 px en texto accionable; la densidad no justifica ilegibilidad.
+- **Don't** usar barras para una matriz cuadrada ni para una tabla sin eje: ahí la tabla es la lectura correcta.
 - **Don't** introducir una segunda familia tipográfica ni iconos de fuente: los iconos del sistema son SVG o glifos textuales ya establecidos.
 - **Don't** mostrar una cifra sin unidad, sin período de promedio o sin modelo declarado cuando el resultado es normativo.
