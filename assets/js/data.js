@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · datos de referencia
+   Yupana · datos de referencia
    Factores, límites y tablas de apoyo. Revise siempre la vigencia normativa
    de su país: estos valores son referenciales y editables en cada herramienta.
    ========================================================================== */
@@ -337,10 +337,10 @@
       return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
     };
     const mgmt = [
-      { id: 'cultivo', label: 'Cultivo convencional', offset: -0.30, color: '#F2B45A' },
-      { id: 'conservacion', label: 'Cultivo con conservación', offset: 0.05, color: '#66C7E8' },
-      { id: 'pastura', label: 'Pastura mejorada', offset: 0.42, color: '#5FE3A1' },
-      { id: 'nativo', label: 'Vegetación nativa', offset: 0.65, color: '#B4A4F5' }
+      { id: 'cultivo', label: 'Cultivo convencional', offset: -0.30, color: '#A57B1F' },
+      { id: 'conservacion', label: 'Cultivo con conservación', offset: 0.05, color: '#5277A8' },
+      { id: 'pastura', label: 'Pastura mejorada', offset: 0.42, color: '#2A8C82' },
+      { id: 'nativo', label: 'Vegetación nativa', offset: 0.65, color: '#77679A' }
     ];
     const rows = [];
     mgmt.forEach(m => {

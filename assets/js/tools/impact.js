@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Impacto Ambiental
+   Yupana · Impacto Ambiental
    21 · Clasificación SEIA (evaluación preliminar)
    22 · Matriz de Leopold interactiva
    ========================================================================== */
@@ -332,7 +332,7 @@
     { g: 'bio', n: 'Vegetación' }, { g: 'bio', n: 'Fauna' }, { g: 'bio', n: 'Hábitats y ecosistemas' }, { g: 'bio', n: 'Biodiversidad' }, { g: 'bio', n: 'Servicios ecosistémicos' },
     { g: 'soc', n: 'Empleo' }, { g: 'soc', n: 'Economía local' }, { g: 'soc', n: 'Salud y seguridad' }, { g: 'soc', n: 'Infraestructura y servicios' }, { g: 'soc', n: 'Patrimonio cultural' }
   ];
-  const GCOL = { fis: '#66C7E8', bio: '#8BE05A', soc: '#F2B45A' };
+  const GCOL = { fis: '#5277A8', bio: '#5F8A3A', soc: '#A57B1F' };
   const GLABEL = { fis: 'Físico', bio: 'Biológico', soc: 'Socioeconómico' };
   const AGLABEL = { prep: 'Preparación', build: 'Construcción', op: 'Operación', close: 'Cierre' };
 
@@ -389,7 +389,7 @@
                 ${U.metric('lpAvg', 'Promedio |M×I|', '')}
               </div>
               <div class="chart-wrap short" style="margin-top:12px"><canvas id="lpChart"></canvas></div>
-              <div class="chart-legend"><span><i style="background:#66C7E8"></i>Físico</span><span><i style="background:#8BE05A"></i>Biológico</span><span><i style="background:#F2B45A"></i>Socioeconómico</span></div>
+              <div class="chart-legend"><span><i style="background:#5277A8"></i>Físico</span><span><i style="background:#5F8A3A"></i>Biológico</span><span><i style="background:#A57B1F"></i>Socioeconómico</span></div>
               <div id="lpVerdict" class="verdict info"></div>
             </section>
             <section class="panel">
@@ -483,7 +483,7 @@
         }, 0));
         GL.chart(root.querySelector('#lpChart'), {
           type: 'bar',
-          series: [{ name: 'Suma M×I', data: groups.map((g, i) => [GLABEL[g], sums[i]]), color: '#8BE05A' }],
+          series: [{ name: 'Suma M×I', data: groups.map((g, i) => [GLABEL[g], sums[i]]), color: '#5F8A3A' }],
           y: { label: 'Suma M × I', zero: true }
         });
 

@@ -1,4 +1,4 @@
-/* Métodos físicos y balances: implementación independiente de Green Owl Labs. */
+/* Métodos físicos y balances: implementación independiente de Yupana. */
 (function () {
   'use strict';
   const L = GL.lab, F = L.f, R = L.result, A = L.assert;

@@ -77,7 +77,7 @@
     return {...table([m('Componentes',data.length),m('Extremos sin enlace',groups.filter(g=>g.length===1).length),
       m('Uniones con más de dos extremos',groups.filter(g=>g.length>2).length)],
       ['Línea','Tipo','Material','Cantidad','Longitud de tubo (m)','Extremos abiertos'],[...bom.values()]),
-      download:{name:'GreenOwl_topologia.json',text:JSON.stringify({components:data},null,2)}};
+      download:{name:'Yupana_topologia.json',text:JSON.stringify({components:data},null,2)}};
   },'Importación geométrica de componentes con dos o más puertos, sin generación de isométricos ni reconstrucción PCF. Un extremo abierto puede ser un límite intencional.',
   [['Hexagon · sintaxis pública de PCF','https://docs.hexagonppm.com/r/en-US/PCF-Reference-Guide/Version-15/242663']]);
 })();

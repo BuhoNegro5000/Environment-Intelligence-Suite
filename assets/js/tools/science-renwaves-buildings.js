@@ -2,7 +2,6 @@
 (function () {
   'use strict';
   const L=GL.lab, f=L.f, sum=L.sum;
-  const ren='https://renwaves.com/';
   const eui=['ENERGY STAR · intensidad de uso energético','https://www.energystar.gov/buildings/benchmark/understand-metrics/what-eui'];
   function register(d){L.register({suite:'energy',tags:['Edificios','Energía','Cálculo local'],...d});}
 
@@ -40,7 +39,7 @@
     ],
     method:'Conducción por componente = U × área × diferencia térmica. El aire exterior suma ventilación e infiltración y aporta calor sensible (ρ × cp × caudal × ΔT) y latente (ρ × hfg × caudal × Δw). Refrigeración incluye radiación sobre vidrio, personas y equipos. La calefacción de diseño excluye ganancias para evaluar la pérdida máxima.',
     limit:'Balance estacionario de una zona y aire bien mezclado. Usa un valor de irradiancia representativo del conjunto de vidrios. El perfil horario mantiene ocupación y equipos constantes. La capacidad de refrigeración se desglosa en sensible y latente. La selección final requiere distribución, condiciones de operación y datos de fabricante.',
-    refs:[['RenWaves · RenBEM y método','https://renwaves.com/renbem/']],
+    refs:[['ASHRAE · Fundamentals','https://www.ashrae.org/technical-resources/ashrae-handbook']],
     calc(v){
       L.assert(v.heatSet<=v.coolSet,'La consigna de calefacción debe ser menor o igual a la de refrigeración.');
       L.assert(v.envelope.length>0&&v.envelope.every(r=>r.length===3&&[1,2,3].includes(r[0])&&r[1]>=0&&r[1]<=1e7&&r[2]>=0&&r[2]<=100),
@@ -101,7 +100,7 @@
     ],
     method:'Demanda térmica anual sensible = coeficiente térmico × grados-día × 24 / 1 000. La refrigeración incorpora la demanda latente anual declarada. El consumo eléctrico divide demanda por COP estacional y suma agua caliente sanitaria (ACS) y otros usos.',
     limit:'Modelo anual de grados-día para un edificio electrificado. Los grados-día deben corresponder a las temperaturas base del edificio y al clima elegido. Ajusta los datos si la mejora cambia esas bases. Usa el alcance de área y energía coherente para comparar intensidades.',
-    refs:[eui,['RenWaves · estimación energética de edificios',ren+'building-energy-simulation/']],
+    refs:[eui],
     calc(v){
       L.assert(v.scenarios.length===2&&v.scenarios.every(r=>r.length===6&&r.every(x=>x>=0&&x<=1e9)&&r[1]>=.1&&r[2]>=.1),
         'Ingresa dos escenarios con seis valores no negativos y COP de al menos 0,1.');
@@ -131,7 +130,7 @@
     ],
     method:'Puntos = zonas × (sensores + actuadores). Ahorro bruto = carga controlada × horas evitadas × días. La energía anual del control continuo se descuenta del ahorro bruto.',
     limit:'Carga y horas deben representar reducciones reales de operación. Evita duplicar circuitos que aparecen en varias zonas. El recuento permite presupuestar puntos, con topología, capacidad de bus y cobertura de radio pendientes de diseño.',
-    refs:[['RenWaves · alcance de automatización',ren+'smart-home-design/']],
+    refs:[],
     calc(v){
       L.assert(v.zones.length>0&&v.zones.every(r=>r.length===6&&r.every(x=>x>=0&&x<=1e6)&&
         r.slice(0,3).every(Number.isInteger)&&r[4]<=24),'Usa cantidades enteras, potencias no negativas y hasta 24 horas evitadas al día.');

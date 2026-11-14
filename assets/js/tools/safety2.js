@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Seguridad & Higiene (parte 2)
+   Yupana · Suite Seguridad & Higiene (parte 2)
    24 Dosis de ruido · 25 Ruido ambiental ECA · 26 Multas SUNAFIL
    ========================================================================== */
 (function () {
@@ -55,7 +55,7 @@
               ${U.metric('ndWarnOut', 'Alerta de nivel', '')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="ndChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#66C7E8"></i>Dosis por segmento</span><span><i style="background:#F2B45A"></i>Dosis total</span></div>
+            <div class="chart-legend"><span><i style="background:#5277A8"></i>Dosis por segmento</span><span><i style="background:#A57B1F"></i>Dosis total</span></div>
             <div id="ndVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -146,9 +146,9 @@
         bars.push(['TOTAL', dose]);
         GL.chart(root.querySelector('#ndChart'), {
           type: 'bar',
-          series: [{ name: 'Dosis', data: bars, color: '#66C7E8' }],
+          series: [{ name: 'Dosis', data: bars, color: '#5277A8' }],
           y: { label: 'Dosis (%)', zero: true, min: 0 },
-          rules: [{ y: 100, label: '100 %', color: '#F2B45A' }]
+          rules: [{ y: 100, label: '100 %', color: '#A57B1F' }]
         });
 
         const tone = dose8 > 100 ? 'bad' : dose8 > 50 ? 'warn' : 'ok';
@@ -253,9 +253,9 @@
               ${U.metric('snPointsTag', 'Puntos medidos', 'n')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="snDayChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#66C7E8"></i>Leq diurno</span><span><i style="background:#F2B45A"></i>ECA diurno</span></div>
+            <div class="chart-legend"><span><i style="background:#5277A8"></i>Leq diurno</span><span><i style="background:#A57B1F"></i>ECA diurno</span></div>
             <div class="chart-wrap" style="margin-top:10px"><canvas id="snNightChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#B4A4F5"></i>Leq nocturno</span><span><i style="background:#F2B45A"></i>ECA nocturno</span></div>
+            <div class="chart-legend"><span><i style="background:#77679A"></i>Leq nocturno</span><span><i style="background:#A57B1F"></i>ECA nocturno</span></div>
             <div id="snVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -347,15 +347,15 @@
         const labels = state.map((r, i) => r.p.length > 9 ? r.p.slice(0, 8) + '…' : r.p);
         GL.chart(root.querySelector('#snDayChart'), {
           type: 'bar',
-          series: [{ name: 'Diurno', data: state.map((r, i) => [labels[i], r.d]), color: '#66C7E8' }],
+          series: [{ name: 'Diurno', data: state.map((r, i) => [labels[i], r.d]), color: '#5277A8' }],
           y: { label: 'Leq diurno (dBA)', zero: false, min: Math.max(0, Math.min.apply(null, [z.day].concat(state.map(r => r.d))) - 8) },
-          rules: [{ y: z.day, label: 'ECA ' + fmt(z.day, 0) + ' dBA', color: '#F2B45A' }]
+          rules: [{ y: z.day, label: 'ECA ' + fmt(z.day, 0) + ' dBA', color: '#A57B1F' }]
         });
         GL.chart(root.querySelector('#snNightChart'), {
           type: 'bar',
-          series: [{ name: 'Nocturno', data: state.map((r, i) => [labels[i], r.n]), color: '#B4A4F5' }],
+          series: [{ name: 'Nocturno', data: state.map((r, i) => [labels[i], r.n]), color: '#77679A' }],
           y: { label: 'Leq nocturno (dBA)', zero: false, min: Math.max(0, Math.min.apply(null, [z.night].concat(state.map(r => r.n))) - 8) },
-          rules: [{ y: z.night, label: 'ECA ' + fmt(z.night, 0) + ' dBA', color: '#F2B45A' }]
+          rules: [{ y: z.night, label: 'ECA ' + fmt(z.night, 0) + ' dBA', color: '#A57B1F' }]
         });
 
         const bad = dayExc > 0 || nightExc > 0;
@@ -481,7 +481,7 @@
               ${U.metric('sfExp', 'Valor esperado del escenario', 'S/')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="sfChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#F07E8A"></i>Subtotal y multa final (S/)</span></div>
+            <div class="chart-legend"><span><i style="background:#B06060"></i>Subtotal y multa final (S/)</span></div>
             <div id="sfVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -526,7 +526,7 @@
 
         GL.chart(root.querySelector('#sfChart'), {
           type: 'bar',
-          series: [{ name: 'Multa', data: [['Subtotal', baseS], ['Multa final', finalS]], color: '#F07E8A' }],
+          series: [{ name: 'Multa', data: [['Subtotal', baseS], ['Multa final', finalS]], color: '#B06060' }],
           y: { label: 'Multa estimada (S/)', zero: true, min: 0 }
         });
 

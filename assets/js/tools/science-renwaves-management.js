@@ -2,7 +2,6 @@
 (function () {
   'use strict';
   const L=GL.lab, f=L.f, sum=L.sum;
-  const ren='https://renwaves.com/';
   function register(d){L.register({suite:'energy',tags:['Gestión energética','Cálculo local'],...d});}
   const months='Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dic'.split(' ');
 
@@ -20,8 +19,7 @@
     ],
     method:'El ahorro por uso aplica el porcentaje declarado a la línea base. El flujo neto anual valora el ahorro eléctrico y descuenta el costo recurrente adicional. El valor presente neto (VPN) descuenta los flujos constantes y resta la inversión.',
     limit:'Preauditoría con medidas y factores documentados por el usuario. Trata cada uso como independiente. Asegura que el total concilie con la facturación del período y valida ahorros en operación. No incluye cargos por demanda, impuestos, reposiciones ni escalamiento de tarifas.',
-    refs:[['ENERGY STAR · intensidad energética','https://www.energystar.gov/buildings/benchmark/understand-metrics/what-eui'],
-      ['RenWaves · estimación de auditoría energética',ren+'energy-audit/']],
+    refs:[['ENERGY STAR · intensidad energética','https://www.energystar.gov/buildings/benchmark/understand-metrics/what-eui']],
     calc(v){
       L.assert(v.uses.length>0&&v.uses.every(r=>r.length===4&&r.every(x=>Math.abs(x)<=1e9)&&
         r[0]>=0&&r[1]>=0&&r[1]<=100&&r[2]>=0),'Revisa consumo, ahorro entre 0 y 100 %, inversión y costos de cada uso final.');
@@ -56,7 +54,7 @@
     ],
     method:'Costo instalado = cantidad × (precio del equipo + instalación + otros) × (1 + contingencia). El costo unitario divide ese total entre la capacidad conjunta.',
     limit:'Compara cotizaciones ingresadas por el usuario en la misma moneda. Usa costos, impuestos y capacidades equivalentes en alcance. El comparador trabaja sin un listado de precios de mercado ni cotizaciones bursátiles.',
-    refs:[['RenWaves · referencia de precios de equipos',ren+'energy-system-prices/']],
+    refs:[['NREL · Annual Technology Baseline','https://atb.nrel.gov/']],
     calc(v){
       L.assert(v.offers.length>0&&v.offers.every(r=>r.length===5&&r.every(x=>x>=0&&x<=1e9)&&r[0]>=.001&&
         Number.isInteger(r[1])&&r[1]>0),'Ingresa capacidad positiva, cantidad entera positiva y costos no negativos.');
@@ -88,8 +86,7 @@
     ],
     method:'Factura mensual = cargo fijo + kWh punta × precio punta + kWh valle × precio valle + kW de demanda facturable × precio de demanda. La comparación separa el cambio de tarifa con el perfil inicial y el efecto adicional de trasladar carga.',
     limit:'Modelo de dos períodos constantes y un cargo de demanda mensual. Usa la demanda facturable ya calculada para cada escenario. Los bloques, impuestos, cargos mínimos, exportación, penalizaciones y ajustes de contrato quedan fuera de este modelo.',
-    refs:[['SAM · estructura tarifaria','https://samrepo.nlr.gov/help/electricity_rates.html'],
-      ['RenWaves · estimación de costos',ren+'energy-cost-estimation/']],
+    refs:[['SAM · estructura tarifaria','https://samrepo.nlr.gov/help/electricity_rates.html']],
     calc(v){
       L.assert(v.profile.length===12&&v.profile.every(r=>r.length===5&&r.every(x=>x>=0&&x<=1e9)&&r[4]<=r[0]),
         'Usa 12 filas válidas. El traslado de cada mes debe ser menor o igual al consumo de punta.');

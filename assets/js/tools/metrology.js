@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Metrología & Cumplimiento
+   Yupana · Suite Metrología & Cumplimiento
    27 Incertidumbre GUM / EA-4/02 y regla de decisión
    28 Validez de muestras y tiempos de conservación
    29 Volumen de contención secundaria
@@ -495,7 +495,7 @@
               ${U.metric('ctReqWall', 'Altura de muro requerida', 'm')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="ctChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#F07E8A"></i>Requerido</span><span><i style="background:#5FE3A1"></i>Capacidad útil</span></div>
+            <div class="chart-legend"><span><i style="background:#B06060"></i>Requerido</span><span><i style="background:#2A8C82"></i>Capacidad útil</span></div>
             <div id="ctVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -553,9 +553,9 @@
 
         GL.chart(root.querySelector('#ctChart'), {
           type: 'bar',
-          series: [{ name: 'Volumen', data: [['Requerido', req], ['Capacidad', cap]], color: '#5FE3A1' }],
+          series: [{ name: 'Volumen', data: [['Requerido', req], ['Capacidad', cap]], color: '#2A8C82' }],
           y: { label: 'Volumen (m³)', zero: true, min: 0 },
-          rules: [{ y: req, label: 'requerido ' + fmt(req, 1) + ' m³', color: '#F07E8A' }]
+          rules: [{ y: req, label: 'requerido ' + fmt(req, 1) + ' m³', color: '#B06060' }]
         });
 
         const ok = def >= 0;

@@ -5,23 +5,23 @@
 .calc-brand small { font-size:13px; color:var(--muted) }
 html[data-theme="light"] body:has(.tool--pilot) {
   color-scheme:light;
-  --bg:#f4f6f8; --bg-2:#f8fafb; --panel:#fff; --panel-2:#f0f3f5; --panel-3:#e9eef1;
-  --text:#17252d; --text-2:#2a3b45; --muted:#4c5e6a; --faint:#4c5e6a;
-  --line:#cbd4da; --line-soft:#dce4e8; --calc-control-line:#84949e;
-  --accent:#28632a; --accent-ink:#fff; --calc-accent-soft:#edf6e9;
-  --calc-result:#065e68; --calc-result-bg:#eaf5f6; --calc-result-line:#a9cbd0;
-  --danger:#a12631; --chart-text:#415560; --chart-grid:#e1e9ec; --chart-axis:#7d9099;
-  --glass:#e9eef1; --calc-shadow:0 1px 3px #16252d0a,0 6px 20px #16252d06;
+  --bg:#F6F5EF; --bg-2:#FAF9F4; --panel:#fff; --panel-2:#F0EFE7; --panel-3:#E8E7DC;
+  --text:#16241E; --text-2:#33473E; --muted:#5F7268; --faint:#5F7268;
+  --line:#DCDBCE; --line-soft:#E8E7DC; --calc-control-line:#84949E;
+  --accent:#1F6F66; --accent-ink:#fff; --calc-accent-soft:#E7F1ED;
+  --calc-result:#0F5A52; --calc-result-bg:#E8F2EF; --calc-result-line:#A7C9C1;
+  --danger:#A63A3A; --chart-text:#5F7268; --chart-grid:#E8E7DC; --chart-axis:#87978E;
+  --glass:#EFEEE5; --calc-shadow:0 1px 3px #1F4D3A0a,0 6px 20px #1F4D3A06;
 }
 html[data-theme="dark"] body:has(.tool--pilot) {
   color-scheme:dark;
-  --bg:#11181e; --bg-2:#141e25; --panel:#1a252d; --panel-2:#24313a; --panel-3:#293a44;
-  --text:#edf2f4; --text-2:#dae3e8; --muted:#b2c3cd; --faint:#a5b8c4;
-  --line:#536670; --line-soft:#3c4c56; --calc-control-line:#758b98;
-  --accent:#a4df85; --accent-ink:#132b16; --calc-accent-soft:#263d2b;
-  --calc-result:#9ce5eb; --calc-result-bg:#18343b; --calc-result-line:#416973;
-  --danger:#ffadb5; --chart-text:#c5d5df; --chart-grid:#35434b; --chart-axis:#899da9;
-  --glass:#2a3740; --calc-shadow:0 1px 3px #0004,0 6px 20px #0002;
+  --bg:#0B1A14; --bg-2:#0F2119; --panel:#132A20; --panel-2:#173227; --panel-3:#1C3B2E;
+  --text:#F0F4EE; --text-2:#CBDAD1; --muted:#93A99C; --faint:#93A99C;
+  --line:#2A4A3A; --line-soft:#1F3A2D; --calc-control-line:#758B98;
+  --accent:#6BC9B6; --accent-ink:#0A1D16; --calc-accent-soft:#173A2F;
+  --calc-result:#9FE0CF; --calc-result-bg:#12332A; --calc-result-line:#35655A;
+  --danger:#F08A8A; --chart-text:#CBDAD1; --chart-grid:#2A4A3A; --chart-axis:#93A99C;
+  --glass:#173227; --calc-shadow:0 1px 3px #0004,0 6px 20px #0002;
 }
 body:has(.tool--pilot) {
   --calc-1:4px; --calc-2:8px; --calc-3:12px; --calc-4:16px;
@@ -194,28 +194,28 @@ body:has(.tool--pilot) .view { padding:var(--calc-6) var(--calc-6) var(--calc-7)
 
 /* Category colors in the three calculator pilots. */
 html[data-theme="light"] body:has(.tool--pilot[data-calc-suite="wastewater"]) {
-  --calc-result:#075e51; --calc-result-bg:#def5ea; --calc-result-line:#98cdbb;
-  --calc-wash:#e4f5ed; --calc-color-band:#319978;
+  --calc-result:#0F5A52; --calc-result-bg:#E8F2EF; --calc-result-line:#A7C9C1;
+  --calc-wash:#EEF5F1; --calc-color-band:#2A8C82;
 }
 html[data-theme="dark"] body:has(.tool--pilot[data-calc-suite="wastewater"]) {
-  --calc-result:#a0f1d0; --calc-result-bg:#153e36; --calc-result-line:#417568;
-  --calc-wash:#193a32; --calc-color-band:#65d4b0;
+  --calc-result:#9FE0CF; --calc-result-bg:#12332A; --calc-result-line:#35655A;
+  --calc-wash:#16362C; --calc-color-band:#5FC7B8;
 }
 html[data-theme="light"] body:has(.tool--pilot[data-calc-suite="hydraulics"]) {
-  --calc-result:#124b83; --calc-result-bg:#e3f0ff; --calc-result-line:#9cbce0;
-  --calc-wash:#e5effe; --calc-color-band:#488ac6;
+  --calc-result:#1F4D3A; --calc-result-bg:#E9EFEB; --calc-result-line:#B7C9BF;
+  --calc-wash:#EFF3F0; --calc-color-band:#2C6E86;
 }
 html[data-theme="dark"] body:has(.tool--pilot[data-calc-suite="hydraulics"]) {
-  --calc-result:#b4dbff; --calc-result-bg:#1c3854; --calc-result-line:#52769b;
-  --calc-wash:#20364d; --calc-color-band:#75b8f4;
+  --calc-result:#BFD9CD; --calc-result-bg:#183229; --calc-result-line:#3E6355;
+  --calc-wash:#17302A; --calc-color-band:#7FC3D8;
 }
 html[data-theme="light"] body:has(.tool--pilot[data-calc-suite="air"]) {
-  --calc-result:#53358c; --calc-result-bg:#eee8ff; --calc-result-line:#c0afe6;
-  --calc-wash:#f0eafd; --calc-color-band:#886bc1;
+  --calc-result:#7A5310; --calc-result-bg:#F7EFDF; --calc-result-line:#DDC79A;
+  --calc-wash:#FAF4E8; --calc-color-band:#B07A2E;
 }
 html[data-theme="dark"] body:has(.tool--pilot[data-calc-suite="air"]) {
-  --calc-result:#e0ccff; --calc-result-bg:#382a54; --calc-result-line:#746496;
-  --calc-wash:#332943; --calc-color-band:#bea3f2;
+  --calc-result:#E3B45C; --calc-result-bg:#2A2418; --calc-result-line:#5A4A2A;
+  --calc-wash:#241F14; --calc-color-band:#E3B45C;
 }
 .calc-head {
   background:linear-gradient(118deg,var(--calc-wash,var(--calc-result-bg)),var(--panel) 85%);

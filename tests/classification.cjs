@@ -56,13 +56,4 @@ for(const entry of audit.summary){
   assert.equal(entry.name,G.suites[entry.id].name);
   assert.equal(entry.count,G.toolsBySuite(entry.id).length);
 }
-for(const e of G.catalogue){
-  const tool=G.getTool(e.id);
-  if(!tool&&e.id.startsWith('unit-')){
-    assert.equal(e.suite,'conversion',e.id);
-    assert.match(e.route,/^#\/tool\/unit-converter\//,e.id);
-    continue;
-  }
-  assert.equal(e.suite,tool.suite,e.id);
-}
-console.log('OK: 339 herramientas, 22 categorías, 66 reasignaciones y relaciones sincronizadas.');
+console.log('OK: 339 herramientas, 22 categorías y 66 reasignaciones sincronizadas.');

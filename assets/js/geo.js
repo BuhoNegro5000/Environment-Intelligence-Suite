@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · geo
+   Yupana · geo
    Lectura de SHP/DBF, KML y GeoJSON; validación geométrica; conversión y mapa.
    Implementación propia, sin librerías externas.
    ========================================================================== */
@@ -480,7 +480,7 @@
   G.toGeoJSON = function (features) {
     return JSON.stringify({
       type: 'FeatureCollection',
-      name: 'Green Owl Labs export',
+      name: 'Yupana export',
       features: features.map(f => ({ type: 'Feature', properties: Object.assign({ name: f.name }, f.props || {}), geometry: f.geometry }))
     }, null, 2);
   };
@@ -488,11 +488,11 @@
     return ring.map(p => p[0].toFixed(prec) + ',' + p[1].toFixed(prec) + ',0').join(' ');
   }
   G.toKML = function (features, opts) {
-    opts = Object.assign({ precision: 7, nameField: 'name', includeAttrs: true, color: 'ff5fe3a1', fill: true, outline: true }, opts || {});
+    opts = Object.assign({ precision: 7, nameField: 'name', includeAttrs: true, color: 'ff2a8c82', fill: true, outline: true }, opts || {});
     const esc = GL.escape;
-    const styles = `<Style id="gowlPoly"><LineStyle><color>${opts.color}</color><width>2</width></LineStyle><PolyStyle><color>${opts.fill ? '4d5fe3a1' : '00ffffff'}</color><fill>${opts.fill ? 1 : 0}</fill><outline>${opts.outline ? 1 : 0}</outline></PolyStyle></Style>
-<Style id="gowlLine"><LineStyle><color>${opts.color}</color><width>2</width></LineStyle></Style>
-<Style id="gowlPoint"><IconStyle><color>${opts.color}</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle></Style>`;
+    const styles = `<Style id="yupanaPoly"><LineStyle><color>${opts.color}</color><width>2</width></LineStyle><PolyStyle><color>${opts.fill ? '4d2a8c82' : '00ffffff'}</color><fill>${opts.fill ? 1 : 0}</fill><outline>${opts.outline ? 1 : 0}</outline></PolyStyle></Style>
+<Style id="yupanaLine"><LineStyle><color>${opts.color}</color><width>2</width></LineStyle></Style>
+<Style id="yupanaPoint"><IconStyle><color>${opts.color}</color><scale>0.9</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle></Style>`;
     const placemarks = features.map(f => {
       const g = f.geometry, nm = f.name || 'Entidad';
       let geom = '';
@@ -515,14 +515,14 @@
       }
       const attrs = opts.includeAttrs && f.props ? Object.keys(f.props).filter(k => f.props[k] !== null && f.props[k] !== '').map(k =>
         `<Data name="${esc(k)}"><value>${esc(f.props[k])}</value></Data>`).join('') : '';
-      const style = /Polygon/.test(g.type) ? '#gowlPoly' : /Line/.test(g.type) ? '#gowlLine' : '#gowlPoint';
+      const style = /Polygon/.test(g.type) ? '#yupanaPoly' : /Line/.test(g.type) ? '#yupanaLine' : '#yupanaPoint';
       return `<Placemark><name>${esc(nm)}</name>${f.desc ? `<description>${esc(f.desc)}</description>` : ''}${attrs ? `<ExtendedData>${attrs}</ExtendedData>` : ''}<styleUrl>${style}</styleUrl>${geom}</Placemark>`;
     }).join('\n');
     return `<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
 <Document>
-<name>Green Owl Labs · ${esc(opts.title || 'Exportación')}</name>
-<description>Generado localmente con Green Owl Labs. Sistema de referencia: WGS 84 (EPSG:4326).</description>
+<name>Yupana · ${esc(opts.title || 'Exportación')}</name>
+<description>Generado localmente con Yupana. Sistema de referencia: WGS 84 (EPSG:4326).</description>
 ${styles}
 ${placemarks}
 </Document>

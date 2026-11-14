@@ -1,13 +1,12 @@
-/* Registro de métodos de agua inspirados en el catálogo público. */
+/* Registro de métodos de agua, química y proceso. */
 (function () {
   'use strict';
   const G=GL,L=G.lab;
-  const source='https://app.plutocalc.com/index-es.html';
   const mappings=new Map();
   function reg(id,anchors,suite,title,fields,method,calc,limit,refs=[]) {
-    L.register({id,suite,title,fields,method,calc,limit,refs:[...refs,['Plutocalc · ficha de referencia',source+'#'+anchors[0]]],tags:['Cálculo local','Método explícito']});
+    L.register({id,suite,title,fields,method,calc,limit,refs:[...refs],tags:['Cálculo local','Método explícito']});
     for(const anchor of anchors) {
-      if(mappings.has(anchor)) throw new Error('Referencia Plutocalc duplicada: '+anchor);
+      if(mappings.has(anchor)) throw new Error('Referencia duplicada: '+anchor);
       mappings.set(anchor,id);
     }
   }
@@ -19,5 +18,5 @@
     L.assert(a.length>0&&a.every(row=>row.length===count&&predicate(row)),message);
     return a;
   }
-  G.pluto={source,mappings,reg,metric,metrics,field,pct,rows,g:9.80665,eps:1e-12};
+  G.pluto={mappings,reg,metric,metrics,field,pct,rows,g:9.80665,eps:1e-12};
 })();

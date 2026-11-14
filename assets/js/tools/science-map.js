@@ -20,7 +20,7 @@
     tags:['GeoJSON · CSV · KML · SHP','Leaflet · Turf · Proj4js','Sin conexión'],
     html(){
       return '<div class="lab-workbench spatial-workspace">'+
-      '<section class="panel spatial-project"><div class="spatial-project-heading"><div><h2>Proyectos espaciales</h2><p id="mapSaveState" role="status">Abriendo almacenamiento local…</p></div><img src="assets/img/green-owl-labs-mark.png" alt="Green Owl Labs" width="48" height="48"></div>'+
+      '<section class="panel spatial-project"><div class="spatial-project-heading"><div><h2>Proyectos espaciales</h2><p id="mapSaveState" role="status">Abriendo almacenamiento local…</p></div><img src="assets/img/green-owl-labs-mark.png" alt="Yupana" width="48" height="48"></div>'+
       '<div class="spatial-project-fields"><label class="field"><span>Proyecto activo</span><select id="mapProject"></select></label><label class="field"><span>Nombre del proyecto</span><input id="mapProjectName" maxlength="100"></label>'+buttons('mapRename','Guardar nombre')+'</div>'+
       '<div class="lab-data-actions">'+buttons('mapNew','Nuevo proyecto')+buttons('mapDelete','Eliminar proyecto')+buttons('mapUndo','Deshacer')+buttons('mapRedo','Rehacer')+
       '<label class="btn sm">Abrir .gowl<input id="mapOpenProject" type="file" accept=".gowl,.json" hidden></label>'+buttons('mapExportProject','Exportar .gowl')+'</div></section>'+
@@ -400,7 +400,7 @@
       el('mapExport').onclick=run(()=>{
         const items=visible.filter(r=>!selected||r.key===selected);
         A(items.length,'No hay entidades para exportar.');
-        G.download('GreenOwl_capas.geojson',geo.toGeoJSON(items.map(r=>r.f)),'application/geo+json');
+        G.download('Yupana_capas.geojson',geo.toGeoJSON(items.map(r=>r.f)),'application/geo+json');
       });
       el('mapDistance').onclick=()=>startMeasure('distance');
       el('mapArea').onclick=()=>startMeasure('area');
@@ -428,7 +428,7 @@
       clearMeasure();initialize();
     },
     report(){return this._report;},
-    csv(){if(this._csv?.length) G.csvDownload('GreenOwl_espacial.csv',this._csv);}
+    csv(){if(this._csv?.length) G.csvDownload('Yupana_espacial.csv',this._csv);}
   };
   G.tool(tool);
 })();

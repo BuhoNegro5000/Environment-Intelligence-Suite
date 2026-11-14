@@ -148,7 +148,7 @@
     const headings=['Sección','Campo','Valor','Unidad'];
     const safe=value=>typeof value==='string'&&/^[\s]*[=+@\-\t\r]/.test(value)&&!/^[-+]?\d+(?:[.,]\d+)?(?:e[-+]?\d+)?$/i.test(value.trim())?"'"+value:value;
     const rows=entries.map(row=>Object.fromEntries(headings.map((name,i)=>[name,safe(row[i])])));
-    G.csvDownload('GreenOwl_'+id+'.csv',rows,headings);
+    G.csvDownload('Yupana_'+id+'.csv',rows,headings);
   }
   G.calculatorUI={isPilot:id=>Object.hasOwn(pilotSummaries,id),header,field,workbench,metric,bind,setFieldError,download,getPrecision};
 })();

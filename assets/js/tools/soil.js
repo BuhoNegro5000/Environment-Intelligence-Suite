@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Suelo & Carbono (parte 1)
+   Yupana · Suite Suelo & Carbono (parte 1)
    01 Stock de COS · 02 Benchmark por lluvia · 03 Densidad aparente
    ========================================================================== */
 (function () {
@@ -82,7 +82,7 @@
               ${metric('socKg', 'Densidad superficial', 'kg C/m²')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="socChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#5FE3A1"></i>Stock por capa</span><span><i style="background:#F2B45A"></i>Límite de referencia</span></div>
+            <div class="chart-legend"><span><i style="background:#2A8C82"></i>Stock por capa</span><span><i style="background:#A57B1F"></i>Límite de referencia</span></div>
             <div id="socVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -266,7 +266,7 @@
         
         GL.chart(root.querySelector('#socChart'), {
           type: 'bar',
-          series: [{ name: 't C/ha', data: rows.map(r => [`${fmt(r.from, 0)}–${fmt(r.to, 0)}`, r.stock]), color: '#5FE3A1' }],
+          series: [{ name: 't C/ha', data: rows.map(r => [`${fmt(r.from, 0)}–${fmt(r.to, 0)}`, r.stock]), color: '#2A8C82' }],
           y: { label: 't C/ha', zero: true },
           rules: []
         });
@@ -463,7 +463,7 @@
           for (let r = Math.max(150, dMin(stats)), i = 0; i <= 40; i++, r += Math.max(1, (dMax(stats) - Math.max(150, dMin(stats))) / 40)) line.push([r, Math.max(0, gs.lr.intercept + gs.lr.slope * Math.log(r))]);
           series.push({ name: 'Referencia ' + gs.g.label, data: line, color: gs.g.color, width: 2.4, points: false });
         }
-        series.push({ name: 'Su sitio', type: 'scatter', points: true, color: '#F2B45A', r: 5.5, data: [[rain, soc]] });
+        series.push({ name: 'Su sitio', type: 'scatter', points: true, color: '#A57B1F', r: 5.5, data: [[rain, soc]] });
         GL.chart(root.querySelector('#sbChart'), {
           series, x: { label: 'Precipitación media anual (mm)', min: Math.max(100, dMin(stats) * 0.9) }, y: { label: 'SOC (%)', min: 0, zero: true }
         });
@@ -642,9 +642,9 @@
 
         GL.chart(root.querySelector('#bdChart'), {
           type: 'bar',
-          series: [{ name: 'DA', data: [['Densidad', bd], ['Umbral', tex.max]], color: '#5FE3A1' }],
+          series: [{ name: 'DA', data: [['Densidad', bd], ['Umbral', tex.max]], color: '#2A8C82' }],
           y: { label: 'g/cm³', zero: true, min: 0, max: Math.max(2, bd, tex.max) * 1.1 },
-          rules: [{ y: tex.max, label: 'umbral ' + fmt(tex.max, 2), color: '#F2B45A' }]
+          rules: [{ y: tex.max, label: 'umbral ' + fmt(tex.max, 2), color: '#A57B1F' }]
         });
 
         root.querySelector('#bdTable').innerHTML = D.textureBD.map(t => `<tr${t.id === tex.id ? ' style="background:rgba(95,227,161,.05)"' : ''}><td class="name">${t.label}</td><td class="num">${fmt(t.ideal[0], 2)}–${fmt(t.ideal[1], 2)}</td><td class="num">${fmt(t.max, 2)}</td></tr>`).join('');

@@ -4,9 +4,8 @@
   const G=GL,L=G.lab;
   const sources=new Map();
   function reg(id,slug,suite,title,fields,method,calc,limit,refs=[]) {
-    const url='https://solver360.com/calculators/'+slug+'-calculator';
     L.register({id,suite,title,fields,method,calc,limit,
-      refs:[...refs,['Ficha de la función de referencia',url]],tags:['Cálculo local','Método explícito']});
+      refs:[...refs],tags:['Cálculo local','Método explícito']});
     sources.set(slug,id);
   }
   function matrix(a,width,test,message) {

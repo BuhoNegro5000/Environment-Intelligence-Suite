@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · helpers de interfaz para las suites
+   Yupana · helpers de interfaz para las suites
    Constructores de campos, métricas, barras de composición y bloques.
    ========================================================================== */
 (function () {
@@ -47,9 +47,9 @@
     const total = segments.reduce((s, x) => s + Math.max(0, x.value), 0) || 1;
     return `<div class="compbar">${segments.map(s => {
       const pct = Math.max(0, s.value) / total * 100;
-      return `<span style="width:${pct}%;background:${s.color || '#5FE3A1'}" title="${esc(s.label)}: ${GL.fmt(s.value, 1)} (${GL.fmt(pct, 1)} %)"></span>`;
+      return `<span style="width:${pct}%;background:${s.color || '#2A8C82'}" title="${esc(s.label)}: ${GL.fmt(s.value, 1)} (${GL.fmt(pct, 1)} %)"></span>`;
     }).join('')}</div>
-    <div class="compbar-legend">${segments.map(s => `<span><i style="background:${s.color || '#5FE3A1'}"></i>${esc(s.label)} <b>${GL.fmt(s.value, opts.dec === undefined ? 1 : opts.dec)}</b>${opts.unit ? ' ' + esc(opts.unit) : ''}</span>`).join('')}</div>`;
+    <div class="compbar-legend">${segments.map(s => `<span><i style="background:${s.color || '#2A8C82'}"></i>${esc(s.label)} <b>${GL.fmt(s.value, opts.dec === undefined ? 1 : opts.dec)}</b>${opts.unit ? ' ' + esc(opts.unit) : ''}</span>`).join('')}</div>`;
   };
 
   /* fila de tabla editable genérica */

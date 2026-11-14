@@ -20,7 +20,7 @@
     ],
     method:'Producción AC mensual = potencia nominal DC × irradiación POA del mes / 1 kW/m² × eficiencia del inversor × (1 − otras pérdidas). PR = producción AC / producción de referencia sin pérdidas.',
     limit:'Usa la irradiación del plano con la inclinación y el azimut del arreglo ya incorporados. Importa la serie de una fuente local o de un modelo solar como PVWatts o PVGIS. Aplica pérdidas agregadas constantes. El perfil mensual requiere datos de entrada y el cálculo se ejecuta sin conexión.',
-    refs:[pvRef,['RenWaves · Rensys','https://renwaves.com/rensys/']],
+    refs:[pvRef],
     calc(v){
       L.assert(v.months.length===12&&v.months.every(r=>r.length===1&&r[0]>=0&&r[0]<=1000),
         'Usa 12 valores mensuales de irradiación POA entre 0 y 1 000 kWh/m².');
@@ -54,7 +54,7 @@
     ],
     method:'Demanda diaria por equipos = Σ cantidad × W × horas / 1 000. Producción por módulo = W/1 000 × horas solares pico × PR. El número requerido redondea hacia arriba y el máximo por área redondea hacia abajo.',
     limit:'Balance de energía media. La cobertura anual representa energía producida respecto a demanda y puede incluir excedentes. El montaje requiere verificar geometría, sombras, estructura, separación, tensión, corriente y protecciones.',
-    refs:[pvRef,['RenWaves · diseño FV','https://renwaves.com/pv-system-design/']],
+    refs:[pvRef],
     calc(v){
       const fromLoads=v.mode==='loads';
       if(fromLoads)L.assert(v.loads.length>0&&v.loads.every(r=>r.length===3&&Number.isInteger(r[0])&&r[0]>=0&&

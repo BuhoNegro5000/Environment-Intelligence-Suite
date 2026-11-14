@@ -1,44 +1,50 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-11-11T22:16:20-05:00",
-  "title": "Design System: Green Owl Labs",
+  "title": "Design System: Yupana · Environmental Intelligence",
   "extensions": {
     "colorMeta": {
-      "signal-green": {
+      "yupana-ink": {
         "role": "primary",
-        "displayName": "Verde señal",
-        "canonical": "#8BE05A",
-        "tonalRamp": ["#0C2410", "#16391A", "#214F22", "#2E6A2A", "#3F8834", "#57A942", "#8BE05A", "#B8F08C"]
+        "displayName": "Tinta Yupana",
+        "canonical": "#1F4D3A",
+        "tonalRamp": ["#0B1A14", "#132A20", "#1C3B2E", "#2A4A3A", "#3D5A4E", "#1F4D3A", "#3F8060", "#DDEBE3"]
       },
-      "console-green": {
-        "role": "neutral",
-        "displayName": "Verde consola",
-        "canonical": "#07130D",
-        "tonalRamp": ["#050D09", "#07130D", "#0A1A11", "#0D2116", "#112A1C", "#163420", "#22452F", "#3A5F47"]
+      "yupana-teal": {
+        "role": "primary",
+        "displayName": "Teal Yupana",
+        "canonical": "#2A8C82",
+        "tonalRamp": ["#0B1A14", "#12332A", "#1F4D3A", "#1F6F66", "#2A8C82", "#5FC7B8", "#9FE0CF", "#D8F0EA"]
       },
-      "readout-white": {
+      "yupana-gold": {
+        "role": "secondary",
+        "displayName": "Oro Yupana",
+        "canonical": "#D9A441",
+        "tonalRamp": ["#2A1A06", "#4A2E0A", "#7A5310", "#A57B1F", "#C08E2E", "#D9A441", "#E3B45C", "#FBD9A2"]
+      },
+      "paper-canvas": {
         "role": "neutral",
-        "displayName": "Blanco de lectura",
-        "canonical": "#E9F4EE",
-        "tonalRamp": ["#3B4A43", "#56675E", "#6F8078", "#8BA79A", "#A8BDB1", "#C2D6CB", "#E9F4EE", "#F7FBF9"]
+        "displayName": "Papel cálido",
+        "canonical": "#F6F5EF",
+        "tonalRamp": ["#16241E", "#33473E", "#5F7268", "#87978E", "#DCDBCE", "#E8E7DC", "#F6F5EF", "#FFFFFF"]
+      },
+      "night-canvas": {
+        "role": "neutral",
+        "displayName": "Verde profundo",
+        "canonical": "#0B1A14",
+        "tonalRamp": ["#0B1A14", "#0F2119", "#132A20", "#173227", "#1C3B2E", "#2A4A3A", "#93A99C", "#F0F4EE"]
       },
       "warning-amber": {
         "role": "secondary",
         "displayName": "Ámbar de advertencia",
-        "canonical": "#F2B45A",
-        "tonalRamp": ["#2A1A06", "#4A2E0A", "#6D4410", "#8F5A16", "#B37422", "#D39438", "#F2B45A", "#FBD9A2"]
-      },
-      "daylight-signal": {
-        "role": "primary",
-        "displayName": "Verde normativo diurno",
-        "canonical": "#2E7D32",
-        "tonalRamp": ["#0B2410", "#123A1A", "#1A5224", "#22682E", "#2A7A34", "#2E7D32", "#67B06B", "#B9DDBB"]
+        "canonical": "#8A6214",
+        "tonalRamp": ["#2A1A06", "#4A2E0A", "#6D4410", "#8A6214", "#A57B1F", "#C08E2E", "#E3B45C", "#FBD9A2"]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Solo el h1 de la portada; ancho máximo de 16 caracteres por línea."
+        "purpose": "Solo el h1 de la portada; ancho máximo de 17 caracteres por línea."
       },
       "headline": {
         "displayName": "Headline",
@@ -69,16 +75,16 @@
       {
         "name": "ambient-deep",
         "value": "0 24px 70px -30px rgba(0,0,0,.75)",
-        "purpose": "Única sombra de elevación: modales, cajón móvil, tooltip y toast. En tema claro: 0 20px 50px -30px rgba(16,36,27,.28)."
+        "purpose": "Única sombra de elevación: modales, cajón móvil, tooltip y toast. En tema oscuro: 0 24px 70px -30px rgba(0,0,0,.75)."
       },
       {
         "name": "card-contact",
-        "value": "0 18px 40px -30px rgba(0,0,0,.6)",
+        "value": "0 18px 40px -30px rgba(31,77,58,.28)",
         "purpose": "Sombra de contacto en hover de tarjeta de herramienta; no es elevación permanente."
       },
       {
         "name": "accent-halo",
-        "value": "0 10px 26px -12px rgba(139,224,90,.5)",
+        "value": "0 10px 26px -12px rgba(42,140,130,.38)",
         "purpose": "Exclusiva del botón primario para despegar la acción principal."
       }
     ],
@@ -104,7 +110,7 @@
       "refersTo": "button-primary",
       "description": "La acción que produce el resultado. Uno por vista, con halo de acento.",
       "html": "<button class=\"ds-btn ds-btn--primary\">Calcular resultado</button>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 13px;border-radius:9px;border:1px solid var(--line,#22452F);background:var(--panel-2,#112A1C);color:var(--text-2,#C2D6CB);font:550 11.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;white-space:nowrap;transition:border-color .16s,background .16s,color .16s,transform .16s}.ds-btn:hover{border-color:var(--faint,#648274);background:var(--panel-3,#163420);color:var(--text,#E9F4EE)}.ds-btn:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}.ds-btn--primary{background:var(--accent,#8BE05A);border-color:transparent;color:var(--accent-ink,#08210F);font-weight:650;box-shadow:0 10px 26px -12px rgba(139,224,90,.5)}.ds-btn--primary:hover{background:var(--accent,#8BE05A);color:var(--accent-ink,#08210F);filter:brightness(1.06);transform:translateY(-1px)}"
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 13px;border-radius:9px;border:1px solid var(--line,#DCDBCE);background:var(--panel-2,#FAF9F4);color:var(--text-2,#33473E);font:550 11.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;white-space:nowrap;transition:border-color .16s,background .16s,color .16s,transform .16s}.ds-btn:hover{border-color:var(--faint,#87978E);background:var(--panel-3,#EFEEE5);color:var(--text,#16241E)}.ds-btn:focus-visible{outline:2px solid var(--accent,#1F6F66);outline-offset:2px}.ds-btn--primary{background:var(--accent,#1F6F66);border-color:transparent;color:var(--accent-ink,#FFFFFF);font-weight:650;box-shadow:0 10px 26px -12px rgba(42,140,130,.5)}.ds-btn--primary:hover{background:var(--accent,#1F6F66);color:var(--accent-ink,#FFFFFF);filter:brightness(1.06);transform:translateY(-1px)}"
     },
     {
       "name": "Secondary Button",
@@ -112,7 +118,7 @@
       "refersTo": "button-secondary",
       "description": "Acción de apoyo: fondo de entrada, borde de 1 px y respuesta de superficie.",
       "html": "<button class=\"ds-btn ds-btn--ghost\">Copiar informe</button>",
-      "css": ".ds-btn--ghost{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 13px;border-radius:9px;border:1px solid var(--line,#22452F);background:var(--panel-2,#112A1C);color:var(--text-2,#C2D6CB);font:550 11.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;white-space:nowrap;transition:border-color .16s,background .16s,color .16s}.ds-btn--ghost:hover{border-color:var(--faint,#648274);background:var(--panel-3,#163420);color:var(--text,#E9F4EE)}.ds-btn--ghost:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}"
+      "css": ".ds-btn--ghost{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 13px;border-radius:9px;border:1px solid var(--line,#DCDBCE);background:var(--panel-2,#FAF9F4);color:var(--text-2,#33473E);font:550 11.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;white-space:nowrap;transition:border-color .16s,background .16s,color .16s}.ds-btn--ghost:hover{border-color:var(--faint,#87978E);background:var(--panel-3,#EFEEE5);color:var(--text,#16241E)}.ds-btn--ghost:focus-visible{outline:2px solid var(--accent,#1F6F66);outline-offset:2px}"
     },
     {
       "name": "Field",
@@ -120,23 +126,23 @@
       "refersTo": "input-field",
       "description": "Campo numérico con etiqueta arriba, unidad en mono y nota debajo.",
       "html": "<label class=\"ds-field\"><span class=\"ds-field__label\">Caudal de diseño <em>m³/s</em></span><input class=\"ds-field__input\" type=\"number\" value=\"0.85\" step=\"0.01\"><small class=\"ds-field__hint\">Caudal medio del período de cálculo.</small></label>",
-      "css": ".ds-field{display:flex;flex-direction:column;gap:5px}.ds-field__label{display:flex;align-items:center;gap:5px;font:400 10.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}.ds-field__label em{font:400 9.5px/1.2 var(--mono,ui-monospace,Consolas,monospace);font-style:normal;color:var(--faint,#648274)}.ds-field__input{width:100%;padding:9px 10px;border:1px solid var(--line,#22452F);border-radius:9px;background:var(--panel-2,#112A1C);color:var(--text,#E9F4EE);font:400 13px/1.2 var(--mono,ui-monospace,Consolas,monospace);transition:border-color .15s,background .15s}.ds-field__input:hover{border-color:var(--faint,#648274)}.ds-field__input:focus{outline:none;border-color:var(--accent,#8BE05A);background:var(--panel-3,#163420)}.ds-field__hint{font:400 9.5px/1.35 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--faint,#648274)}"
+      "css": ".ds-field{display:flex;flex-direction:column;gap:5px}.ds-field__label{display:flex;align-items:center;gap:5px;font:400 10.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#5F7268)}.ds-field__label em{font:400 9.5px/1.2 var(--mono,ui-monospace,Consolas,monospace);font-style:normal;color:var(--faint,#87978E)}.ds-field__input{width:100%;padding:9px 10px;border:1px solid var(--line,#DCDBCE);border-radius:9px;background:var(--panel-2,#FAF9F4);color:var(--text,#16241E);font:400 13px/1.2 var(--mono,ui-monospace,Consolas,monospace);transition:border-color .15s,background .15s}.ds-field__input:hover{border-color:var(--faint,#87978E)}.ds-field__input:focus{outline:none;border-color:var(--accent,#1F6F66);background:var(--panel-3,#EFEEE5)}.ds-field__hint{font:400 9.5px/1.35 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--faint,#87978E)}"
     },
     {
       "name": "Filter Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Filtro de catálogo; activo en verde translúcido, nunca en relleno sólido.",
+      "description": "Filtro de herramientas; activo en teal translúcido, nunca en relleno sólido.",
       "html": "<button class=\"ds-chip ds-chip--on\" aria-pressed=\"true\">Agua</button>",
-      "css": ".ds-chip{padding:7px 11px;border:1px solid var(--line,#22452F);border-radius:999px;background:var(--panel,#0D2116);color:var(--muted,#8BA79A);font:400 11px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;transition:color .15s,border-color .15s,background .15s}.ds-chip:hover{color:var(--text,#E9F4EE);border-color:var(--faint,#648274)}.ds-chip:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}.ds-chip--on,.ds-chip[aria-pressed=\"true\"]{background:rgba(139,224,90,.12);border-color:rgba(139,224,90,.45);color:var(--accent,#8BE05A)}"
+      "css": ".ds-chip{padding:7px 11px;border:1px solid var(--line,#DCDBCE);border-radius:999px;background:var(--panel,#FFFFFF);color:var(--muted,#5F7268);font:400 11px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);cursor:pointer;transition:color .15s,border-color .15s,background .15s}.ds-chip:hover{color:var(--text,#16241E);border-color:var(--faint,#87978E)}.ds-chip:focus-visible{outline:2px solid var(--accent,#1F6F66);outline-offset:2px}.ds-chip--on,.ds-chip[aria-pressed=\"true\"]{background:rgba(42,140,130,.12);border-color:rgba(42,140,130,.45);color:var(--accent,#1F6F66)}"
     },
     {
       "name": "Tool Card",
       "kind": "card",
       "refersTo": "tool-card",
-      "description": "Entrada del catálogo: número en mono, título, descripción y etiquetas.",
+      "description": "Entrada de la rejilla: número en mono, título, descripción y etiquetas.",
       "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card__num\">042</span><h3 class=\"ds-card__title\">Huella de carbono corporativa</h3><p class=\"ds-card__body\">Alcances 1, 2 y 3 con factores IPCC 2019 por clima.</p><span class=\"ds-card__tag\">GHG Protocol</span></a>",
-      "css": ".ds-card{position:relative;display:flex;flex-direction:column;min-height:168px;padding:17px;border:1px solid var(--line-soft,#193526);border-radius:15px;background:var(--panel,#0D2116);color:inherit;text-decoration:none;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s}.ds-card:hover{border-color:rgba(139,224,90,.35);transform:translateY(-2px);box-shadow:0 18px 40px -30px rgba(0,0,0,.6)}.ds-card:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}.ds-card__num{font:400 10px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#648274)}.ds-card__title{margin:10px 0 6px;font:650 13.5px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:-.01em;color:var(--text,#E9F4EE)}.ds-card__body{margin:0;font:400 11px/1.45 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}.ds-card__tag{align-self:flex-start;margin-top:12px;padding:2px 5px;border:1px solid var(--line-soft,#193526);border-radius:4px;font:400 9px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#648274)}"
+      "css": ".ds-card{position:relative;display:flex;flex-direction:column;min-height:168px;padding:17px;border:1px solid var(--line-soft,#E8E7DC);border-radius:15px;background:var(--panel,#FFFFFF);color:inherit;text-decoration:none;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s}.ds-card:hover{border-color:rgba(42,140,130,.35);transform:translateY(-2px);box-shadow:0 18px 40px -30px rgba(0,0,0,.6)}.ds-card:focus-visible{outline:2px solid var(--accent,#1F6F66);outline-offset:2px}.ds-card__num{font:400 10px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#87978E)}.ds-card__title{margin:10px 0 6px;font:650 13.5px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:-.01em;color:var(--text,#16241E)}.ds-card__body{margin:0;font:400 11px/1.45 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#5F7268)}.ds-card__tag{align-self:flex-start;margin-top:12px;padding:2px 5px;border:1px solid var(--line-soft,#E8E7DC);border-radius:4px;font:400 9px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#87978E)}"
     },
     {
       "name": "Work Panel",
@@ -144,15 +150,15 @@
       "refersTo": "panel",
       "description": "Contenedor de entrada o resultado: borde suave, sin sombra en reposo.",
       "html": "<section class=\"ds-panel\"><header class=\"ds-panel__head\"><h2>Datos de entrada</h2><p>8 parámetros · unidades SI</p></header><p class=\"ds-panel__note\">Supuestos visibles antes del resultado.</p></section>",
-      "css": ".ds-panel{padding:20px;border:1px solid var(--line-soft,#193526);border-radius:18px;background:var(--panel,#0D2116);color:var(--text,#E9F4EE)}.ds-panel__head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}.ds-panel__head h2{margin:0;font:650 12px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:.1em;text-transform:uppercase;color:var(--text-2,#C2D6CB)}.ds-panel__head p{margin:3px 0 0;font:400 10.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}.ds-panel__note{margin:0;padding:10px 12px;border-left:2px solid var(--line,#22452F);border-radius:0 8px 8px 0;background:rgba(255,255,255,.03);font:400 10.5px/1.55 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}"
+      "css": ".ds-panel{padding:20px;border:1px solid var(--line-soft,#E8E7DC);border-radius:18px;background:var(--panel,#FFFFFF);color:var(--text,#16241E)}.ds-panel__head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}.ds-panel__head h2{margin:0;font:650 12px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:.1em;text-transform:uppercase;color:var(--text-2,#33473E)}.ds-panel__head p{margin:3px 0 0;font:400 10.5px/1.2 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#5F7268)}.ds-panel__note{margin:0;padding:10px 12px;border-left:2px solid var(--line,#DCDBCE);border-radius:0 8px 8px 0;background:rgba(255,255,255,.03);font:400 10.5px/1.55 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#5F7268)}"
     },
     {
       "name": "Sidebar Nav Link",
       "kind": "nav",
       "refersTo": "navigation-link",
-      "description": "Enlace de categoría; el activo suma barra de 2 px y degradado verde.",
+      "description": "Enlace de categoría; el activo suma barra de 2 px y degradado teal.",
       "html": "<a class=\"ds-nav-link ds-nav-link--active\" href=\"#\" aria-current=\"page\"><span class=\"ds-nav__num\">07</span>Aire y emisiones</a>",
-      "css": ".ds-nav-link{position:relative;display:flex;align-items:center;gap:9px;padding:7px 10px 7px 12px;border:1px solid transparent;border-radius:9px;font:400 12.75px/1.3 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--text-2,#C2D6CB);text-decoration:none}.ds-nav-link:hover{background:rgba(255,255,255,.03);color:var(--text,#E9F4EE)}.ds-nav-link:focus-visible{outline:2px solid var(--accent,#8BE05A);outline-offset:2px}.ds-nav__num{width:16px;flex:none;text-align:right;font:400 10px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#648274)}.ds-nav-link--active{background:linear-gradient(90deg,rgba(139,224,90,.14),rgba(139,224,90,.03));border-color:rgba(139,224,90,.22);color:var(--text,#E9F4EE)}.ds-nav-link--active::before{content:\"\";position:absolute;left:-4px;top:9px;bottom:9px;width:2px;border-radius:4px;background:var(--accent,#8BE05A)}.ds-nav-link--active .ds-nav__num{color:var(--accent,#8BE05A)}"
+      "css": ".ds-nav-link{position:relative;display:flex;align-items:center;gap:9px;padding:7px 10px 7px 12px;border:1px solid transparent;border-radius:9px;font:400 12.75px/1.3 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--text-2,#33473E);text-decoration:none}.ds-nav-link:hover{background:rgba(255,255,255,.03);color:var(--text,#16241E)}.ds-nav-link:focus-visible{outline:2px solid var(--accent,#1F6F66);outline-offset:2px}.ds-nav__num{width:16px;flex:none;text-align:right;font:400 10px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#87978E)}.ds-nav-link--active{background:linear-gradient(90deg,rgba(42,140,130,.14),rgba(42,140,130,.03));border-color:rgba(42,140,130,.22);color:var(--text,#16241E)}.ds-nav-link--active::before{content:\"\";position:absolute;left:-4px;top:9px;bottom:9px;width:2px;border-radius:4px;background:var(--accent,#1F6F66)}.ds-nav-link--active .ds-nav__num{color:var(--accent,#1F6F66)}"
     },
     {
       "name": "Metric",
@@ -160,7 +166,7 @@
       "refersTo": "metric",
       "description": "Unidad narrativa del resultado: etiqueta, cifra en mono y unidad o período.",
       "html": "<div class=\"ds-metric\"><span class=\"ds-metric__label\">Concentración PM2.5</span><strong class=\"ds-metric__value\">18.4</strong><small class=\"ds-metric__unit\">µg/m³ · promedio 24 h</small></div>",
-      "css": ".ds-metric{padding:12px;border:1px solid var(--line-soft,#193526);border-radius:12px;background:var(--panel-2,#112A1C)}.ds-metric__label{display:block;min-height:22px;font:400 9.5px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#8BA79A)}.ds-metric__value{display:block;margin-top:4px;font:600 21px/1.1 var(--mono,ui-monospace,Consolas,monospace);letter-spacing:-.04em;color:var(--text,#E9F4EE);overflow-wrap:anywhere}.ds-metric__unit{display:block;margin-top:3px;font:400 9.5px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#648274)}"
+      "css": ".ds-metric{padding:12px;border:1px solid var(--line-soft,#E8E7DC);border-radius:12px;background:var(--panel-2,#FAF9F4)}.ds-metric__label{display:block;min-height:22px;font:400 9.5px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#5F7268)}.ds-metric__value{display:block;margin-top:4px;font:600 21px/1.1 var(--mono,ui-monospace,Consolas,monospace);letter-spacing:-.04em;color:var(--text,#16241E);overflow-wrap:anywhere}.ds-metric__unit{display:block;margin-top:3px;font:400 9.5px/1.2 var(--mono,ui-monospace,Consolas,monospace);color:var(--faint,#87978E)}"
     },
     {
       "name": "Verdict Badge",
@@ -168,7 +174,7 @@
       "refersTo": "verdict-badge",
       "description": "Cierre de un cálculo: estado, razón y referencia; el tono siempre va acompañado de texto.",
       "html": "<div class=\"ds-verdict ds-verdict--ok\"><span class=\"ds-verdict__ico\">OK</span><div class=\"ds-verdict__body\"><b>Cumple el ECA de aire</b><small>18.4 µg/m³ frente a 25 µg/m³ (D.S. 003-2017-MINAM, 24 h).</small></div></div>",
-      "css": ".ds-verdict{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line,#22452F);border-radius:14px;background:var(--panel-2,#112A1C);color:var(--text,#E9F4EE)}.ds-verdict__ico{display:grid;place-items:center;width:52px;height:52px;flex:none;border:1px solid var(--line-soft,#193526);border-radius:14px;background:var(--panel-3,#163420);font:700 22px/1 var(--mono,ui-monospace,Consolas,monospace);color:var(--accent,#8BE05A)}.ds-verdict__body{min-width:0}.ds-verdict__body b{display:block;font:650 15px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:-.01em}.ds-verdict__body small{display:block;margin-top:2px;font:400 10.5px/1.45 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#8BA79A)}.ds-verdict--warn{border-color:rgba(242,180,90,.32);background:rgba(242,180,90,.06)}.ds-verdict--warn .ds-verdict__ico{color:var(--amber,#F2B45A)}.ds-verdict--bad{border-color:rgba(240,126,138,.32);background:rgba(240,126,138,.06)}.ds-verdict--bad .ds-verdict__ico{color:var(--rose,#F07E8A)}"
+      "css": ".ds-verdict{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line,#DCDBCE);border-radius:14px;background:var(--panel-2,#FAF9F4);color:var(--text,#16241E)}.ds-verdict__ico{display:grid;place-items:center;width:52px;height:52px;flex:none;border:1px solid var(--line-soft,#E8E7DC);border-radius:14px;background:var(--panel-3,#EFEEE5);font:700 22px/1 var(--mono,ui-monospace,Consolas,monospace);color:var(--accent,#1F6F66)}.ds-verdict__body{min-width:0}.ds-verdict__body b{display:block;font:650 15px/1.25 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);letter-spacing:-.01em}.ds-verdict__body small{display:block;margin-top:2px;font:400 10.5px/1.45 var(--sans,Inter,-apple-system,\"Segoe UI\",Roboto,Arial,sans-serif);color:var(--muted,#5F7268)}.ds-verdict--warn{border-color:rgba(138,98,20,.32);background:rgba(138,98,20,.06)}.ds-verdict--warn .ds-verdict__ico{color:var(--amber,#8A6214)}.ds-verdict--bad{border-color:rgba(163,74,74,.32);background:rgba(163,74,74,.06)}.ds-verdict--bad .ds-verdict__ico{color:var(--rose,#A34A4A)}"
     },
     {
       "name": "Instrument Grid Chip",
@@ -176,7 +182,7 @@
       "refersTo": "metric",
       "description": "Ficha de color sin etiqueta interna; coordenadas en ejes, selección con doble anillo y pulso en la más cercana.",
       "html": "<div class=\"ds-grid\" role=\"group\" aria-label=\"Muestra de carta Munsell\"><button class=\"ds-grid__chip\" style=\"background:#D9C7B4\" aria-label=\"10YR 8/2\"></button><button class=\"ds-grid__chip\" style=\"background:#C0A57E\" aria-label=\"10YR 7/3\"></button><button class=\"ds-grid__chip\" style=\"background:#A8825C\" aria-label=\"10YR 6/4\"></button><button class=\"ds-grid__chip\" style=\"background:#8C6A48\" aria-label=\"10YR 5/4\"></button><button class=\"ds-grid__chip ds-grid__chip--on\" style=\"background:#765B3E\" aria-label=\"10YR 4/4\" aria-pressed=\"true\"></button><button class=\"ds-grid__chip\" style=\"background:#5E452C\" aria-label=\"10YR 3/4\"></button><button class=\"ds-grid__chip ds-grid__chip--near\" style=\"background:#4A3520\" aria-label=\"10YR 2.5/4\"></button><button class=\"ds-grid__chip\" style=\"background:#3A2A1A\" aria-label=\"10YR 2/4\"></button></div>",
-      "css": ".ds-grid{display:grid;grid-template-columns:repeat(4,minmax(46px,1fr));gap:4px;max-width:420px}.ds-grid__chip{position:relative;aspect-ratio:1.5;min-height:42px;border:1px solid rgba(0,0,0,.28);border-radius:7px;cursor:pointer;outline:2px solid transparent;outline-offset:1px;transition:transform .12s ease,box-shadow .12s ease,outline-color .12s}.ds-grid__chip:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 10px 20px -12px rgba(0,0,0,.95);z-index:2}.ds-grid__chip:focus-visible{outline-color:var(--text,#E9F4EE);outline-offset:2px}.ds-grid__chip--on{outline-color:var(--text,#E9F4EE);box-shadow:0 0 0 2px var(--bg,#07130D),0 0 0 4px var(--accent,#8BE05A)}.ds-grid__chip--near::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--accent,#8BE05A);border-radius:9px;pointer-events:none}"
+      "css": ".ds-grid{display:grid;grid-template-columns:repeat(4,minmax(46px,1fr));gap:4px;max-width:420px}.ds-grid__chip{position:relative;aspect-ratio:1.5;min-height:42px;border:1px solid rgba(0,0,0,.28);border-radius:7px;cursor:pointer;outline:2px solid transparent;outline-offset:1px;transition:transform .12s ease,box-shadow .12s ease,outline-color .12s}.ds-grid__chip:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 10px 20px -12px rgba(0,0,0,.95);z-index:2}.ds-grid__chip:focus-visible{outline-color:var(--text,#16241E);outline-offset:2px}.ds-grid__chip--on{outline-color:var(--text,#16241E);box-shadow:0 0 0 2px var(--bg,#F6F5EF),0 0 0 4px var(--accent,#1F6F66)}.ds-grid__chip--near::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--accent,#1F6F66);border-radius:9px;pointer-events:none}"
     },
     {
       "name": "Result Bars",
@@ -184,7 +190,7 @@
       "refersTo": "metric",
       "description": "Barras horizontales con escala honesta y conmutador a tabla; el valor exacto vive en mono a la derecha.",
       "html": "<div class=\"ds-viz\"><div class=\"ds-viz__head\"><div><span class=\"ds-viz__eyebrow\">LECTURA VISUAL</span><b>NPR inicial</b><small>2 filas · escala desde cero</small></div><div class=\"ds-viz__tabs\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\">Barras</button><button role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Tabla</button></div></div><ul class=\"ds-viz__bars\"><li><span>Almacenamiento</span><i><b style=\"--pct:100\"></b></i><em>240</em></li><li><span>Transporte</span><i><b style=\"--pct:33.3\"></b></i><em>80</em></li></ul></div>",
-      "css": ".ds-viz{border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#0d1a13;overflow:hidden;max-width:520px;font-family:system-ui,sans-serif}.ds-viz__head{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06);flex-wrap:wrap}.ds-viz__eyebrow{display:block;font:9px ui-monospace,monospace;letter-spacing:.16em;color:#8BE05A;margin-bottom:3px}.ds-viz__head b{display:block;font-size:13px;color:#E9F4EE}.ds-viz__head small{font:9.5px ui-monospace,monospace;color:#9CB3A7}.ds-viz__tabs{display:inline-flex;padding:3px;gap:2px;border:1px solid rgba(255,255,255,.08);border-radius:9px;background:#07130D}.ds-viz__tabs button{border:0;background:none;color:#9CB3A7;font-size:10.5px;padding:0 12px;min-height:30px;border-radius:6px;cursor:pointer}.ds-viz__tabs button[aria-selected=\"true\"]{background:#16281E;color:#E9F4EE}.ds-viz__bars{list-style:none;margin:0;padding:16px;display:grid;gap:9px}.ds-viz__bars li{display:grid;grid-template-columns:minmax(70px,32%) 1fr auto;align-items:center;gap:10px;font-size:11px;color:#C9DCD2}.ds-viz__bars i{height:15px;border-radius:4px;background:#07130D;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);overflow:hidden}.ds-viz__bars b{display:block;height:100%;width:calc(var(--pct) * 1%);border-radius:3px;background:linear-gradient(90deg,rgba(139,224,90,.55),#8BE05A)}.ds-viz__bars em{font:10.5px ui-monospace,monospace;font-style:normal;color:#E9F4EE;text-align:right}"
+      "css": ".ds-viz{border:1px solid rgba(31,77,58,.10);border-radius:12px;background:#FAF9F4;overflow:hidden;max-width:520px;font-family:system-ui,sans-serif}.ds-viz__head{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid rgba(31,77,58,.08);flex-wrap:wrap}.ds-viz__eyebrow{display:block;font:9px ui-monospace,monospace;letter-spacing:.16em;color:#1F6F66;margin-bottom:3px}.ds-viz__head b{display:block;font-size:13px;color:#16241E}.ds-viz__head small{font:9.5px ui-monospace,monospace;color:#5F7268}.ds-viz__tabs{display:inline-flex;padding:3px;gap:2px;border:1px solid rgba(31,77,58,.10);border-radius:9px;background:#F6F5EF}.ds-viz__tabs button{border:0;background:none;color:#5F7268;font-size:10.5px;padding:0 12px;min-height:30px;border-radius:6px;cursor:pointer}.ds-viz__tabs button[aria-selected=\"true\"]{background:#EFEEE5;color:#16241E}.ds-viz__bars{list-style:none;margin:0;padding:16px;display:grid;gap:9px}.ds-viz__bars li{display:grid;grid-template-columns:minmax(70px,32%) 1fr auto;align-items:center;gap:10px;font-size:11px;color:#33473E}.ds-viz__bars i{height:15px;border-radius:4px;background:#F6F5EF;box-shadow:inset 0 0 0 1px rgba(31,77,58,.08);overflow:hidden}.ds-viz__bars b{display:block;height:100%;width:calc(var(--pct) * 1%);border-radius:3px;background:linear-gradient(90deg,rgba(42,140,130,.55),#1F6F66)}.ds-viz__bars em{font:10.5px ui-monospace,monospace;font-style:normal;color:#16241E;text-align:right}"
     },
     {
       "name": "Result Trend",
@@ -192,28 +198,29 @@
       "refersTo": "metric",
       "description": "Línea con área para series temporales y curvas; eje ajustado al rango observado y última lectura marcada.",
       "html": "<figure class=\"ds-trend-wrap\"><svg class=\"ds-trend\" viewBox=\"0 0 320 120\" role=\"img\" aria-label=\"Serie descendente de 16 a 5\"><line class=\"ds-trend__grid\" x1=\"8\" y1=\"60\" x2=\"312\" y2=\"60\"></line><path class=\"ds-trend__area\" d=\"M8 18 L72 42 L136 62 L200 80 L264 96 L312 104 L312 112 L8 112 Z\"></path><path class=\"ds-trend__line\" d=\"M8 18 L72 42 L136 62 L200 80 L264 96 L312 104\"></path><circle class=\"ds-trend__dot\" cx=\"312\" cy=\"104\" r=\"3.4\"></circle></svg><figcaption><span>0 km</span><span>90 km</span></figcaption></figure>",
-      "css": ".ds-trend-wrap{margin:0;max-width:520px}.ds-trend{display:block;width:100%;height:auto;background:#0d1a13;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px;box-sizing:border-box}.ds-trend__grid{stroke:rgba(255,255,255,.08);stroke-dasharray:2 6}.ds-trend__area{fill:rgba(139,224,90,.13)}.ds-trend__line{fill:none;stroke:#8BE05A;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.ds-trend__dot{fill:#8BE05A;stroke:#0d1a13;stroke-width:1.5}.ds-trend-wrap figcaption{display:flex;justify-content:space-between;margin-top:6px;font:9.5px ui-monospace,monospace;color:#9CB3A7}"
+      "css": ".ds-trend-wrap{margin:0;max-width:520px}.ds-trend{display:block;width:100%;height:auto;background:#FAF9F4;border:1px solid rgba(31,77,58,.10);border-radius:12px;padding:10px 12px;box-sizing:border-box}.ds-trend__grid{stroke:rgba(31,77,58,.10);stroke-dasharray:2 6}.ds-trend__area{fill:rgba(42,140,130,.13)}.ds-trend__line{fill:none;stroke:#1F6F66;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.ds-trend__dot{fill:#1F6F66;stroke:#FAF9F4;stroke-width:1.5}.ds-trend-wrap figcaption{display:flex;justify-content:space-between;margin-top:6px;font:9.5px ui-monospace,monospace;color:#5F7268}"
     }
   ],
   "narrative": {
-    "northStar": "La estación de monitoreo",
-    "overview": "La suite se lee como una consola nocturna de instrumentos: fondo verde profundo, superficies apenas más claras que se apilan sin ruido, cifras en monoespaciada que ocupan el lugar del protagonista y un verde señal que solo se enciende cuando hay algo que mirar. No es una landing comercial ni un panel SaaS de tarjetas blandas; es el puesto donde alguien compara un resultado contra un límite normativo y necesita ver de inmediato qué está dentro, qué está al borde y qué está fuera.\n\nLa densidad es deliberada. La navegación lateral de 268 px sostiene 339 herramientas en 22 categorías sin convertirse en un menú infinito; el área de trabajo usa paneles de borde fino, etiquetas en versalitas y tablas compactas porque el usuario lee supuestos y unidades, no párrafos de marketing. El contraste entre texto claro y fondo oscuro hace el trabajo que en otros sistemas haría una sombra.\n\nLa personalidad visual es precisa, sobria e instrumentada. El movimiento existe para confirmar una acción —un borde que se enciende, una tarjeta que sube 2 px, un panel que se desliza— y nunca para decorar. La autoridad narrativa la da la jerarquía, no el color.",
+    "northStar": "El tablero de contar",
+    "overview": "La portada no se abre con una promesa comercial: se abre con un tablero yupana. Cinco columnas de bloques apilados representan los cinco dominios del producto, el sol dorado corona la columna de mayor peso y el resto del sistema hereda esa lógica —contar, ordenar y leer un resultado—. La interfaz se siente como una mesa de trabajo bien curada: papel cálido, tinta verde profunda, teal para lo activo y oro para lo que hay que mirar.\n\nLa densidad es deliberada. La navegación lateral de 268 px sostiene 339 herramientas en 22 categorías sin convertirse en un menú infinito; el área de trabajo usa paneles de borde fino, etiquetas en versalitas y tablas compactas porque el usuario lee supuestos y unidades, no párrafos de marketing. El tema claro es el turno principal; el oscuro es una versión nocturna del mismo tablero, no otro producto.\n\nLa personalidad visual es precisa, cálida e instrumentada. El movimiento existe para confirmar una acción —un borde que se enciende, una tarjeta que sube 2 px, un bloque que aparece— y nunca para decorar. La autoridad narrativa la da la jerarquía, no el color.",
     "keyCharacteristics": [
       "Densidad alta y jerarquía explícita, con etiquetas pequeñas en mayúsculas sobre valores grandes en mono.",
-      "Acento verde escaso: aparece en el estado activo, el veredicto, la cifra principal y el foco de teclado.",
+      "Acento teal escaso: aparece en el estado activo, el veredicto, la cifra principal y el foco de teclado.",
+      "Oro reservado para el símbolo de marca, los hitos y las referencias que requieren atención.",
       "Profundidad por capas tonales, no por sombras; la sombra se reserva para lo que flota.",
       "Bordes de 1 px como estructura; radios medianos que se abren según el tamaño del contenedor.",
-      "Tema claro disponible como turno de día, con la misma lógica y el verde oscurecido."
+      "Tema oscuro disponible como turno de noche, con la misma lógica y el teal aclarado."
     ],
     "rules": [
       {
-        "name": "La regla del verde escaso",
-        "body": "El verde señal no debe cubrir más de ~10 % de la superficie visible. Si dos bloques compiten por el acento, uno de los dos está mal jerarquizado.",
+        "name": "La regla del teal escaso",
+        "body": "El teal no debe cubrir más de ~10 % de la superficie visible. Si dos bloques compiten por el acento, uno de los dos está mal jerarquizado.",
         "section": "colors"
       },
       {
         "name": "La regla del color con significado",
-        "body": "Ámbar, cian, rosa y violeta solo aparecen asociados a un estado o a una serie declarada en la leyenda. Nunca se usan para dar vida a una tarjeta.",
+        "body": "Ámbar, azul, arcilla y violeta solo aparecen asociados a un estado o a una serie declarada en la leyenda. Nunca se usan para dar vida a una tarjeta.",
         "section": "colors"
       },
       {
@@ -254,20 +261,22 @@
     ],
     "dos": [
       "Do usar la mono para toda cifra, unidad, identificador, huella y versión; la sans queda para lenguaje.",
+      "Do reservar Space Grotesk para títulos, marca y cifras de portada; el cuerpo usa la sans del sistema.",
       "Do mantener el borde en 1 px y resolver la separación con tono (panel → input → high).",
-      "Do declarar color mediante las variables del tema, de modo que el modo claro siga funcionando sin retoques.",
+      "Do declarar color mediante las variables del tema, de modo que el modo oscuro siga funcionando sin retoques.",
       "Do repetir la estructura de la métrica: etiqueta arriba, cifra en mono, unidad o período debajo.",
       "Do acompañar cada veredicto con su razón y su referencia normativa o método.",
       "Do respetar prefers-reduced-motion: el sistema ya anula animaciones y transiciones, y cualquier animación nueva debe hacer lo mismo.",
       "Do mantener el foco visible con 2 px de acento y 2 px de separación, incluso dentro de controles compuestos."
     ],
     "donts": [
-      "Don't teñir superficies completas de verde señal ni usarlo como fondo de secciones; su valor es la rareza.",
+      "Don't teñir superficies completas de teal ni usarlo como fondo de secciones; su valor es la rareza.",
+      "Don't usar el oro de marca como texto pequeño sobre papel claro ni como trazo de dato sin oscurecerlo.",
       "Don't añadir sombras a paneles o tarjetas en reposo: rompe la lógica de capas tonales.",
       "Don't usar radios de píldora en botones de acción ni radios menores a 7 px en controles.",
-      "Don't poner texto blanco sobre el verde señal; la tinta oscura es la única combinación válida.",
+      "Don't poner texto blanco sobre el teal claro del tema oscuro; ahí la tinta profunda es la única combinación válida.",
       "Don't bajar de 9 px en etiquetas ni de 11.5 px en texto accionable; la densidad no justifica ilegibilidad.",
-      "Don't introducir una segunda familia tipográfica ni iconos de fuente: los iconos del sistema son SVG o glifos textuales ya establecidos.",
+      "Don't introducir una segunda familia tipográfica ni iconos de fuente: los iconos del sistema son SVG inline.",
       "Don't mostrar una cifra sin unidad, sin período de promedio o sin modelo declarado cuando el resultado es normativo."
     ]
   }

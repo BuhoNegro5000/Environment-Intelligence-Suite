@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · app shell
+   Yupana · app shell
    Rutas, navegación, portada, filtros y ciclo de vida de cada herramienta.
    ========================================================================== */
 (function () {
@@ -20,7 +20,7 @@
     document.documentElement.setAttribute('data-theme', theme);
     document.getElementById('themeLbl').textContent = theme === 'dark' ? 'Tema claro' : 'Tema oscuro';
     document.getElementById('themeIco').textContent = theme === 'dark' ? '☀' : '☾';
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#07130d' : '#f2f4ef');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0B1A14' : '#F6F5EF');
     GL.store.set('theme', theme);
     setTimeout(() => GL.redrawCharts(), 60);
   }
@@ -35,10 +35,9 @@
   function buildNav(activeSuite, activeId) {
     const favCount = GL.favs().length;
     let html = `<div class="nav-group">
-      <a class="nav-link ${!activeId && !activeSuite ? 'active' : ''}" href="#/"><span class="ni">⌂</span>Inicio</a>
-      <a class="nav-link" href="#/catalogo"><span class="ni">▦</span>Catálogo científico</a>
-      <a class="nav-link" href="#/tool/unit-converter"><span class="ni">⇄</span>Conversor de unidades</a>
-      <a class="nav-link ${location.hash === '#/favoritos' ? 'active' : ''}" href="#/favoritos"><span class="ni">★</span>Favoritos ${favCount ? `<span class="badge-count" style="margin-left:auto">${favCount}</span>` : ''}</a>
+      <a class="nav-link ${!activeId && !activeSuite ? 'active' : ''}" href="#/"><span class="ni">${GL.icon('home')}</span>Inicio</a>
+      <a class="nav-link" href="#/tool/unit-converter"><span class="ni">${GL.icon('swap')}</span>Conversor de unidades</a>
+      <a class="nav-link ${location.hash === '#/favoritos' ? 'active' : ''}" href="#/favoritos"><span class="ni">${GL.icon('star')}</span>Favoritos ${favCount ? `<span class="badge-count" style="margin-left:auto">${favCount}</span>` : ''}</a>
     </div>`;
     Object.keys(GL.suites).forEach(sid => {
       const s = GL.suites[sid];
@@ -46,8 +45,8 @@
       const isClosed = (collapsed[sid] ?? true) && activeSuite !== sid;
       html += `<div class="nav-group ${isClosed ? 'closed' : ''}" data-group="${sid}">
         <button class="nav-group-head" type="button" data-toggle="${sid}" aria-expanded="${!isClosed}" aria-controls="nav-${sid}">
-          <span style="color:${s.color};font-size:11px">${s.icon}</span><b>${s.short}</b>
-          <span class="count">${list.length}</span><span class="chev">▾</span>
+          <span class="ng-ico" style="--sc:${s.color}">${GL.icon(GL.suiteIcon(sid), 'sm')}</span><b>${s.short}</b>
+          <span class="count">${list.length}</span><span class="chev">${GL.icon('chevron', 'sm')}</span>
         </button>
         <div class="nav-links" id="nav-${sid}">
           ${list.map(t => `<a class="nav-link ${activeId === t.id ? 'active' : ''}" href="#/tool/${t.id}"><span class="ni">${String(t.n).padStart(2, '0')}</span>${GL.escape(t.title)}</a>`).join('')}
@@ -89,18 +88,18 @@
   }
 
   /* --------------------------------------------------------------- cards */
-  function suiteColor(id) { return (GL.suites[id] || {}).color || '#5FE3A1'; }
+  function suiteColor(id) { return (GL.suites[id] || {}).color || '#2A8C82'; }
   function toolCard(t) {
     const s = GL.suites[t.suite];
     return `<a class="tool-card" href="#/tool/${t.id}">
       <div class="tc-head">
         <span class="tc-num">${String(t.n).padStart(2, '0')}</span>
-        <span class="tc-suite" style="color:${s.color}">${s.short}</span>
-        <button class="tc-fav ${GL.isFav(t.id) ? 'on' : ''}" data-fav="${t.id}" title="Favorito">${GL.isFav(t.id) ? '★' : '☆'}</button>
+        <span class="tc-suite" style="--sc:${s.color}">${GL.icon(GL.suiteIcon(t.suite), 'sm')}${s.short}</span>
+        <button class="tc-fav ${GL.isFav(t.id) ? 'on' : ''}" data-fav="${t.id}" title="Favorito" aria-label="Favorito">${GL.icon('star', 'sm')}</button>
       </div>
       <h3>${GL.escape(t.title)}</h3>
       <p>${GL.escape(t.desc)}</p>
-      <div class="tc-foot">${(t.tags || []).slice(0, 3).map(x => `<span class="tag">${GL.escape(x)}</span>`).join('')}<span class="tc-arrow">→</span></div>
+      <div class="tc-foot">${(t.tags || []).slice(0, 3).map(x => `<span class="tag">${GL.escape(x)}</span>`).join('')}<span class="tc-arrow">${GL.icon('arrow', 'sm')}</span></div>
     </a>`;
   }
   function bindFavButtons(root) {
@@ -109,7 +108,6 @@
         e.preventDefault(); e.stopPropagation();
         const on = GL.toggleFav(btn.dataset.fav);
         btn.classList.toggle('on', on);
-        btn.textContent = on ? '★' : '☆';
         GL.toast(on ? 'Añadido a favoritos' : 'Quitado de favoritos');
         buildNav();
         syncNav(currentRoute.suite, currentRoute.id);
@@ -118,66 +116,83 @@
   }
 
   /* ---------------------------------------------------------------- home */
+  const DOMAINS = [
+    { id: 'agua', name: 'Agua', icon: 'droplet', color: '#2A8C82', desc: 'Captación, potabilización, hidráulica, membranas y agua industrial.', suites: ['water', 'wastewater', 'hydraulics', 'membranes', 'industrial-water', 'conversion'] },
+    { id: 'suelo', name: 'Suelo y residuos', icon: 'layers', color: '#8A6A43', desc: 'Propiedades del suelo, erosión, fertilidad, residuos y rellenos sanitarios.', suites: ['soil', 'waste'] },
+    { id: 'aire', name: 'Aire, clima y energía', icon: 'wind', color: '#B07A2E', desc: 'Emisiones, dispersión, confort térmico, carbono y energías renovables.', suites: ['air', 'energy', 'climate'] },
+    { id: 'territorio', name: 'Ecología y territorio', icon: 'leaf', color: '#4F7D57', desc: 'Biodiversidad, geografía, evaluación de impacto y sostenibilidad.', suites: ['ecology', 'spatial', 'impact', 'sustainability'] },
+    { id: 'decision', name: 'Decisión y personas', icon: 'scale', color: '#3D5A4E', desc: 'Multicriterio, estadística, metrología, salud ambiental y seguridad.', suites: ['decision', 'analysis', 'metrology', 'safety', 'health', 'noise', 'population'] }
+  ];
   function pageHome() {
     const n = GL.tools.length;
     const suites = Object.keys(GL.suites);
+    const countOf = d => d.suites.reduce((s, id) => s + GL.toolsBySuite(id).length, 0);
+    const top = Math.max(...DOMAINS.map(countOf));
+    const board = DOMAINS.map(d => {
+      const c = countOf(d), blocks = Math.max(2, Math.round(c / top * 11));
+      return `<a class="board-col ${c === top ? 'is-peak' : ''}" href="#/suite/${d.suites[0]}" style="--bc:${d.color}" aria-label="${d.name}: ${c} herramientas">
+        <span class="board-stack" aria-hidden="true">${Array.from({ length: blocks }, () => '<i class="board-block"></i>').join('')}</span>
+        <span class="board-label">${d.name}</span><span class="board-count">${c}</span>
+      </a>`;
+    }).join('');
     view.innerHTML = `
       <section class="hero">
         <div class="hero-inner">
           <div>
-            <div class="eyebrow">Environmental Intelligence Suite</div>
-            <h1>Precisión que <span class="thin">se puede defender.</span></h1>
-            <p>${n} herramientas en español para agua, aguas residuales, suelo, aire, clima, biodiversidad y evaluación ambiental.</p>
+            <div class="eyebrow">Environmental Intelligence</div>
+            <h1>Cada dato en su casilla. <span class="mark">Cada decisión, con evidencia.</span></h1>
+            <p>Yupana reúne ${n} herramientas de cálculo para agua, suelo, aire, clima, biodiversidad y territorio. Fórmulas visibles, unidades explícitas y resultados que puedes defender.</p>
             <div class="hero-actions">
-              <a class="btn primary" href="#/suite/soil">Explorar herramientas →</a>
-              <a class="btn" href="#/tool/unit-converter">⇄ Convertir unidades</a>
-              <button class="btn" data-open-palette>⌕ Buscar por problema</button>
+              <a class="btn primary" href="#/suite/water">${GL.icon('grid', 'sm')} Explorar herramientas</a>
+              <a class="btn" href="#/tool/unit-converter">${GL.icon('swap', 'sm')} Convertir unidades</a>
+              <button class="btn" data-open-palette>${GL.icon('search', 'sm')} Buscar por problema</button>
             </div>
             <div class="hero-stats">
               <div class="hero-stat"><b>${n}</b><span>HERRAMIENTAS</span></div>
-              <div class="hero-stat"><b>${suites.length}</b><span>SUITES</span></div>
+              <div class="hero-stat"><b>${suites.length}</b><span>CATEGORÍAS</span></div>
               <div class="hero-stat"><b>0</b><span>BYTES ENVIADOS</span></div>
-              <div class="hero-stat"><b>100%</b><span>OFFLINE</span></div>
+              <div class="hero-stat"><b>100%</b><span>LOCAL</span></div>
             </div>
           </div>
-          <aside class="hero-panel">
-            <div class="hero-panel-title"><span>Flujo de trabajo</span><span class="live">LOCAL</span></div>
-            <div class="chain">
-              <div class="chain-step"><i>01</i><div><b>Entra un dato de campo</b><small>Foto, CSV, SHP o lectura de instrumento.</small></div></div>
-              <div class="chain-step"><i>02</i><div><b>Se calcula y se contrasta</b><small>Fórmula visible, unidades explícitas, alertas de rango.</small></div></div>
-              <div class="chain-step"><i>03</i><div><b>Sale evidencia trazable</b><small>Resultado, memoria de cálculo e informe imprimible.</small></div></div>
-            </div>
-            <div class="hero-panel-foot"><span>green owl labs</span><span>v${GL.version}</span></div>
+          <aside class="hero-board" aria-label="Tablero de herramientas por dominio">
+            <div class="board-head"><span>Tablero de cálculo</span><span class="live">LOCAL</span></div>
+            <div class="board">${board}</div>
+            <div class="board-foot"><span>${n} herramientas</span><span>${suites.length} categorías · v${GL.version.split('.')[0]}.${GL.version.split('.')[1]}</span></div>
           </aside>
         </div>
       </section>
 
       <div class="section-head">
-        <div><h2>Categorías de herramientas</h2><p>Explora las calculadoras por aplicación.</p></div>
-        <span class="count-badge">${n} herramientas · ${suites.length} suites</span>
+        <div><h2>Explora por dominio</h2><p>Cinco tableros de trabajo; dentro de cada uno, la categoría exacta.</p></div>
+        <span class="count-badge">${n} herramientas · ${suites.length} categorías</span>
       </div>
-      <div class="suite-grid">
-        ${suites.map(sid => {
-          const s = GL.suites[sid], list = GL.toolsBySuite(sid);
-          return `<a class="suite-card" href="#/suite/${sid}" style="--sc:${s.color}">
-            <div class="sc-bar"><span style="width:${Math.min(100, list.length * 11)}%"></span></div>
-            <div class="sc-top"><span class="sc-ico" style="color:${s.color}">${s.icon}</span><span class="sc-n">${String(list.length).padStart(2, '0')} HERRAMIENTAS</span></div>
-            <h3>${s.name}</h3><p>${s.desc}</p>
-            <div class="sc-tags">${list.slice(0, 3).map(t => `<span class="tag">${GL.escape(t.tags ? t.tags[0] : '')}</span>`).join('')}</div>
-          </a>`;
+      <div class="domain-grid">
+        ${DOMAINS.map(d => {
+          const c = countOf(d);
+          return `<div class="domain-card" style="--dc:${d.color}">
+            <div class="domain-head">
+              <span class="domain-ico">${GL.icon(d.icon)}</span>
+              <h3><a href="#/suite/${d.suites[0]}">${d.name}</a></h3>
+              <span class="domain-count">${c}</span>
+            </div>
+            <p>${d.desc}</p>
+            <div class="domain-suites">
+              ${d.suites.map(sid => { const s = GL.suites[sid]; return `<a class="domain-suite" href="#/suite/${sid}">${GL.escape(s.short)} <b>${GL.toolsBySuite(sid).length}</b></a>`; }).join('')}
+            </div>
+          </div>`;
         }).join('')}
       </div>
 
       <div class="section-head">
-        <div><h2>Todas las herramientas</h2><p>Filtra por suite o busca por síntoma: «ruido», «PTAR», «Munsell», «incertidumbre».</p></div>
+        <div><h2>Todas las herramientas</h2><p>Filtra por categoría o busca por síntoma: «ruido», «PTAR», «Munsell», «incertidumbre».</p></div>
       </div>
       <div class="toolbar">
-        <div class="filter-input"><span class="fi">⌕</span><input id="homeFilter" placeholder="Buscar herramienta, magnitud o norma…" autocomplete="off"></div>
+        <div class="filter-input"><span class="fi">${GL.icon('search', 'sm')}</span><input id="homeFilter" placeholder="Buscar herramienta, magnitud o norma…" autocomplete="off"></div>
         <button class="chip on" data-filter="all">Todas</button>
         ${suites.map(sid => `<button class="chip" data-filter="${sid}" style="--sc:${GL.suites[sid].color}">${GL.suites[sid].short}</button>`).join('')}
       </div>
       <div class="tool-grid" id="homeGrid"></div>
-      <div class="note" style="margin-top:22px">Green Owl Labs es una implementación independiente. Las fórmulas y criterios se documentan en cada herramienta; las tablas normativas son referenciales y deben verificarse contra la edición vigente en su jurisdicción.</div>
+      <div class="note" style="margin-top:22px">Yupana es una implementación independiente. Las fórmulas y criterios se documentan en cada herramienta; las tablas normativas son referenciales y deben verificarse contra la edición vigente en su jurisdicción.</div>
     `;
     const grid = document.getElementById('homeGrid');
     const input = document.getElementById('homeFilter');
@@ -212,7 +227,7 @@
     const related = GL.tools.filter(t => t.relatedSuites.includes(sid));
     view.innerHTML = `
       <header class="tool-head">
-        <div class="kicker"><span style="color:${s.color}">${s.icon}</span><span class="k-suite">${s.name}</span></div>
+        <div class="kicker"><span style="color:${s.color};display:inline-grid;place-items:center">${GL.icon(GL.suiteIcon(sid), 'sm')}</span><span class="k-suite">${s.name}</span></div>
         <h1>${s.name}</h1>
         <p class="lede">${s.desc}</p>
         <div class="tool-meta">
@@ -236,7 +251,7 @@
     const list = GL.tools.filter(t => favs.indexOf(t.id) >= 0);
     view.innerHTML = `
       <header class="tool-head">
-        <div class="kicker">★ <span class="k-suite">Tu espacio</span></div>
+        <div class="kicker">${GL.icon('star', 'sm')} <span class="k-suite">Tu espacio</span></div>
         <h1>Favoritos</h1>
         <p class="lede">Las herramientas que marcaste quedan guardadas en este navegador. No viajan a ningún servidor.</p>
       </header>
@@ -250,14 +265,14 @@
     view.innerHTML = `
       <div class="about">
         <header class="tool-head">
-          <div class="kicker">§ <span class="k-suite">Green Owl Labs</span></div>
+          <div class="kicker">${GL.icon('book', 'sm')} <span class="k-suite">Yupana</span></div>
           <h1>Método, privacidad y límites.</h1>
           <p class="lede">Una herramienta técnica sirve si puedes explicar de dónde sale el número. Esta plataforma expone la fórmula, las unidades y las suposiciones de cada cálculo, y mantiene tus datos fuera de cualquier servidor.</p>
         </header>
         <div class="about-grid">
           <div>
             <h2>Arquitectura local-first</h2>
-            <p>Todo el procesamiento —incluidos CSV, imágenes, SHP, DBF, KML y GeoJSON— ocurre en tu navegador. No hay backend, telemetría ni carga de archivos. Si abres el archivo <span class="mono">index.html</span> sin conexión, las herramientas siguen funcionando salvo la tipografía del sistema.</p>
+            <p>Todo el procesamiento —incluidos CSV, imágenes, SHP, DBF, KML y GeoJSON— ocurre en tu navegador. No hay backend, telemetría ni carga de archivos. Si abres el archivo <span class="mono">index.html</span> sin conexión, las herramientas siguen funcionando: la tipografía y todos los recursos viajan con la carpeta.</p>
             <p>Los valores que escribes se guardan en <span class="mono">localStorage</span> para que no pierdas el trabajo al cambiar de herramienta. Puedes borrarlos con el botón <b>Restablecer</b> de cada herramienta o limpiando los datos del sitio.</p>
 
             <h2>Cómo se construye cada resultado</h2>
@@ -270,10 +285,10 @@
             </ol>
 
             <h2>Qué no es</h2>
-            <p>Green Owl Labs no emite certificaciones, no sustituye un dictamen legal ni reemplaza el juicio de un profesional competente. Los límites normativos, factores de emisión y tablas de multas cambian por país y por año: están parametrizados y deben contrastarse con la norma vigente. Las herramientas de dispersión y de benchmark son modelos de cribado, no modelos regulatorios validados.</p>
+            <p>Yupana no emite certificaciones, no sustituye un dictamen legal ni reemplaza el juicio de un profesional competente. Los límites normativos, factores de emisión y tablas de multas cambian por país y por año: están parametrizados y deben contrastarse con la norma vigente. Las herramientas de dispersión y de benchmark son modelos de cribado, no modelos regulatorios validados.</p>
 
             <h2>Sobre las herramientas de referencia</h2>
-            <p>La plataforma reorganiza y amplía funciones de utilidad pública del ecosistema ambiental —cálculo de stock de carbono, validación de límites, análisis de color de suelo, dimensionamiento de PTAR, matrices de riesgo, metrología— con implementación propia, interfaz unificada, memoria de cálculo, exportación e informes. No se copiaron código, marcas ni activos de terceros. Los conjuntos de datos de demostración son sintéticos y están marcados como tales.</p>
+            <p>Yupana es una implementación propia: las fórmulas, los criterios y los conjuntos de datos se documentan dentro de cada herramienta y se contrastan con fuentes públicas —IPCC, GUM, ISO, OMS, EPA, APHA, IWA/AWWA y la normativa peruana vigente—. No se copiaron código, marcas ni activos de terceros. Los datos de demostración son sintéticos y están marcados como tales.</p>
 
             <h2>Atajos</h2>
             <table style="max-width:520px"><tbody>
@@ -284,7 +299,7 @@
             </tbody></table>
 
             <h2>Estado y versión</h2>
-            <p>Versión ${GL.version} · ${GL.tools.length} herramientas · ${Object.keys(GL.suites).length} suites · sin dependencias externas. Diseñada para operar desde una carpeta local, una intranet o cualquier hosting estático.</p>
+            <p>Versión ${GL.version} · ${GL.tools.length} herramientas · ${Object.keys(GL.suites).length} categorías · sin dependencias externas. Diseñada para operar desde una carpeta local, una intranet o cualquier hosting estático.</p>
           </div>
           <aside class="stack">
             <div class="callout"><b>Compromiso de privacidad.</b><br>Ningún archivo, coordenada, fotografía o dato de laboratorio sale de tu equipo. No hay analítica, cookies de seguimiento ni cuentas.</div>
@@ -316,7 +331,7 @@
     GL.clearCharts();
     currentTool = t;
     currentRoute = { suite: t.suite, id: t.id };
-    document.title = t.title + ' · Green Owl Labs';
+    document.title = t.title + ' · Yupana';
     const pilot=GL.calculatorUI.isPilot(t.id);
     const classicHeader=`<header class="tool-head">
           <div class="kicker"><span>${String(t.n).padStart(2, '0')}</span><span class="k-sep">/</span><span class="k-suite" style="color:${s.color}">${s.name}</span></div>
@@ -328,10 +343,10 @@
             ${(t.relatedSuites || []).map(id => `<a class="pill" href="#/suite/${id}">Uso relacionado: ${GL.escape(GL.suites[id].short)}</a>`).join('')}
             <span class="spacer"></span>
             <div class="tool-actions">
-              <button class="btn sm" data-act="fav">${GL.isFav(t.id) ? '★ Favorito' : '☆ Favorito'}</button>
-              ${t.report ? '<button class="btn sm" data-act="report">⎙ Informe</button>' : ''}
-              ${t.csv ? '<button class="btn sm" data-act="csv">↓ CSV</button>' : ''}
-              <button class="btn sm" data-act="reset">↺ Restablecer</button>
+              <button class="btn sm" data-act="fav" aria-pressed="${GL.isFav(t.id)}">${GL.icon('star', 'sm')} Favorito</button>
+              ${t.report ? `<button class="btn sm" data-act="report">${GL.icon('printer', 'sm')} Informe</button>` : ''}
+              ${t.csv ? `<button class="btn sm" data-act="csv">${GL.icon('download', 'sm')} CSV</button>` : ''}
+              <button class="btn sm" data-act="reset">${GL.icon('cycle', 'sm')} Restablecer</button>
             </div>
           </div>
         </header>`;
@@ -356,7 +371,7 @@
         if (act === 'fav') {
           const on = GL.toggleFav(t.id);
           if(pilot)btn.setAttribute('aria-pressed',String(on));
-          else btn.textContent = on ? '★ Favorito' : '☆ Favorito';
+          else btn.innerHTML = GL.icon('star', 'sm') + ' Favorito';
           GL.toast(on ? 'Añadido a favoritos' : 'Quitado de favoritos');
           buildNav();
           syncNav(t.suite, t.id);
@@ -399,7 +414,7 @@
       location.replace(location.pathname + location.search + '#/tool/unit-converter/' + LEGACY_UNIT_ROUTES[parts[1]]);
       return;
     }
-    document.title = 'Green Owl Labs · Suite de herramientas ambientales';
+    document.title = 'Yupana · Environmental Intelligence';
     if (!parts.length) {
       currentRoute = { suite: null, id: null };
       pageHome();
@@ -407,11 +422,6 @@
       buildNav(); syncNav();
       window.scrollTo(0, 0);
       return;
-    }
-    if (parts[0] === 'catalogo') {
-      GL.renderCatalogue(view, parts[1]);
-      crumbs.innerHTML = '<a href="#/">Inicio</a><span class="sep">/</span><b>Catálogo científico y auditoría</b>';
-      buildNav(); window.scrollTo(0,0); return;
     }
     if (parts[0] === 'tool' && parts[1]) {
       const t = GL.getTool(parts[1]);
@@ -433,7 +443,7 @@
       pageFavs();
       crumbs.innerHTML = '<a href="#/">Inicio</a><span class="sep">/</span><b>Favoritos</b>';
       buildNav(); syncNav();
-      document.title = 'Favoritos · Green Owl Labs';
+      document.title = 'Favoritos · Yupana';
       window.scrollTo(0, 0);
       return;
     }
@@ -442,7 +452,7 @@
       pageMetodo();
       crumbs.innerHTML = '<a href="#/">Inicio</a><span class="sep">/</span><b>Método y privacidad</b>';
       buildNav(); syncNav();
-      document.title = 'Método y privacidad · Green Owl Labs';
+      document.title = 'Método y privacidad · Yupana';
       window.scrollTo(0, 0);
       return;
     }

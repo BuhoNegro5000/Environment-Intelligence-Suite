@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Aire & Energía (parte 1)
+   Yupana · Suite Aire & Energía (parte 1)
    15 Dispersión gaussiana · 16 Calidad del aire (ICA) · 17 Verificación de ahorros (IPMVP C)
    ========================================================================== */
 (function () {
@@ -57,7 +57,7 @@
               ${U.metric('gpSz', 'σz', 'm')}
             </div>
             <div class="chart-wrap tall" style="margin-top:16px"><canvas id="gpChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#66C7E8"></i>Concentración a nivel de suelo</span><span><i style="background:#F2B45A"></i>Límite de referencia</span></div>
+            <div class="chart-legend"><span><i style="background:#5277A8"></i>Concentración a nivel de suelo</span><span><i style="background:#A57B1F"></i>Límite de referencia</span></div>
             <div id="gpVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -136,9 +136,9 @@
         root.querySelector('#gpStabTag').textContent = 'CLASE ' + stab;
 
         GL.chart(root.querySelector('#gpChart'), {
-          series: [{ name: 'Concentración', data: curve, color: '#66C7E8', fill: true, points: false }],
+          series: [{ name: 'Concentración', data: curve, color: '#5277A8', fill: true, points: false }],
           x: { label: 'Distancia a sotavento (km)' }, y: { label: 'Concentración (µg/m³)', min: 0, zero: true },
-          rules: limit ? [{ y: limit, label: 'límite ' + fmt(limit, 0), color: '#F2B45A' }] : []
+          rules: limit ? [{ y: limit, label: 'límite ' + fmt(limit, 0), color: '#A57B1F' }] : []
         });
 
         const tone = cmax > limit ? 'bad' : cmax > limit * 0.5 ? 'warn' : 'ok';
@@ -287,8 +287,8 @@
           const chart=root.querySelector('#aqChart');
           const bars=params.filter(p=>p.pe!==null).map(p=>[p.label,p.pe]);
           chart.hidden=!bars.length;
-          if(bars.length)GL.chart(chart,{type:'bar',series:[{name:'% ECA',data:bars,color:'#66C7E8'}],
-            y:{label:'% del ECA',zero:true},rules:[{y:100,label:'ECA',color:'#F2B45A'}]});
+          if(bars.length)GL.chart(chart,{type:'bar',series:[{name:'% ECA',data:bars,color:'#5277A8'}],
+            y:{label:'% del ECA',zero:true},rules:[{y:100,label:'ECA',color:'#A57B1F'}]});
           const n=params.filter(p=>p.pe!==null&&p.pe>100).length;
           GL.setVerdict('aqVerdict',n?'warn':'info',n?n+' comparaciones puntuales sobre el valor ECA':'Comparación por período',
             'El AQI EPA usa solo los datos de partículas disponibles. Evalúa los criterios de frecuencia y los métodos del Anexo para una conclusión de cumplimiento.');
@@ -466,15 +466,15 @@
         const lineMin = Math.min.apply(null, bx), lineMax = Math.max.apply(null, bx.concat(rows.map(r => r.p)));
         GL.chart(root.querySelector('#ipChart'), {
           series: [
-            { name: 'Línea base', type: 'scatter', points: true, color: '#66C7E8', r: 3, data: bx.map((x, i) => [x, by[i]]) },
-            { name: 'Modelo', data: [[lineMin, b0 + b1 * lineMin], [lineMax, b0 + b1 * lineMax]], color: '#F2B45A', points: false, width: 2 },
-            { name: 'Reporte', type: 'scatter', points: true, color: '#5FE3A1', r: 3.4, data: rows.map(r => [r.p, r.e]) }
+            { name: 'Línea base', type: 'scatter', points: true, color: '#5277A8', r: 3, data: bx.map((x, i) => [x, by[i]]) },
+            { name: 'Modelo', data: [[lineMin, b0 + b1 * lineMin], [lineMax, b0 + b1 * lineMax]], color: '#A57B1F', points: false, width: 2 },
+            { name: 'Reporte', type: 'scatter', points: true, color: '#2A8C82', r: 3.4, data: rows.map(r => [r.p, r.e]) }
           ],
           x: { label: 'Producción del período' }, y: { label: 'Energía (kWh)', zero: true }
         });
         GL.chart(root.querySelector('#ipBar'), {
           type: 'bar',
-          series: [{ name: 'kWh', data: [['Predicho', pred], ['Real', actual], ['Ahorro', Math.max(0, save)]], color: '#5FE3A1' }],
+          series: [{ name: 'kWh', data: [['Predicho', pred], ['Real', actual], ['Ahorro', Math.max(0, save)]], color: '#2A8C82' }],
           y: { label: 'Energía (kWh)', zero: true, min: 0 }
         });
 

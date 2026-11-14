@@ -12,7 +12,7 @@ Usuario primario: público técnico mixto. Incluye ingenieros y consultores ambi
 
 ## Product Purpose
 
-Green Owl Labs es una suite de cálculo ambiental en español con 339 herramientas en 22 categorías: suelo, agua y potabilización, aguas residuales y reúso, hidráulica, membranas, agua industrial, residuos, aire, energía, clima y carbono, ecología, impacto y cumplimiento, sostenibilidad, salud, seguridad, ruido, metrología, conversión, decisión multicriterio, análisis y territorio. Existe para que un profesional obtenga un resultado defendible sin depender de hojas de cálculo dispersas. El éxito significa que el cálculo, sus supuestos y su trazabilidad se expliquen por sí mismos y resistan una revisión técnica.
+Yupana · Environmental Intelligence es una suite de cálculo ambiental en español con 339 herramientas en 22 categorías, organizadas en cinco dominios: agua, suelo y residuos, aire/clima/energía, ecología y territorio, y decisión y personas. Existe para que un profesional obtenga un resultado defendible sin depender de hojas de cálculo dispersas. El éxito significa que el cálculo, sus supuestos y su trazabilidad se expliquen por sí mismos y resistan una revisión técnica.
 
 ## Positioning
 
@@ -38,7 +38,9 @@ Amplitud y consistencia en español para ingeniería ambiental, con cálculo loc
 
 ## Brand Commitments
 
-- Nombre: Green Owl Labs. Existe una marca gráfica (`assets/img/green-owl-labs-mark.png`) y una variante transparente.
+- Nombre: Yupana · Environmental Intelligence. La marca gráfica es un símbolo vectorial propio (`assets/img/yupana-mark.svg`) con cuatro bloques de tinta, cinco de teal y un sol dorado; se reproduce en línea mediante `GL.brandMark()`.
+- Paleta: tinta `#1F4D3A`, teal `#2A8C82`, oro `#D9A441` y pizarra `#3D5A4E`. Tema claro sobre papel cálido `#F6F5EF`; tema oscuro sobre verde profundo `#0B1A14`.
+- Tipografía: Space Grotesk (300–700) almacenada localmente en `assets/fonts/space-grotesk.woff2`, con monoespaciada del sistema para cifras y unidades.
 - Idioma de producto: español (Perú). Tono técnico, directo y sin promesas comerciales no sustentadas.
 - No inventar valores, normas, testimonios, clientes ni resultados. Toda referencia normativa debe citar fuente y fecha.
 
@@ -48,15 +50,15 @@ Amplitud y consistencia en español para ingeniería ambiental, con cálculo loc
 - `docs/INVENTARIO-TECNICO.md`: 339 herramientas con entradas, salidas de ejemplo y método.
 - `docs/AUDITORIA-TECNICA.md` y `docs/AUDITORIA-CONSULTORIA-2026-11-11.md`: hallazgos, correcciones y estado de implementación.
 - `docs/CLASIFICACION.md` y `docs/classification-audit.json`: 339 asignaciones en 22 categorías.
-- `docs/catalogue-coverage.json` y `assets/js/catalogue-data.js`: 113 fichas de referencia con ruta local.
-- `tests/`: regresión de 301 modelos, resultados base, catálogo, unidades, operaciones espaciales, índices bióticos y barrido de rutas por CDP.
+- `docs/catalogue-coverage.json`: cobertura funcional interna de 113 fichas de referencia, conservada solo como documentación de auditoría.
+- `tests/`: regresión de 301 modelos, resultados base, marca y registro, unidades, operaciones espaciales, índices bióticos y barrido de rutas por CDP.
 - No hay validación con datos de campo, calibración, casos de cliente ni testimonios. No deben fabricarse.
 
 ## Product Principles
 
 1. **El resultado debe poder defenderse.** Mostrar supuestos, unidades, período de promedio y limitaciones antes que una cifra sin contexto.
 2. **La norma se cita, no se improvisa.** Cada tabla o límite regulatorio declara fuente, artículo y vigencia; si no está confirmado, se marca como referencia u decisión abierta.
-3. **Amplitud sin duplicar.** Una función vive en un solo lugar; las rutas antiguas redirigen y el catálogo no promete equivalencia funcional que no exista.
+3. **Amplitud sin duplicar.** Una función vive en un solo lugar; las rutas antiguas redirigen y la clasificación no promete equivalencia funcional que no exista.
 4. **Local primero.** El cálculo y los datos permanecen en el equipo del usuario; cualquier servicio externo es opcional y explícito.
 5. **La interfaz es parte del rigor.** Jerarquía clara, estados vacíos honestos, errores que explican qué corregir y accesibilidad como requisito, no como adorno.
 

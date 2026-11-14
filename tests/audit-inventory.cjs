@@ -94,7 +94,7 @@ async function main(){
     assert.deepEqual(errors,[]);
     const missing=items.filter(t=>!clean(t.method)).map(t=>t.id);
     const intro=[
-      '# Inventario técnico de Green Owl Labs','',
+      '# Inventario técnico de Yupana','',
       'Corte de la auditoría: 11 de noviembre de 2026. '+items.length+' herramientas, '+G.lab.definitions.length+' modelos declarativos.',
       'Las entradas incluyen las restricciones declaradas en el código cuando existen. Las salidas corresponden al escenario de ejemplo; los modos condicionales pueden añadir otras. En pantallas especializadas se indican los controles o el flujo de trabajo. El enlace al archivo identifica la implementación y las referencias científicas se listan cuando están declaradas o fueron verificadas en esta auditoría.',
       'La documentación del método y una prueba reproducible son evidencias distintas de la validación científica. Consulte el [informe de auditoría](AUDITORIA-TECNICA.md) para el alcance y los hallazgos.',''

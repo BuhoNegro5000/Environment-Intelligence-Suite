@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · core
+   Yupana · core
    Registro de herramientas, utilidades numéricas, gráficos, informes y UI.
    Sin dependencias externas. Todo corre en el navegador.
    ========================================================================== */
@@ -12,27 +12,27 @@
   /* ---------------------------------------------------------------- suites */
   GL.suites = {
     soil: {
-      id: 'soil', name: 'Suelo & Carbono', short: 'Suelo', icon: '◈', color: '#5FE3A1',
+      id: 'soil', name: 'Suelo & Carbono', short: 'Suelo', icon: '◈', color: '#8A6A43',
       desc: 'Carbono orgánico, densidad, muestreo, geometrías y fertilidad.'
     },
     water: {
-      id: 'water', name: 'Agua & Residuos', short: 'Agua', icon: '◉', color: '#66C7E8',
+      id: 'water', name: 'Agua & Residuos', short: 'Agua', icon: '◉', color: '#3A7D96',
       desc: 'PTAR, lagunas, pérdidas de agua, rellenos y biogás.'
     },
     air: {
-      id: 'air', name: 'Aire & Energía', short: 'Aire', icon: '◎', color: '#B9F46F',
+      id: 'air', name: 'Aire & Energía', short: 'Aire', icon: '◎', color: '#4F8A5A',
       desc: 'Dispersión, calidad del aire, eficiencia energética, solar y viento.'
     },
     impact: {
-      id: 'impact', name: 'Impacto Ambiental', short: 'Impacto', icon: '❖', color: '#8BE05A',
+      id: 'impact', name: 'Impacto Ambiental', short: 'Impacto', icon: '❖', color: '#2A8C82',
       desc: 'Clasificación SEIA, matrices de impacto, línea base, planes de manejo y monitoreo.'
     },
     safety: {
-      id: 'safety', name: 'Seguridad & Higiene', short: 'SST', icon: '◇', color: '#F2B45A',
+      id: 'safety', name: 'Seguridad & Higiene', short: 'SST', icon: '◇', color: '#A5701F',
       desc: 'Conesa, IPERC, caídas, indicadores, ruido y fiscalización.'
     },
     metrology: {
-      id: 'metrology', name: 'Metrología & Cumplimiento', short: 'Metro', icon: '▣', color: '#B4A4F5',
+      id: 'metrology', name: 'Metrología & Cumplimiento', short: 'Metro', icon: '▣', color: '#7A6AAC',
       desc: 'Incertidumbre, reglas de decisión, validez de muestras y contención.'
     }
   };
@@ -459,15 +459,15 @@
 
   /* ------------------------------------------------------------- charting */
   const charts = [];
-  const PALETTE = ['#8BE05A', '#F2B45A', '#66C7E8', '#F07E8A', '#B4A4F5', '#C9F56F', '#E5E7EB'];
+  const PALETTE = ['#2A8C82', '#A57B1F', '#5277A8', '#B06060', '#77679A', '#5F8A3A', '#8A8F86'];
   GL.palette = PALETTE;
 
   /* color de calor para matrices: v en [-1,1] */
   GL.heat = function (v) {
     const t = Math.max(-1, Math.min(1, +v || 0));
     const a = (0.2 + Math.abs(t) * 0.72).toFixed(3);
-    if (t >= 0) return { bg: `rgba(139,224,90,${a})`, fg: t > 0.52 ? '#07130d' : '#dff6c8' };
-    return { bg: `rgba(240,126,138,${a})`, fg: t < -0.52 ? '#210608' : '#ffd9dd' };
+    if (t >= 0) return { bg: `rgba(42,140,130,${a})`, fg: t > 0.52 ? '#06170F' : '#D8F0EA' };
+    return { bg: `rgba(176,96,96,${a})`, fg: t < -0.52 ? '#1B0708' : '#FFE0E0' };
   };
 
   function niceNum(range, round) {
@@ -593,7 +593,7 @@
     (cfg.rules || []).forEach(r => {
       if (r.y < ymin || r.y > ymax) return;
       const y = sy(r.y);
-      ctx.strokeStyle = r.color || '#F2B45A';
+      ctx.strokeStyle = r.color || '#A57B1F';
       ctx.lineWidth = 1.2; ctx.setLineDash(Array.isArray(r.dash) ? r.dash : [5, 4]);
       ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(W - pad.r, y); ctx.stroke();
       ctx.setLineDash([]);
@@ -603,7 +603,7 @@
         const tw = ctx.measureText(r.label).width;
         ctx.fillStyle = cssVar('--panel', '#0c1b15');
         ctx.fillRect(W - pad.r - tw - 8, y - 13, tw + 7, 11);
-        ctx.fillStyle = r.color || '#F2B45A';
+        ctx.fillStyle = r.color || '#A57B1F';
         ctx.fillText(r.label, W - pad.r - 2, y - 3);
         ctx.textBaseline = 'middle';
       }
@@ -816,11 +816,11 @@
     const html = `<div class="report" id="reportDoc">
       <div class="report-head">
         <div>
-          <div class="report-brand">${GL.brandData ? `<img src="${GL.brandData}" alt="Green Owl Labs" width="90" height="90" style="object-fit:contain;display:block;margin-bottom:12px">` : 'Green Owl Labs'}</div>
+          <div class="report-brand">${GL.brandData ? `<img src="${GL.brandData}" alt="Yupana" width="90" height="90" style="object-fit:contain;display:block;margin-bottom:12px">` : 'Yupana'}</div>
           <h1>${GL.escape(r.title || 'Informe técnico')}</h1>
           <div class="report-sub">${GL.escape(r.subtitle || '')}</div>
         </div>
-        <div class="report-meta">${date}<br>${time}<br>${GL.escape(r.ref || ('GOL-' + now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0') + '-' + Math.random().toString(36).slice(2, 6).toUpperCase()))}${r.hash ? '<br>Huella de entradas: ' + GL.escape(r.hash) : ''}${r.modelVersion ? '<br>Modelo v' + GL.escape(r.modelVersion) : ''}${r.generated ? '<br>Calculado: ' + GL.escape(new Date(r.generated).toLocaleString('es-PE')) : ''}</div>
+        <div class="report-meta">${date}<br>${time}<br>${GL.escape(r.ref || ('YUP-' + now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0') + '-' + Math.random().toString(36).slice(2, 6).toUpperCase()))}${r.hash ? '<br>Huella de entradas: ' + GL.escape(r.hash) : ''}${r.modelVersion ? '<br>Modelo v' + GL.escape(r.modelVersion) : ''}${r.generated ? '<br>Calculado: ' + GL.escape(new Date(r.generated).toLocaleString('es-PE')) : ''}</div>
       </div>
       ${resultCards ? `<h2>Resultados</h2><div class="r-grid">${resultCards}</div>` : ''}
       ${inputRows ? `<h2>Datos de entrada</h2><table><tbody>${inputRows}</tbody></table>` : ''}
@@ -828,7 +828,7 @@
       ${method}
       ${notes ? `<h2>Notas y limitaciones</h2>${notes}` : ''}
       <div class="report-foot">
-        Generado localmente con Green Owl Labs. Los resultados dependen de la calidad de los datos ingresados.
+        Generado localmente con Yupana. Los resultados dependen de la calidad de los datos ingresados.
         Este informe no constituye certificación, dictamen legal ni reemplazo del juicio de un profesional competente.
         Verifique la vigencia de normas, límites y factores de emisión aplicables a su jurisdicción.
       </div>
@@ -857,7 +857,7 @@
   };
 
   /* --------------------------------------------------------- persistence */
-  const KEY = 'gowl.v1.';
+  const KEY = 'yupana.v1.';
   GL.store = {
     get(k, def) { try { const v = localStorage.getItem(KEY + k); return v ? JSON.parse(v) : def; } catch (e) { return def; } },
     set(k, v) { try { localStorage.setItem(KEY + k, JSON.stringify(v)); } catch (e) { } },
@@ -945,5 +945,5 @@
     el.innerHTML = `<div class="vi">${ico}</div><div><b>${title}</b>${text || ''}</div>`;
   };
 
-  GL.version = '1.3.0';
+  GL.version = '1.4.0';
 })();

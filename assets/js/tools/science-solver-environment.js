@@ -1,4 +1,4 @@
-/* Procesos físicos, químicos y ambientales de la colección Solver360. */
+/* Procesos físicos, químicos y ambientales de la colección ambiental. */
 (function () {
   'use strict';
   const L=GL.lab,{reg,matrix,nonnegative:nn,positive,metric:m,result:r,field:f,pct,weighted}=GL.solverScience;

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Seguridad & Higiene (parte 1)
+   Yupana · Suite Seguridad & Higiene (parte 1)
    20 Riesgo Conesa · 21 IPERC 5×5 · 22 Línea de vida / caídas · 23 Indicadores SST
    ========================================================================== */
 (function () {
@@ -96,7 +96,7 @@
               ${U.metric('csTotal', 'Peligros registrados', 'n')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="csChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#5FE3A1"></i>Distribución por nivel de riesgo</span></div>
+            <div class="chart-legend"><span><i style="background:#2A8C82"></i>Distribución por nivel de riesgo</span></div>
             <div id="csVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -173,7 +173,7 @@
         const counts = names.map(n => risks.filter(R => conesaLevel(R, m).label === n).length);
         GL.chart(root.querySelector('#csChart'), {
           type: 'bar',
-          series: [{ name: 'Peligros', data: names.map((n, i) => [n, counts[i]]), color: '#F2B45A' }],
+          series: [{ name: 'Peligros', data: names.map((n, i) => [n, counts[i]]), color: '#A57B1F' }],
           y: { label: 'Número de peligros', zero: true, min: 0, max: Math.max(1, Math.max.apply(null, counts)) }
         });
 
@@ -386,7 +386,7 @@
         const counts = IPER.map(n => risks.filter(R => ipercLevel(R).label === n).length);
         GL.chart(root.querySelector('#ipChart'), {
           type: 'bar',
-          series: [{ name: 'Peligros', data: IPER.map((n, i) => [n, counts[i]]), color: '#F2B45A' }],
+          series: [{ name: 'Peligros', data: IPER.map((n, i) => [n, counts[i]]), color: '#A57B1F' }],
           y: { label: 'Número de peligros', zero: true, min: 0, max: Math.max(1, Math.max.apply(null, counts)) }
         });
 
@@ -493,7 +493,7 @@
               ${U.metric('fcAngle', 'Ángulo respecto a la vertical', '°')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="fcChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#F2B45A"></i>Holgura requerida</span><span><i style="background:#5FE3A1"></i>Holgura disponible</span></div>
+            <div class="chart-legend"><span><i style="background:#A57B1F"></i>Holgura requerida</span><span><i style="background:#2A8C82"></i>Holgura disponible</span></div>
             <div id="fcVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -539,9 +539,9 @@
 
         GL.chart(root.querySelector('#fcChart'), {
           type: 'bar',
-          series: [{ name: 'Holgura', data: [['Requerida', total], ['Disponible', avail]], color: '#5FE3A1' }],
+          series: [{ name: 'Holgura', data: [['Requerida', total], ['Disponible', avail]], color: '#2A8C82' }],
           y: { label: 'Distancia vertical (m)', zero: true, min: 0 },
-          rules: [{ y: avail, label: 'disponible ' + fmt(avail, 2) + ' m', color: '#5FE3A1' }]
+          rules: [{ y: avail, label: 'disponible ' + fmt(avail, 2) + ' m', color: '#2A8C82' }]
         });
 
         const ok = left >= 0;
@@ -645,7 +645,7 @@
               ${U.metric('siRatio', 'Casi accidentes / caso', '—')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="siChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#66C7E8"></i>TRIR</span><span><i style="background:#B4A4F5"></i>LTIR</span><span><i style="background:#F2B45A"></i>Meta</span></div>
+            <div class="chart-legend"><span><i style="background:#5277A8"></i>TRIR</span><span><i style="background:#77679A"></i>LTIR</span><span><i style="background:#A57B1F"></i>Meta</span></div>
             <div id="siVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -692,16 +692,16 @@
 
         GL.chart(root.querySelector('#siChart'), {
           type: 'bar',
-          series: [{ name: 'Tasa', data: [['TRIR', trir], ['LTIR', ltir], ['Meta', target]], color: '#66C7E8' }],
+          series: [{ name: 'Tasa', data: [['TRIR', trir], ['LTIR', ltir], ['Meta', target]], color: '#5277A8' }],
           y: { label: 'Casos por base', zero: true, min: 0 },
-          rules: [{ y: target, label: 'meta ' + fmt(target, 2), color: '#F2B45A' }]
+          rules: [{ y: target, label: 'meta ' + fmt(target, 2), color: '#A57B1F' }]
         });
 
         const pyr = [
-          { label: 'Casi accidentes', n: near, color: '#B9F46F' },
-          { label: 'Casos registrables', n: record, color: '#66C7E8' },
-          { label: 'Con tiempo perdido', n: lost, color: '#F2B45A' },
-          { label: 'Fatalidades', n: fatal, color: '#F07E8A' }
+          { label: 'Casi accidentes', n: near, color: '#6E8F45' },
+          { label: 'Casos registrables', n: record, color: '#5277A8' },
+          { label: 'Con tiempo perdido', n: lost, color: '#A57B1F' },
+          { label: 'Fatalidades', n: fatal, color: '#B06060' }
         ];
         const maxPyr = Math.max(1, near, record, lost, fatal);
         root.querySelector('#siPyramid').innerHTML = pyr.map(p => `

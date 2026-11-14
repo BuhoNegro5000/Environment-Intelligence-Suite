@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Aire & Energía (parte 2)
+   Yupana · Suite Aire & Energía (parte 2)
    18 Dimensionamiento solar FV · 19 Recurso eólico Weibull / AEP
    ========================================================================== */
 (function () {
@@ -61,7 +61,7 @@
               ${U.metric('pvLcoe', 'Costo nivelado simple', 'S/ /kWh')}
             </div>
             <div class="chart-wrap tall" style="margin-top:16px"><canvas id="pvChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#F2B45A"></i>Generación mensual estimada</span></div>
+            <div class="chart-legend"><span><i style="background:#A57B1F"></i>Generación mensual estimada</span></div>
             <div id="pvVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -137,7 +137,7 @@
 
         GL.chart(root.querySelector('#pvChart'), {
           type: 'bar',
-          series: [{ name: 'Generación', data: monthly.map(r => [r.m, r.kwh / 1000]), color: '#F2B45A' }],
+          series: [{ name: 'Generación', data: monthly.map(r => [r.m, r.kwh / 1000]), color: '#A57B1F' }],
           y: { label: 'Generación (MWh/mes)', zero: true, min: 0 }
         });
 
@@ -256,9 +256,9 @@
               ${U.metric('wdCapacity', 'Potencia media', 'kW')}
             </div>
             <div class="chart-wrap" style="margin-top:16px"><canvas id="wdPdf"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#66C7E8"></i>Densidad Weibull</span><span><i style="background:#F2B45A"></i>Curva de potencia (normalizada)</span></div>
+            <div class="chart-legend"><span><i style="background:#5277A8"></i>Densidad Weibull</span><span><i style="background:#A57B1F"></i>Curva de potencia (normalizada)</span></div>
             <div class="chart-wrap" style="margin-top:10px"><canvas id="wdEnergy"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#5FE3A1"></i>Energía por intervalo de velocidad</span></div>
+            <div class="chart-legend"><span><i style="background:#2A8C82"></i>Energía por intervalo de velocidad</span></div>
             <div id="wdVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -356,14 +356,14 @@
         }
         GL.chart(root.querySelector('#wdPdf'), {
           series: [
-            { name: 'Weibull', data: pdfCurve, color: '#66C7E8', fill: true, points: false, width: 2 },
-            { name: 'Potencia normalizada', data: powerCurve, color: '#F2B45A', points: false, width: 2, dash: [4, 3] }
+            { name: 'Weibull', data: pdfCurve, color: '#5277A8', fill: true, points: false, width: 2 },
+            { name: 'Potencia normalizada', data: powerCurve, color: '#A57B1F', points: false, width: 2, dash: [4, 3] }
           ],
           x: { label: 'Velocidad del viento (m/s)' }, y: { label: 'f(v)  ·  P/Pnom', zero: true, min: 0 }
         });
         GL.chart(root.querySelector('#wdEnergy'), {
           type: 'bar',
-          series: [{ name: 'Energía', data: rows.map(r => [r.lo+'–'+r.hi,r.e/1000]), color: '#5FE3A1' }],
+          series: [{ name: 'Energía', data: rows.map(r => [r.lo+'–'+r.hi,r.e/1000]), color: '#2A8C82' }],
           y: { label: 'Energía por 1 m/s (MWh)', zero: true, min: 0 }
         });
 

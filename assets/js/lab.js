@@ -1,4 +1,4 @@
-/* Green Owl Labs · banco científico original, sin dependencias ni red. */
+/* Yupana · banco de cálculo original, sin dependencias ni red. */
 (function () {
   'use strict';
   const G = window.GL, E = G.escape;
@@ -51,11 +51,11 @@
   L.select = (key, label, options, value) => ({ key, label, options, value, type: 'select' });
   L.result = (label, value, unit, extra) => Object.assign({ metrics: [[label, value, unit || '']] }, extra || {});
   const suites = {
-    ecology: ['Ecología & Biodiversidad', 'Ecología', '♧', '#66D7B3', 'Diversidad, comunidades, bioindicadores y restauración.'],
-    climate: ['Clima & Población', 'Clima', '☼', '#F2CC78', 'Confort térmico, aridez, carbono e indicadores demográficos.'],
-    decision: ['Decisión Multicriterio', 'Decisión', '⋈', '#C5AEF5', 'Ponderación, priorización y análisis transparente de alternativas.'],
-    analysis: ['Análisis & Estadística', 'Análisis', '∿', '#77C7F1', 'Series, regresión, PCA, calidad de datos y simulación.'],
-    spatial: ['Geografía & Territorio', 'Geo', '⌖', '#EDB08B', 'Coordenadas, distancias, geometrías y análisis espacial.']
+    ecology: ['Ecología & Biodiversidad', 'Ecología', '♧', '#3F8060', 'Diversidad, comunidades, bioindicadores y restauración.'],
+    climate: ['Clima & Población', 'Clima', '☼', '#A5652E', 'Confort térmico, aridez, carbono e indicadores demográficos.'],
+    decision: ['Decisión Multicriterio', 'Decisión', '⋈', '#57796B', 'Ponderación, priorización y análisis transparente de alternativas.'],
+    analysis: ['Análisis & Estadística', 'Análisis', '∿', '#43799A', 'Series, regresión, PCA, calidad de datos y simulación.'],
+    spatial: ['Geografía & Territorio', 'Geo', '⌖', '#9A6844', 'Coordenadas, distancias, geometrías y análisis espacial.']
   };
   Object.keys(suites).forEach(id => { const s = suites[id]; G.suites[id] = { id, name:s[0], short:s[1], icon:s[2], color:s[3], desc:s[4] }; });
   const display = x => typeof x === 'number' ? G.fmt(x, 6) : String(x == null ? '—' : x);
@@ -283,7 +283,7 @@
         }).join('');
         if(pilot)return G.calculatorUI.workbench(d,fields);
         return `<div class="lab-workbench" style="--lab-color:${G.suites[d.suite].color}">
-          <div class="lab-banner"><div><span class="lab-eyebrow">GREEN OWL / BANCO CIENTÍFICO</span><h2>De tus datos a una decisión clara.</h2><p>${E(d.intro || 'Ajusta los datos, revisa el método y exporta un resultado reproducible.')}</p></div><img class="lab-brandmark" src="assets/img/green-owl-labs-mark.png" alt="Green Owl Labs" width="104" height="104"></div>
+          <div class="lab-banner"><div><span class="lab-eyebrow">YUPANA / LABORATORIO</span><h2>De tus datos a una decisión clara.</h2><p>${E(d.intro || 'Ajusta los datos, revisa el método y exporta un resultado reproducible.')}</p></div>${G.brandMark('lab-brandmark', 104, 'Yupana')}</div>
           <div class="lab-grid"><section class="lab-inputs panel"><div class="lab-section-head"><span class="lab-step">01</span><div><h2>Define tu escenario</h2><p>Los cambios se calculan automáticamente.</p></div></div>
           <div class="lab-fields">${fields}</div><div class="lab-input-foot"><span>◎</span> Tus datos se quedan en este navegador.</div></section>
           <section class="lab-results panel" aria-live="polite"><div class="lab-section-head"><span class="lab-step">02</span><div><h2>Lee el resultado</h2><p data-lab-status>Calculando escenario…</p></div><span class="lab-live">EN VIVO</span></div><div data-lab-output></div></section></div>
@@ -366,7 +366,7 @@
             G.clearCharts();
             if (r.series) G.chart(output.querySelector('canvas'), { type:r.series.length===1&&r.series[0].type==='bar'?'bar':'line', series:r.series, x:{ label:r.xLabel || 'Escenario' }, y:{ label:r.yLabel || 'Resultado' } });
             if (r.code) {
-              output.querySelector('[data-download-code]').onclick = () => G.download('GreenOwl_analisis.R', output.querySelector('[data-r-editor]').value, 'text/plain;charset=utf-8');
+              output.querySelector('[data-download-code]').onclick = () => G.download('Yupana_analisis.R', output.querySelector('[data-r-editor]').value, 'text/plain;charset=utf-8');
               const run=output.querySelector('[data-run-r]'),dest=output.querySelector('[data-r-result]');
               output.querySelector('[data-stop-r]').onclick=()=>{G.stopNativeR();run.disabled=false;dest.textContent='Motor R detenido. Puedes iniciar otra ejecución.';};
               run.onclick=async()=>{this._rExecution=null;if(this._report){this._report.extra=(this._report.extra||'').split('<h3>Ejecución R</h3>')[0];this._report.notes=this._report.notes.filter(n=>!n.startsWith('Script ejecutado:'));}run.disabled=true;dest.textContent='Cargando R local y ejecutando el script…';try{const code=output.querySelector('[data-r-editor]').value,result=await G.runNativeR(code);if(!root.isConnected)return;dest.textContent=result.version+'\n\n'+(result.text||'Ejecución finalizada sin salida de texto.');const images=output.querySelector('[data-r-images]');images.innerHTML='';result.images.forEach(bitmap=>{const canvas=document.createElement('canvas');canvas.width=bitmap.width;canvas.height=bitmap.height;canvas.style.maxWidth='100%';const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(bitmap,0,0);images.appendChild(canvas);bitmap.close();});this._rExecution={generated:r.code,code,text:dest.textContent,images:Array.from(images.querySelectorAll('canvas')).map(c=>c.toDataURL())};if(this._report){this._report.extra+='<h3>Ejecución R</h3><pre>'+E(dest.textContent)+'</pre>';this._report.notes.push('Script ejecutado: '+code);}}catch(e){dest.textContent='Error de R: '+e.message;this._rExecution={generated:r.code,code:output.querySelector('[data-r-editor]').value,text:dest.textContent,images:[]};}finally{run.disabled=false;}};
@@ -375,7 +375,7 @@
             const generated = new Date().toISOString();
             const modelVersion = d.version || (G.data && G.data.version) || G.version;
             const hash = G.hash(JSON.stringify([inputs, r.metrics, r.rows || [], modelVersion]));
-            this._report = { title:d.title, subtitle:'Green Owl Labs · implementación original · v'+G.version, inputs, hasDetail:Boolean(table), results:r.metrics.map(m => [m[0],renderValue(m[1]),m[2] || '']), extra:table + (r.code ? '<pre>' + E(r.code) + '</pre>' : ''), method:E(d.method), hash, generated, modelVersion, notes:[d.limit || 'Verifica unidades y supuestos.', r.message || '', 'Huella FNV-1a de entradas y resultados: '+hash+'. Modelo v'+modelVersion+'.', ...(d.refs || []).map(r => r[0] + ': ' + r[1])] };
+            this._report = { title:d.title, subtitle:'Yupana · implementación original · v'+G.version, inputs, hasDetail:Boolean(table), results:r.metrics.map(m => [m[0],renderValue(m[1]),m[2] || '']), extra:table + (r.code ? '<pre>' + E(r.code) + '</pre>' : ''), method:E(d.method), hash, generated, modelVersion, notes:[d.limit || 'Verifica unidades y supuestos.', r.message || '', 'Huella FNV-1a de entradas y resultados: '+hash+'. Modelo v'+modelVersion+'.', ...(d.refs || []).map(r => r[0] + ': ' + r[1])] };
             if(r.code&&this._rExecution&&this._rExecution.generated===r.code){const run=this._rExecution;output.querySelector('[data-r-editor]').value=run.code;output.querySelector('[data-r-result]').textContent=run.text;output.querySelector('[data-r-images]').innerHTML=run.images.map(src=>'<img src="'+src+'" alt="Gráfico producido por R" style="max-width:100%">').join('');this._report.extra+='<h3>Ejecución R</h3><pre>'+E(run.text)+'</pre>'+run.images.map(src=>'<img src="'+src+'" alt="Gráfico R" style="max-width:100%">').join('');this._report.notes.push('Script ejecutado: '+run.code);}
             status.textContent = presentation?'Listo para exportar':'Escenario actualizado · listo para exportar';
             if(presentation)presentation.rawButton.disabled=false;
@@ -392,7 +392,7 @@
           presentation.rawButton=root.querySelector('[data-calc-raw]');
           presentation.rawButton.addEventListener('click',()=>{
             update();
-            if(this._csv)G.csvDownload('GreenOwl_'+d.id+'.csv',this._csv);
+            if(this._csv)G.csvDownload('Yupana_'+d.id+'.csv',this._csv);
           });
         }
         const schedule = G.debounce(()=>{if(root.isConnected)update();}, 180);
@@ -427,7 +427,7 @@
         if(G.calculatorUI?.isPilot(d.id)){
           G.calculatorUI.download(d.id,this._report,this._csv,G.calculatorUI.getPrecision());
         }else{
-          G.csvDownload('GreenOwl_'+d.id+'.csv',this._csv);
+          G.csvDownload('Yupana_'+d.id+'.csv',this._csv);
         }
       }
     };

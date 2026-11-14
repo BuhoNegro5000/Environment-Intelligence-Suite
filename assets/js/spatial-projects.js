@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const G=GL,A=G.lab.assert;
-  const format='green-owl-spatial';
+  const format='yupana-spatial';
   const defaults={filter:'',basemap:true};
   const isObject=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
   const types={Point:0,MultiPoint:1,LineString:1,MultiLineString:2,Polygon:2,MultiPolygon:3};
@@ -47,7 +47,7 @@
 
   function decode(text) {
     const data=JSON.parse(text);
-    A(data?.format===format&&data.version===1,'Selecciona un proyecto Green Owl Spatial v1 (.gowl).');
+    A(data?.format===format&&data.version===1,'Selecciona un proyecto Yupana Spatial v1 (.gowl).');
     const {name,layers,log,settings}=data.project||{};
     A(typeof name==='string'&&name.trim()&&name.length<=100&&Array.isArray(layers)&&layers.length<=12,'Nombre o capas de proyecto inválidos.');
     for (const layer of layers) {
@@ -62,7 +62,7 @@
 
   function openDatabase() {
     database ||= new Promise((resolve,reject)=>{
-      const request=indexedDB.open('green-owl-spatial',1);
+      const request=indexedDB.open('yupana-spatial',1);
       request.onupgradeneeded=()=>request.result.createObjectStore('projects',{keyPath:'id'});
       request.onsuccess=()=>resolve(request.result);
       request.onerror=()=>reject(request.error);

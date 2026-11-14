@@ -91,7 +91,7 @@ const {chromium}=require(process.env.GREENOWL_PLAYWRIGHT||'playwright');
     assert.equal(await page.locator('.map-layer').count(),5);
     const before=await page.locator('#mapProject').inputValue();
     await page.locator('#mapOpenProject').setInputFiles({name:'incorrecto.gowl',mimeType:'application/json',buffer:Buffer.from('{"version":2}')});
-    await page.getByText('Selecciona un proyecto Green Owl Spatial v1 (.gowl).',{exact:true}).first().waitFor();
+    await page.getByText('Selecciona un proyecto Yupana Spatial v1 (.gowl).',{exact:true}).first().waitFor();
     assert.equal(await page.locator('#mapProject').inputValue(),before);
 
     const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});

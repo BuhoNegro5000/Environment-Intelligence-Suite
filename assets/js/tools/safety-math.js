@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · funciones puras de seguridad e higiene
+   Yupana · funciones puras de seguridad e higiene
    Dosis de ruido (OSHA/NIOSH) y multas SUNAFIL.
    Se separan de la interfaz para poder verificarlas con pruebas de regresión.
    ========================================================================== */

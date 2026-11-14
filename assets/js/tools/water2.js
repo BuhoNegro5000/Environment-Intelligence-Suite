@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Agua & Residuos (parte 2)
+   Yupana · Suite Agua & Residuos (parte 2)
    13 Relleno sanitario · 14 Biogás de relleno sanitario
    ========================================================================== */
 (function () {
@@ -113,17 +113,17 @@
         GL.out('lfCell', fmt(Math.max(0.2, daily / (dens * Math.max(50, areaYear / 365))), 2));
 
         root.querySelector('#lfComp').innerHTML = U.compbar([
-          { label: 'Residuos', value: annual / dens * years, color: '#66C7E8' },
-          { label: 'Material de cobertura', value: annual * coverRatio / dens * years, color: '#B9F46F' }
+          { label: 'Residuos', value: annual / dens * years, color: '#5277A8' },
+          { label: 'Material de cobertura', value: annual * coverRatio / dens * years, color: '#6E8F45' }
         ], { unit: 'm³', dec: 0 });
 
         GL.chart(root.querySelector('#lfChart'), {
           series: [{
-            name: 'Volumen acumulado', points: false, fill: true, color: '#66C7E8',
+            name: 'Volumen acumulado', points: false, fill: true, color: '#5277A8',
             data: Array.from({ length: years + 1 }, (_, i) => [i, annualVol * i])
           }],
           x: { label: 'Año de operación' }, y: { label: 'Volumen acumulado (m³)', min: 0, zero: true },
-          rules: [{ y: totalVol, label: 'capacidad de diseño', color: '#F2B45A' }]
+          rules: [{ y: totalVol, label: 'capacidad de diseño', color: '#A57B1F' }]
         });
 
         const perDay = areaYear / 365;
@@ -237,7 +237,7 @@
               ${U.metric('bgLo', 'Potencial L₀', 'm³ CH₄/t')}
             </div>
             <div class="chart-wrap tall" style="margin-top:16px"><canvas id="bgChart"></canvas></div>
-            <div class="chart-legend"><span><i style="background:#66C7E8"></i>Gas generado</span><span><i style="background:#5FE3A1"></i>Gas capturado</span></div>
+            <div class="chart-legend"><span><i style="background:#5277A8"></i>Gas generado</span><span><i style="background:#2A8C82"></i>Gas capturado</span></div>
             <div id="bgVerdict" class="verdict info"></div>
           </section>
           <section class="panel">
@@ -310,11 +310,11 @@
 
         GL.chart(root.querySelector('#bgChart'), {
           series: [
-            { name: 'Generado', data: curve.map(c => [c.y, c.flow]), color: '#66C7E8', width: 2.2, points: false },
-            { name: 'Capturado', data: curve.map(c => [c.y, c.cap / 8760]), color: '#5FE3A1', width: 2, points: false }
+            { name: 'Generado', data: curve.map(c => [c.y, c.flow]), color: '#5277A8', width: 2.2, points: false },
+            { name: 'Capturado', data: curve.map(c => [c.y, c.cap / 8760]), color: '#2A8C82', width: 2, points: false }
           ],
           x: { label: 'Año desde el inicio de la disposición' }, y: { label: 'm³ CH₄/h', min: 0, zero: true },
-          rules: [{ y: flow, label: 'año ' + evalYear, color: '#F2B45A' }]
+          rules: [{ y: flow, label: 'año ' + evalYear, color: '#A57B1F' }]
         });
 
         const tone = flow > 0 ? (capture >= 0.6 ? 'ok' : 'warn') : 'bad';

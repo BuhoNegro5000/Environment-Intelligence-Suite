@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Suelo & Carbono (parte 2)
+   Yupana · Suite Suelo & Carbono (parte 2)
    04 Tamaño de muestra · 05 Validador de límites · 06 SHP → KML
    ========================================================================== */
 (function () {
@@ -179,15 +179,15 @@
 
         GL.chart(root.querySelector('#ssChart'), {
           type: 'bar',
-          series: [{ name: 'n', data: est.map(e => [e.s.name, e.n]), color: '#66C7E8' }],
+          series: [{ name: 'n', data: est.map(e => [e.s.name, e.n]), color: '#5277A8' }],
           y: { label: 'muestras', zero: true, min: 0 }
         });
         const curve = [];
         for (let e = 2; e <= 30; e += 1) curve.push([e, Math.ceil(calcN(cvGlobal, e, conf))]);
         GL.chart(root.querySelector('#ssCurve'), {
-          series: [{ name: 'n', data: curve, color: '#5FE3A1', fill: true, points: false }],
+          series: [{ name: 'n', data: curve, color: '#2A8C82', fill: true, points: false }],
           x: { label: 'Error relativo objetivo (%)' }, y: { label: 'n', min: 0, zero: true, max: Math.max(10, n0 * 2.5) },
-          rules: [{ y: total, label: 'plan actual', color: '#F2B45A' }]
+          rules: [{ y: total, label: 'plan actual', color: '#A57B1F' }]
         });
 
         const tone = E <= 10 ? 'ok' : E <= 15 ? 'info' : 'warn';
@@ -456,7 +456,7 @@
               <label class="field"><span>Campo de nombre</span><select id="skNameField"><option value="__name">Nombre interno</option></select></label>
               <label class="field"><span>Precisión decimal</span><select id="skPrec"><option value="6">6 decimales (~0,1 m)</option><option value="7" selected>7 decimales (~1 cm)</option><option value="8">8 decimales</option></select></label>
               ${field('skTitle', 'Título del documento', '', 'Límites del proyecto')}
-              <label class="field"><span>Color de línea / relleno</span><input type="color" id="skColor" value="#5fe3a1" style="padding:3px;height:38px"></label>
+              <label class="field"><span>Color de línea / relleno</span><input type="color" id="skColor" value="#2a8c82" style="padding:3px;height:38px"></label>
             </div>
             <div class="field-row"><span>Incluir atributos en ExtendedData</span><label class="switch"><input type="checkbox" id="skAttrs" checked><i></i></label></div>
             <div class="field-row"><span>Relleno de polígonos</span><label class="switch"><input type="checkbox" id="skFill" checked><i></i></label></div>

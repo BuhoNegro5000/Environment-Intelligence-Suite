@@ -45,7 +45,7 @@
       const groups=[...new Set(G.taxonomy.map(r=>r.taxon_group).filter(Boolean))].sort();
       const languages=[...new Set(G.taxonomy.flatMap(r=>Object.keys(r).filter(k=>k.startsWith('common_name_')&&!k.endsWith('_alt')&&!k.endsWith('_aliases'))))]
         .sort((a,b)=>languageLabel(a).localeCompare(languageLabel(b),'es'));
-      return '<div class="lab-workbench"><div class="lab-banner"><div><h2>Explorador de especies</h2><p>Consulta nombres, imágenes e identificadores de BirdNET Taxonomy.</p></div><img class="lab-brandmark" src="assets/img/green-owl-labs-mark.png" alt="Green Owl Labs" width="104" height="104"></div>'+
+      return '<div class="lab-workbench"><div class="lab-banner"><div><h2>Explorador de especies</h2><p>Consulta nombres, imágenes e identificadores de BirdNET Taxonomy.</p></div><img class="lab-brandmark" src="'+G.brandData+'" alt="Yupana" width="104" height="104"></div>'+
         '<section class="panel"><div class="catalog-controls"><label class="field"><span>Nombre, alias o identificador</span><input id="taxQuery" type="search" placeholder="Ej. colibrí, Vultur gryphus, BN00001"></label>'+
         '<label class="field"><span>Grupo taxonómico</span><select id="taxGroup"><option value="">Todos</option>'+groups.map(g=>'<option>'+E(g)+'</option>').join('')+'</select></label>'+
         '<label class="field"><span>Idioma de los nombres</span><select id="taxLanguage">'+languages.map(k=>'<option value="'+E(k)+'" '+(k==='common_name_es'?'selected':'')+'>'+E(languageLabel(k))+'</option>').join('')+'</select></label></div>'+
@@ -119,7 +119,7 @@
       el('taxLanguage').onchange=render;
       el('taxPrev').onclick=()=>{page--;render();};
       el('taxNext').onclick=()=>{page++;render();};
-      this._exportTaxonomy=()=>G.csvDownload('GreenOwl_taxonomia_BirdNET_v0.5.csv',filtered.map(r=>
+      this._exportTaxonomy=()=>G.csvDownload('Yupana_taxonomia_BirdNET_v0.5.csv',filtered.map(r=>
         Object.fromEntries(columns().map(([label,key])=>[label,r[key]||'']))));
       el('taxCSV').onclick=()=>this.csv();
       render();

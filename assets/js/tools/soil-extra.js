@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suelo (ampliación)
+   Yupana · Suelo (ampliación)
    10 · Triángulo textural USDA interactivo + funciones de pedotransferencia
    ========================================================================== */
 (function () {
@@ -22,12 +22,12 @@
     'Arcilla':            { group: 'clay',  fc: 0.40, wp: 0.25, ks: 0.15, bd: 1.20, note: 'Máxima retención; baja infiltración y aireación.' }
   };
   const GROUP_COLOR = {
-    sand: 'rgba(242,180,90,.16)',
-    loam: 'rgba(139,224,90,.13)',
-    silt: 'rgba(102,199,232,.14)',
-    clay: 'rgba(180,164,245,.16)'
+    sand: 'rgba(138,98,20,.16)',
+    loam: 'rgba(42,140,130,.13)',
+    silt: 'rgba(44,110,134,.14)',
+    clay: 'rgba(94,78,138,.16)'
   };
-  const GROUP_RING = { sand: '#F2B45A', loam: '#8BE05A', silt: '#66C7E8', clay: '#B4A4F5' };
+  const GROUP_RING = { sand: '#A57B1F', loam: '#5F8A3A', silt: '#5277A8', clay: '#77679A' };
   const GROUP_LABEL = { sand: 'Arenoso', loam: 'Franco', silt: 'Limoso', clay: 'Arcilloso' };
 
   /* Clasificación textural USDA (reglas estándar, tolerancia 0,01) */
@@ -197,7 +197,7 @@
         const p = xy(sand, silt, clay);
         ctx.beginPath(); ctx.arc(p.x, p.y, 11, 0, Math.PI * 2); ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fill();
         ctx.beginPath(); ctx.arc(p.x, p.y, 7.5, 0, Math.PI * 2); ctx.fillStyle = ring; ctx.fill();
-        ctx.lineWidth = 2; ctx.strokeStyle = '#07130d'; ctx.stroke();
+        ctx.lineWidth = 2; ctx.strokeStyle = '#1F4D3A'; ctx.stroke();
         ctx.beginPath(); ctx.arc(p.x - 2, p.y - 2, 2, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.fill();
 
         if (hover) {
@@ -239,8 +239,8 @@
         const color = GROUP_RING[c.group];
         tag.style.color = color; tag.style.borderColor = color + '66';
 
-        root.querySelector('#txBar').innerHTML = `<span style="width:${sand}%;background:#F2B45A" title="Arena ${sand}%"></span><span style="width:${silt}%;background:#66C7E8" title="Limo ${silt}%"></span><span style="width:${clay}%;background:#B4A4F5" title="Arcilla ${clay}%"></span>`;
-        root.querySelector('#txLeg').innerHTML = `<span><i style="background:#F2B45A"></i>Arena <b>${sand}%</b></span><span><i style="background:#66C7E8"></i>Limo <b>${silt}%</b></span><span><i style="background:#B4A4F5"></i>Arcilla <b>${clay}%</b></span>`;
+        root.querySelector('#txBar').innerHTML = `<span style="width:${sand}%;background:#A57B1F" title="Arena ${sand}%"></span><span style="width:${silt}%;background:#5277A8" title="Limo ${silt}%"></span><span style="width:${clay}%;background:#77679A" title="Arcilla ${clay}%"></span>`;
+        root.querySelector('#txLeg').innerHTML = `<span><i style="background:#A57B1F"></i>Arena <b>${sand}%</b></span><span><i style="background:#5277A8"></i>Limo <b>${silt}%</b></span><span><i style="background:#77679A"></i>Arcilla <b>${clay}%</b></span>`;
 
         root.querySelector('#txKv').innerHTML = `
           <dt>Grupo textural</dt><dd>${GROUP_LABEL[c.group]}</dd>

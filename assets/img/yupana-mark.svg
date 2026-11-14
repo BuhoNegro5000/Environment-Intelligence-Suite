@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146 146" role="img" aria-label="Yupana">
+  <rect x="0" y="114" width="32" height="32" rx="6" fill="#1F4D3A"/>
+  <rect x="38" y="114" width="32" height="32" rx="6" fill="#1F4D3A"/>
+  <rect x="76" y="114" width="32" height="32" rx="6" fill="#1F4D3A"/>
+  <rect x="114" y="114" width="32" height="32" rx="6" fill="#1F4D3A"/>
+  <rect x="38" y="76" width="32" height="32" rx="6" fill="#2A8C82"/>
+  <rect x="76" y="76" width="32" height="32" rx="6" fill="#2A8C82"/>
+  <rect x="114" y="76" width="32" height="32" rx="6" fill="#2A8C82"/>
+  <rect x="76" y="38" width="32" height="32" rx="6" fill="#2A8C82"/>
+  <rect x="114" y="38" width="32" height="32" rx="6" fill="#2A8C82"/>
+  <circle cx="130" cy="16" r="16" fill="#D9A441"/>
+</svg>

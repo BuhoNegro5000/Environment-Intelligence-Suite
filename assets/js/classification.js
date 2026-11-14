@@ -6,17 +6,17 @@
     G.suites[id]={id,name,short,icon,color,desc};
   }
 
-  add('waste','Residuos sólidos','Residuos sólidos','♲','#D5BA72','Generación, valorización, disposición final, lixiviados y biogás de relleno.');
-  add('energy','Energía y renovables','Energía','ϟ','#EBCB69','Eficiencia, generación renovable y potencia de equipos.');
-  add('noise','Acústica y ruido','Ruido','≋','#E8A9C9','Propagación, suma sonora, exposición y ruido ambiental.');
-  add('conversion','Unidades y conversiones','Conversiones','⇄','#8BBBEF','Conversor central y equivalencias especializadas.');
-  add('population','Población y demografía','Demografía','♙','#C1ACED','Indicadores demográficos, dependencia y proyecciones de población.');
-  add('wastewater','Aguas residuales y reúso','Aguas residuales','◉','#B5C78D','Afluentes, PTAR, ecualización, tratamiento biológico, lodos y revisión de efluentes.');
-  add('hydraulics','Hidráulica e hidrología','Hidráulica','↝','#75B9EC','Tuberías, canales, aforos, perfiles, tanques, redes y escorrentía.');
-  add('membranes','Membranas y desalinización','Membranas','▤','#77D6DE','Ósmosis inversa, NF, UF/MF, ensayos de ensuciamiento y energía de desalinización.');
-  add('industrial-water','Agua industrial y alta pureza','Agua industrial','◇','#8BBCE5','Calderas, torres de enfriamiento, intercambio iónico y agua de proceso de alta pureza.');
-  add('sustainability','Sostenibilidad y economía ambiental','Sostenibilidad','♧','#B9D785','Ciclo de vida, valoración económica, eficiencia de recursos y seguimiento de metas.');
-  add('health','Salud ambiental y toxicología','Salud ambiental','✚','#E8A6A1','Exposición a contaminantes, toxicología y carga atribuible en población.');
+  add('waste','Residuos sólidos','Residuos sólidos','♲','#9A7A33','Generación, valorización, disposición final, lixiviados y biogás de relleno.');
+  add('energy','Energía y renovables','Energía','ϟ','#A57B1F','Eficiencia, generación renovable y potencia de equipos.');
+  add('noise','Acústica y ruido','Ruido','≋','#A05A7A','Propagación, suma sonora, exposición y ruido ambiental.');
+  add('conversion','Unidades y conversiones','Conversiones','⇄','#5277A8','Conversor central y equivalencias especializadas.');
+  add('population','Población y demografía','Demografía','♙','#77679A','Indicadores demográficos, dependencia y proyecciones de población.');
+  add('wastewater','Aguas residuales y reúso','Aguas residuales','◉','#5F7A45','Afluentes, PTAR, ecualización, tratamiento biológico, lodos y revisión de efluentes.');
+  add('hydraulics','Hidráulica e hidrología','Hidráulica','↝','#3E7FA6','Tuberías, canales, aforos, perfiles, tanques, redes y escorrentía.');
+  add('membranes','Membranas y desalinización','Membranas','▤','#2E8C86','Ósmosis inversa, NF, UF/MF, ensayos de ensuciamiento y energía de desalinización.');
+  add('industrial-water','Agua industrial y alta pureza','Agua industrial','◇','#5277A8','Calderas, torres de enfriamiento, intercambio iónico y agua de proceso de alta pureza.');
+  add('sustainability','Sostenibilidad y economía ambiental','Sostenibilidad','♧','#5F8A3A','Ciclo de vida, valoración económica, eficiencia de recursos y seguimiento de metas.');
+  add('health','Salud ambiental y toxicología','Salud ambiental','✚','#B06060','Exposición a contaminantes, toxicología y carga atribuible en población.');
 
   Object.assign(G.suites.water,{name:'Agua, calidad y potabilización',short:'Agua y potabilización',
     desc:'Calidad y química del agua, fuentes, abastecimiento, tratamiento fisicoquímico y desinfección.'});
@@ -154,10 +154,6 @@
     tool.relatedSuites=related[tool.id]||[];
     if(!G.suites[tool.suite]||tool.relatedSuites.some(s=>s===tool.suite||!G.suites[s]))
       throw new Error('Categoría inválida para '+tool.id);
-  }
-  for(const entry of G.catalogue||[]) {
-    const tool=G.getTool(entry.id);
-    if(tool){entry.suite=tool.suite;entry.relatedSuites=tool.relatedSuites;}
   }
 
   const order=['soil','water','wastewater','hydraulics','membranes','industrial-water','waste','air','energy','climate',

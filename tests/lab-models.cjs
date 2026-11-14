@@ -9,7 +9,7 @@ const calc=(id,changes={})=>{const d=by(id);assert.ok(d,id);return d.calc({...de
 let checked=0;for(const d of L.definitions){const result=d.calc(defaults(d));assert.ok(result.metrics.length,d.id);for(const m of result.metrics)if(typeof m[1]==='number')assert.ok(Number.isFinite(m[1]),d.id);for(const row of result.rows||[])for(const x of row)if(typeof x==='number')assert.ok(Number.isFinite(x),d.id);checked++;}
 const near=(x,y,tol=1e-8)=>assert.ok(Math.abs(x-y)<=tol,`${x} != ${y}`);
 const value=(id,v)=>calc(id,v).metrics[0][1];
-// Referencias, balances y límites de los simuladores ambientales de NovaSolver.
+// Referencias, balances y límites de los simuladores ambientales.
 near(value('epa-air-quality-index'),126);
 near(value('epa-air-quality-index',{o1:'160'}),145);
 near(value('epa-air-quality-index',{so1:'360',so24:'280'}),200);
@@ -44,7 +44,7 @@ const desal=calc('seawater-desalination-technology');
 for(const row of desal.rows)near(row[2],2500+row[3]);
 assert.match(value('tsunami-solitary-wave-runup',{h:5,depth:10,slope:.06}),/Fuera del dominio/);
 near(value('cylindrical-atmospheric-icing',{hours:0}),0);
-// Casos de referencia para los flujos energéticos de RenWaves.
+// Casos de referencia para los flujos energéticos.
 const resource=Array.from({length:12},()=>[100]);
 near(value('pv-monthly-resource',{power:10,inverter:96,loss:20,months:resource}),9216);
 assert.throws(()=>calc('pv-monthly-resource',{months:resource.slice(1)}),/12 valores/);

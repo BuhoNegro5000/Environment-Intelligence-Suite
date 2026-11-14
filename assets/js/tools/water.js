@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Agua & Residuos (parte 1)
+   Yupana · Suite Agua & Residuos (parte 1)
    10 PTAR lodos activados · 11 Lagunas de estabilización · 12 Balance hídrico ANC
    ========================================================================== */
 (function () {
@@ -135,7 +135,7 @@
 
         GL.chart(root.querySelector('#asChart'), {
           type: 'bar',
-          series: [{ name: 'DBO₅', data: [['Afluente', Sin], ['Efluente', Sout], ['Removida', Math.max(0, Sin - Sout)]], color: '#66C7E8' }],
+          series: [{ name: 'DBO₅', data: [['Afluente', Sin], ['Efluente', Sout], ['Removida', Math.max(0, Sin - Sout)]], color: '#5277A8' }],
           y: { label: 'DBO₅ (mg/L)', zero: true, min: 0 }
         });
 
@@ -331,9 +331,9 @@
           curve.push([h, se]);
         }
         GL.chart(root.querySelector('#lpChart'), {
-          series: [{ name: 'DBO₅ efluente', data: curve, color: '#66C7E8', fill: true, points: false }],
+          series: [{ name: 'DBO₅ efluente', data: curve, color: '#5277A8', fill: true, points: false }],
           x: { label: 'Tiempo de retención (d)' }, y: { label: 'DBO₅ (mg/L)', min: 0, zero: true },
-          rules: [{ y: Sout, label: 'objetivo ' + fmt(Sout, 0), color: '#F2B45A' }]
+          rules: [{ y: Sout, label: 'objetivo ' + fmt(Sout, 0), color: '#A57B1F' }]
         });
 
         const inRange = olr >= type.range[0] && olr <= type.range[1];
@@ -480,15 +480,15 @@
         GL.out('wbAuth', fmt(authPct, 1));
 
         root.querySelector('#wbComp').innerHTML = U.compbar([
-          { label: 'Facturado', value: billed, color: '#5FE3A1' },
-          { label: 'No facturado', value: unbilled, color: '#B9F46F' },
-          { label: 'Aparente', value: apparent, color: '#B4A4F5' },
-          { label: 'Real', value: Math.max(0, real), color: '#F07E8A' }
+          { label: 'Facturado', value: billed, color: '#2A8C82' },
+          { label: 'No facturado', value: unbilled, color: '#6E8F45' },
+          { label: 'Aparente', value: apparent, color: '#77679A' },
+          { label: 'Real', value: Math.max(0, real), color: '#B06060' }
         ], { unit: 'm³' });
 
         GL.chart(root.querySelector('#wbChart'), {
           type: 'bar',
-          series: [{ name: 'm³', data: [['Facturado', billed], ['No facturado', unbilled], ['Aparente', apparent], ['Real', Math.max(0, real)]], color: '#66C7E8' }],
+          series: [{ name: 'm³', data: [['Facturado', billed], ['No facturado', unbilled], ['Aparente', apparent], ['Real', Math.max(0, real)]], color: '#5277A8' }],
           y: { label: 'Volumen (m³)', zero: true, min: 0 }
         });
 

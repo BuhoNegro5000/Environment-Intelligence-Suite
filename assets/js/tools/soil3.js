@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Green Owl Labs · Suite Suelo & Carbono (parte 3)
+   Yupana · Suite Suelo & Carbono (parte 3)
    07 Color de suelo y Munsell · 08 Emisiones · 09 Factores limitantes
    ========================================================================== */
 (function () {
@@ -319,7 +319,7 @@
           ctx.fillStyle = 'rgba(0,0,0,.45)';
           ctx.fillRect(r.x, r.y, r.w, cy - r.y); ctx.fillRect(r.x, cy + ch, r.w, r.y + r.h - (cy + ch));
           ctx.fillRect(r.x, cy, cx - r.x, ch); ctx.fillRect(cx + cw, cy, r.x + r.w - (cx + cw), ch);
-          ctx.strokeStyle = '#5FE3A1'; ctx.lineWidth = 1.5; ctx.strokeRect(cx, cy, cw, ch);
+          ctx.strokeStyle = '#2A8C82'; ctx.lineWidth = 1.5; ctx.strokeRect(cx, cy, cw, ch);
         }
       }
       function drawDrag(e) {
@@ -327,7 +327,7 @@
         if (!drag || !meta) return;
         const x = Math.min(drag.x0, e.offsetX), y = Math.min(drag.y0, e.offsetY);
         const w = Math.abs(e.offsetX - drag.x0), h = Math.abs(e.offsetY - drag.y0);
-        ctx.strokeStyle = '#F2B45A'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+        ctx.strokeStyle = '#A57B1F'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
         ctx.strokeRect(x, y, w, h); ctx.setLineDash([]);
       }
       preview.addEventListener('mousedown', e => { if (!img) return; drag = { x0: e.offsetX, y0: e.offsetY }; });
@@ -612,12 +612,12 @@
         const energy = (Math.max(0, num('emDiesel', 0)) * D.ipcc.diesel + Math.max(0, num('emGas', 0)) * D.ipcc.gasoline +
           Math.max(0, num('emElec', 0)) * efElec + Math.max(0, num('emLime', 0)) * D.ipcc.lime + Math.max(0, num('emUrea', 0)) * D.ipcc.urea) / 1000;
         const parts = [
-          { id: 'cos', label: 'Cambio de COS', v: socCO2, color: socCO2 < 0 ? '#5FE3A1' : '#F07E8A' },
-          { id: 'n2od', label: 'N₂O directo', v: n2oDirect * gwp.N2O, color: '#F2B45A' },
+          { id: 'cos', label: 'Cambio de COS', v: socCO2, color: socCO2 < 0 ? '#2A8C82' : '#B06060' },
+          { id: 'n2od', label: 'N₂O directo', v: n2oDirect * gwp.N2O, color: '#A57B1F' },
           { id: 'n2oi', label: 'N₂O indirecto', v: n2oIndirect * gwp.N2O, color: '#E0A34A' },
-          { id: 'ch4e', label: 'CH₄ entérico', v: ch4ent * gwp.CH4, color: '#66C7E8' },
+          { id: 'ch4e', label: 'CH₄ entérico', v: ch4ent * gwp.CH4, color: '#5277A8' },
           { id: 'ch4m', label: 'CH₄ estiércol', v: ch4man * gwp.CH4, color: '#4AA8C8' },
-          { id: 'ener', label: 'Energía e insumos', v: energy, color: '#B4A4F5' }
+          { id: 'ener', label: 'Energía e insumos', v: energy, color: '#77679A' }
         ];
         const gross = parts.filter(p => p.v > 0).reduce((s, p) => s + p.v, 0);
         const rem = Math.abs(parts.filter(p => p.v < 0).reduce((s, p) => s + p.v, 0));
@@ -642,7 +642,7 @@
 
         GL.chart(root.querySelector('#emChart'), {
           type: 'bar',
-          series: [{ name: 't CO₂-e', data: parts.map(p => [p.label.replace('₂', '2').replace('₄', '4'), p.v]), color: '#66C7E8' }],
+          series: [{ name: 't CO₂-e', data: parts.map(p => [p.label.replace('₂', '2').replace('₄', '4'), p.v]), color: '#5277A8' }],
           y: { label: 't CO₂-e', zero: true }
         });
 
@@ -885,8 +885,8 @@
           const line = [[lo, f.lr.intercept + f.lr.slope * lo], [hi, f.lr.intercept + f.lr.slope * hi]];
           GL.chart(root.querySelector('#ylChart'), {
             series: [
-              { name: f.label, type: 'scatter', points: true, color: '#66C7E8', r: 3.2, data: f.xs.map((x, i) => [x, f.ys[i]]) },
-              { name: 'Ajuste', data: line, color: '#F2B45A', width: 2, points: false }
+              { name: f.label, type: 'scatter', points: true, color: '#5277A8', r: 3.2, data: f.xs.map((x, i) => [x, f.ys[i]]) },
+              { name: 'Ajuste', data: line, color: '#A57B1F', width: 2, points: false }
             ],
             x: { label: f.label + (f.unit ? ' (' + f.unit + ')' : '') },
             y: { label: isNDVI ? 'NDVI' : 'Rendimiento' }
