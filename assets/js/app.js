@@ -91,10 +91,10 @@
   function suiteColor(id) { return (GL.suites[id] || {}).color || '#2A8C82'; }
   function toolCard(t) {
     const s = GL.suites[t.suite];
-    return `<a class="tool-card" href="#/tool/${t.id}">
+    return `<a class="tool-card" href="#/tool/${t.id}" style="--sc:${s.color}">
       <div class="tc-head">
         <span class="tc-num">${String(t.n).padStart(2, '0')}</span>
-        <span class="tc-suite" style="--sc:${s.color}">${GL.icon(GL.suiteIcon(t.suite), 'sm')}${s.short}</span>
+        <span class="tc-suite">${GL.icon(GL.suiteIcon(t.suite), 'sm')}${s.short}</span>
         <button class="tc-fav ${GL.isFav(t.id) ? 'on' : ''}" data-fav="${t.id}" title="Favorito" aria-label="Favorito">${GL.icon('star', 'sm')}</button>
       </div>
       <h3>${GL.escape(t.title)}</h3>
@@ -325,6 +325,9 @@
   /* ----------------------------------------------------------- tool page */
   let currentTool = null;
   let currentRoute = { suite: null, id: null };
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('.tool-guide').forEach(guide => { guide.open = true; });
+  });
 
   function renderTool(t) {
     const s = GL.suites[t.suite];
@@ -343,6 +346,7 @@
             ${(t.relatedSuites || []).map(id => `<a class="pill" href="#/suite/${id}">Uso relacionado: ${GL.escape(GL.suites[id].short)}</a>`).join('')}
             <span class="spacer"></span>
             <div class="tool-actions">
+              <button class="btn sm" data-act="guide">${GL.icon('book', 'sm')} Guía</button>
               <button class="btn sm" data-act="fav" aria-pressed="${GL.isFav(t.id)}">${GL.icon('star', 'sm')} Favorito</button>
               ${t.report ? `<button class="btn sm" data-act="report">${GL.icon('printer', 'sm')} Informe</button>` : ''}
               ${t.csv ? `<button class="btn sm" data-act="csv">${GL.icon('download', 'sm')} CSV</button>` : ''}
@@ -365,6 +369,11 @@
       console.error(e);
       body.innerHTML = `<div class="panel"><div class="note warn">No se pudo iniciar la herramienta: ${GL.escape(e.message)}</div></div>`;
     }
+    if (GL.guideHTML) {
+      const guide = GL.guideHTML(t);
+      if (guide) body.insertAdjacentHTML('afterend', guide);
+      if (GL.hydrateGuide) GL.hydrateGuide(t, view);
+    }
     view.querySelectorAll('[data-act]').forEach(btn => {
       btn.addEventListener('click', () => {
         const act = btn.dataset.act;
@@ -375,6 +384,14 @@
           GL.toast(on ? 'Añadido a favoritos' : 'Quitado de favoritos');
           buildNav();
           syncNav(t.suite, t.id);
+        } else if (act === 'guide') {
+          const guide = view.querySelector('.tool-guide');
+          if (!guide) return;
+          guide.open = true;
+          const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+          guide.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+          const summary = guide.querySelector('summary');
+          if (summary) summary.focus({ preventScroll: true });
         } else if (act === 'report' && t.report) {
           GL.openReport(t.report());
         } else if (act === 'csv' && t.csv) {
@@ -390,6 +407,15 @@
             GL.toast('Herramienta restablecida');
           }, 'Restablecer');
         }
+      });
+    });
+    view.querySelectorAll('[data-guide-target]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.guideTarget);
+        if (!target) return;
+        const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        if (target.matches('.tg-section')) target.focus({ preventScroll: true });
       });
     });
     crumbs.innerHTML = `<a href="#/">Inicio</a><span class="sep">/</span><a href="#/suite/${t.suite}">${s.name}</a><span class="sep">/</span><b>${GL.escape(t.title)}</b>`;

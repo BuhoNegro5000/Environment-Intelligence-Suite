@@ -41,8 +41,18 @@ assert.match(G.brandData,/^data:image\/svg\+xml,/);
 assert.match(decodeURIComponent(G.brandData),/#1F4D3A/);
 assert.match(decodeURIComponent(G.brandData),/#D9A441/);
 
+/* Guía editorial: doce secciones en todas las herramientas, sin marcadores de error. */
+for(const t of G.tools){
+  const guide=G.guideFor(t);
+  assert.ok(guide&&guide.sections.length===12,t.id);
+  const markup=G.guideHTML(t);
+  assert.match(markup,/class="tool-guide/,t.id);
+  assert.equal((markup.match(/class="tg-section"/g)||[]).length,12,t.id);
+  assert.doesNotMatch(markup,/undefined|\[object Object\]/,t.id);
+}
+
 /* Datos locales que alimentan las herramientas. */
 vm.runInContext(fs.readFileSync(path.join(root,'assets/data/taxonomy.js'),'utf8'),c,{filename:'assets/data/taxonomy.js'});
 assert.equal(G.taxonomy.length,18093);
 assert.equal(G.bmwpOriginal.length,85);
-console.log('OK: marca Yupana, 339 herramientas, 22 categorías y 0 referencias a catálogos de origen.');
+console.log('OK: marca Yupana, 339 herramientas, 22 categorías, 339 guías de 12 secciones y 0 referencias a catálogos de origen.');

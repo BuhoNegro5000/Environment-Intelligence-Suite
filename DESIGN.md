@@ -276,9 +276,21 @@ No hay cortes diagonales, blobs ni contenedores orgánicos. La geometría que s�
 ### Cards / Containers
 - **Corner Style:** 15 px para tarjetas de herramienta, 16 px para tarjetas de suite, 18 px para paneles, 26 px para el hero.
 - **Background:** panel para tarjetas y paneles; entrada para cajas internas como métricas, ítems de lista y campos.
+- **Category Color:** cada tarjeta de herramienta declara `--sc` con el color de su suite. Una banda superior de 4 px, un velo del 10 % en el encabezado, un borde al 24 % y el chip de categoría usan ese color. El color acelera el escaneo; la etiqueta textual sigue siendo la fuente de verdad.
 - **Shadow Strategy:** ninguna en reposo; sombra de contacto en hover (ver Elevation & Depth).
-- **Border:** 1 px de línea suave; el hover de tarjeta de herramienta sube a teal al 35 %.
+- **Border:** 1 px mezclado con el color de categoría al 24 %; el hover sube al 46 %.
 - **Internal Padding:** 17 px en tarjeta, 20 px en panel, 16 px en panel compacto y 0 en panel de tabla.
+
+**La regla de la categoría visible.** Una tarjeta de herramienta siempre muestra el color de su categoría en la banda superior y en el chip; nunca solo en un punto de 4 px ni solo en el icono. Si el color desaparece, la tarjeta pierde su función de orientación.
+
+### Tool Guide (signature)
+- **Structure:** doce secciones estables —Calculadora, Descripción general, Cómo usar, Entradas y salidas, Fórmula, ¿Qué es?, Datos clave, Aplicaciones, Ejemplo de cálculo, Normas y referencias, Limitaciones y Errores comunes— generadas desde los metadatos del modelo.
+- **Presentation:** un `<details>` cerrado al final de la herramienta. La calculadora conserva el foco; la guía aparece cuando se pide o cuando se imprime.
+- **Layout:** índice pegajoso de 205 px a la izquierda y contenido de una columna a la derecha. En móvil el índice se convierte en una fila desplazable y las tarjetas de entradas/salidas se apilan.
+- **Typography:** títulos en display a 15.5 px, prosa a 12.5 px con 1.65 de interlineado y fórmulas en mono a 11.5 px dentro de un bloque con borde izquierdo del color de la categoría.
+- **Data:** las tablas de ejemplo usan mono para valores y unidades; las notas y limitaciones bajan a 10.5 px atenuado.
+
+**La regla de la guía no invasiva.** La guía nunca reemplaza la calculadora ni se abre sola. Explica el cálculo, el alcance y los errores frecuentes; si el usuario solo quiere calcular, el flujo principal sigue siendo entrada → resultado → exportación.
 
 ### Inputs / Fields
 - **Style:** fondo de entrada, borde de 1 px, radio de 9 px, padding de 9×10 px y tipografía mono a 13 px; la etiqueta va arriba en 10.5 px atenuado, con unidad o símbolo en mono a 9.5 px.

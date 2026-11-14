@@ -12,10 +12,11 @@
     report:'<path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10ZM13 3v7h7M8 14h8m-8 3h5"/>',
     csv:'<path d="M12 3v12m-4-4 4 4 4-4M5 17v3h14v-3"/>',
     reset:'<path d="M3 12a9 9 0 1 1 2.5 6.2M3 5v7h7"/>',
+    guide:'<path d="M4 4h7a3 3 0 0 1 3 3v13a3 3 0 0 0-3-3H4zM20 4h-4a3 3 0 0 0-3 3v13a3 3 0 0 1 3-3h4z"/>',
     next:'<path d="M12 5v14m-6-6 6 6 6-6"/>'
   };
   const icon=name=>'<svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">'+iconPaths[name]+'</svg>';
-  const labels={fav:'Favorito',report:'Abrir informe',csv:'Descargar CSV',reset:'Restablecer valores'};
+  const labels={fav:'Favorito',guide:'Abrir guía de la herramienta',report:'Abrir informe',csv:'Descargar CSV',reset:'Restablecer valores'};
   const formats=[['auto','Automática'],['0','0 decimales'],['1','1 decimal'],['2','2 decimales'],['4','4 decimales'],['6','6 decimales'],['full','Completa']];
   const numberFormats=new Map();
   const getPrecision=()=>G.store.get('calculator.precision','auto');
@@ -32,7 +33,7 @@
     return numberFormats.get(key).format(Object.is(value,-0)?0:value);
   }
   function header(t){
-    const actions=['fav',...(t.report?['report']:[]),...(t.csv?['csv']:[]),'reset'];
+    const actions=['fav','guide',...(t.report?['report']:[]),...(t.csv?['csv']:[]),'reset'];
     const buttons=actions.map(a=>{
       const pressed=a==='fav'?' aria-pressed="'+G.isFav(t.id)+'"':'';
       return '<span class="calc-action"><button type="button" data-act="'+a+'" aria-label="'+labels[a]+'"'+pressed+'>'+icon(a)+'</button><span class="calc-tooltip" aria-hidden="true">'+labels[a]+'</span></span>';
@@ -53,15 +54,12 @@
       '</div><small id="'+id+'-error" class="calc-field-error" hidden></small></div>';
   }
   function workbench(d,fields){
-    const linkList=(d.refs||[]).map(([label,url])=>'<a href="'+E(url)+'" target="_blank" rel="noopener noreferrer">'+E(label)+' ↗</a>').join('');
     return '<div class="lab-workbench calc-workbench"><div class="lab-grid">'+
       '<section class="lab-inputs panel"><div class="calc-panel-heading"><h2>Entradas</h2><p>Edita los valores para actualizar el escenario.</p></div><div class="lab-fields">'+fields+'</div></section>'+
       '<section class="lab-results panel" aria-label="Resultados"><div class="calc-panel-heading calc-results-head"><div><h2 tabindex="-1" data-calc-result>Resultados</h2><p data-lab-status role="status">Calculando escenario…</p></div>'+
       '<label class="calc-precision">Precisión<select data-calc-precision>'+formats.map(([id,label])=>'<option value="'+id+'">'+label+'</option>').join('')+'</select></label></div>'+
       '<div data-lab-output></div><div class="calc-compare"><button class="calc-compare-btn" type="button" data-calc-compare disabled aria-controls="calc-comparison">Fijar referencia</button>'+
       '<p class="calc-comparison" id="calc-comparison" data-calc-comparison aria-live="polite" hidden></p></div><button class="calc-raw" type="button" data-calc-raw>CSV de datos sin redondeo</button></section></div>'+
-      '<details class="lab-method panel calc-method"><summary>Método y supuestos</summary><div class="lab-method-content"><div><h3>Fórmula</h3><p>'+E(d.method)+'</p></div><div><h3>Alcance y referencias</h3><p>'+
-      E(d.limit||'Revisa las unidades y la representatividad de tus datos.')+'</p>'+linkList+'</div></div></details>'+
       '<button class="calc-mobile-result" data-calc-jump type="button" hidden><span><span data-calc-mobile-label></span><b data-calc-mobile-value></b></span>'+icon('next')+'</button></div>';
   }
   function metric([label,value,unit],i,display){
